@@ -1,7 +1,4 @@
-<p align="center">
-# さけばさだー
-</p>
-<p align="center">〜Blend Myself〜</p>
+# さけばさだー 〜Blend Myself〜
 美味しいお酒を作りたい紹介したい人の為のWebアプリケーション(どういうものか)
 
 ## dependency
