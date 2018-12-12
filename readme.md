@@ -2,9 +2,15 @@
 美味しいお酒を作りたい紹介したい人の為のWebアプリケーション(どういうものか)
 
 ## dependency
-RestAPIを使用(使用言語とバージョン、ライブラリ)
+PHP       var7.2.5
+Laravel   var5.7.15
+(使用言語とバージョン、ライブラリ)
 
 ## Setup
+```
+$ composer install
+$ npm install
+```
 (セットアップ方法)
 
 ## usage
