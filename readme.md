@@ -22,11 +22,7 @@ $ npm install
 ## Authors
 #### Accounts of github
 akilawww  
-kawasakiHachi  
-takayamaroso  
-Besood  
-yokotakento  
-yumzzz's
+
 
 ## References
 (参考にした情報源)
