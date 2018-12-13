@@ -26,7 +26,6 @@ kawasakiHachi
 takayamaroso  
 Besood  
 yokotakento  
-yumzzz's
 
 ## References
 (参考にした情報源)
