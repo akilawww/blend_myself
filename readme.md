@@ -20,7 +20,13 @@ $ npm install
 (他のソフトウェアを使用した際のライセンス)
 
 ## Authors
-akilawww(作者名)
+#### Accounts of github
+akilawww  
+kawasakiHachi  
+takayamaroso  
+Besood  
+yokotakento  
+yumzzz's
 
 ## References
 (参考にした情報源)
