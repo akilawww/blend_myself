@@ -19,8 +19,6 @@ class BlendMyself extends Migration
             $table->string('title');
             $table->string('overview');
             $table->string('image');
-            $table->string('appetizers');
-            $table->string('degree');
             $table->foreign('user_id')
                 ->references('id')->on('users')
                 ->onDelete('cascade');
