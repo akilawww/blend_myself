@@ -8,7 +8,8 @@ class Materrial extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * 
+     * 材料テーブル
      * @return void
      */
     public function up()
