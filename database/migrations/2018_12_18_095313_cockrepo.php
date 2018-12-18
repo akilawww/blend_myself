@@ -19,8 +19,7 @@ class Kakurepo extends Migration
             $table->string('image');
             $table->string('body');
             $table->foreign('user_id')
-                ->references('id')->on('users')
-                ->onDelete('cascade');
+                ->references('id')->on('users');
             $table->foreign('recipe_id')
                 ->references('id')->on('recipes')
                 ->onDelete('cascade');
