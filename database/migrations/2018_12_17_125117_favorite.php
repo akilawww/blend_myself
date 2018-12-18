@@ -8,7 +8,7 @@ class BlendMyself extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * お気に入りテーブル
      * @return void
      */
     public function up()

@@ -8,7 +8,7 @@ class BlendMyself extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * レシピ手順テーブル
      * @return void
      */
     public function up()
