@@ -4,12 +4,11 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Tag extends Migration
+class CreateTagTable extends Migration
 {
     /**
      * Run the migrations.
-     * 
-     * タグテーブル
+     *
      * @return void
      */
     public function up()

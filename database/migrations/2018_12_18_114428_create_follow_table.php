@@ -4,24 +4,29 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TagVerification extends Migration
+class CreateFollowTable extends Migration
 {
     /**
      * Run the migrations.
      *
-     * タグ照合テーブル
      * @return void
      */
     public function up()
     {
-        Schema::create('tag_verification', function (Blueprint $table) {
+        Schema::create('follow', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreign('tag_id')
-                ->references('id')->on('tag')
+
+            $table->unsignedInteger('follower_id');
+            $table->unsignedInteger('follow_id');
+            $table->foreign('follower_id')
+                ->references('id')->on('users')
                 ->onDelete('cascade');
-            $table->foreign('recipe_id')
-                ->references('id')->on('recipes')
+            $table->foreign('follow_id')
+                ->references('id')->on('users')
                 ->onDelete('cascade');
+
+            $table->unique(['follower_id', 'follow_id']);
+
             $table->timestamps();
         });
     }
@@ -33,6 +38,6 @@ class TagVerification extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tag_verification');
+        Schema::dropIfExists('follow');
     }
 }

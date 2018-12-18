@@ -4,24 +4,28 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Follow extends Migration
+class CreateMaterrialTable extends Migration
 {
     /**
      * Run the migrations.
      *
-     * フォローテーブル
      * @return void
      */
     public function up()
     {
-        Schema::create('follow', function (Blueprint $table) {
+        Schema::create('materrial', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreign('follower_id')
-                ->references('id')->on('users')
+            $table->string('name');
+            $table->string('quantity');
+            $table->string('degree');
+
+            $table->unsignedInteger('recipe_id');
+            $table->foreign('recipe_id')
+                ->references('id')->on('recipes')
                 ->onDelete('cascade');
-            $table->foreign('follow_id')
-                ->references('id')->on('users')
-                ->onDelete('cascade');
+
+            $table->unique(['recipe_id']);
+
             $table->timestamps();
         });
     }
@@ -33,6 +37,6 @@ class Follow extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('follow');
+        Schema::dropIfExists('materrial');
     }
 }

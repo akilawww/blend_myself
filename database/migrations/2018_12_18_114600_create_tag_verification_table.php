@@ -4,24 +4,29 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Materrial extends Migration
+class CreateTagVerificationTable extends Migration
 {
     /**
      * Run the migrations.
-     * 
-     * 材料テーブル
+     *
      * @return void
      */
     public function up()
     {
-        Schema::create('materrial', function (Blueprint $table) {
+        Schema::create('tag_verification', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('quantity');
-            $table->string('degree');
+
+            $table->unsignedInteger('tag_id');
+            $table->unsignedInteger('recipe_id');
+            $table->foreign('tag_id')
+                ->references('id')->on('tag')
+                ->onDelete('cascade');
             $table->foreign('recipe_id')
                 ->references('id')->on('recipes')
                 ->onDelete('cascade');
+
+            $table->unique(['tag_id', 'recipe_id']);
+
             $table->timestamps();
         });
     }
@@ -33,6 +38,6 @@ class Materrial extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('materrial');
+        Schema::dropIfExists('tag_verification');
     }
 }
