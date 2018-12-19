@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNiceTable extends Migration
+class CreateRecipeProceduresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CreateNiceTable extends Migration
      */
     public function up()
     {
-        Schema::create('nice', function (Blueprint $table) {
+        Schema::create('recipe_procedures', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('process_num');
+            $table->string('body');
+            $table->string('image');
 
             $table->unsignedInteger('recipe_id');
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')
-                ->references('id')->on('users');
             $table->foreign('recipe_id')
                 ->references('id')->on('recipes')
                 ->onDelete('cascade');
 
-            $table->unique(['user_id', 'recipe_id']);
+            $table->unique(['recipe_id']);
 
             $table->timestamps();
         });
@@ -37,6 +37,6 @@ class CreateNiceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nice');
+        Schema::dropIfExists('recipe_procedures');
     }
 }
