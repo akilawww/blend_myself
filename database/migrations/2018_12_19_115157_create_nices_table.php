@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCockrepoTable extends Migration
+class CreateNicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateCockrepoTable extends Migration
      */
     public function up()
     {
-        Schema::create('cockrepo', function (Blueprint $table) {
+        Schema::create('nices', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('image');
-            $table->string('body');
 
-            $table->unsignedInteger('user_id');
             $table->unsignedInteger('recipe_id');
+            $table->unsignedInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')->on('users');
             $table->foreign('recipe_id')
@@ -27,7 +25,7 @@ class CreateCockrepoTable extends Migration
                 ->onDelete('cascade');
 
             $table->unique(['user_id', 'recipe_id']);
-            
+
             $table->timestamps();
         });
     }
@@ -39,6 +37,6 @@ class CreateCockrepoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cockrepo');
+        Schema::dropIfExists('nices');
     }
 }

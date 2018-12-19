@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAppetizersTable extends Migration
+class CreateFavoritesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,19 @@ class CreateAppetizersTable extends Migration
      */
     public function up()
     {
-        Schema::create('appetizers', function (Blueprint $table) {
+        Schema::create('favorites', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('body');
-            $table->string('url');
-
+            
+            $table->unsignedInteger('user_id');
             $table->unsignedInteger('recipe_id');
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
             $table->foreign('recipe_id')
                 ->references('id')->on('recipes')
                 ->onDelete('cascade');
 
-            $table->unique(['recipe_id']);
+            $table->unique(['user_id', 'recipe_id']);
             
             $table->timestamps();
         });
@@ -36,6 +38,6 @@ class CreateAppetizersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appetizers');
+        Schema::dropIfExists('favorites');
     }
 }

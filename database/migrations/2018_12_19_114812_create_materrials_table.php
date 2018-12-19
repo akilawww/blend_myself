@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTagVerificationTable extends Migration
+class CreateMaterrialsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,18 @@ class CreateTagVerificationTable extends Migration
      */
     public function up()
     {
-        Schema::create('tag_verification', function (Blueprint $table) {
+        Schema::create('materrials', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('quantity');
+            $table->string('degree');
 
-            $table->unsignedInteger('tag_id');
             $table->unsignedInteger('recipe_id');
-            $table->foreign('tag_id')
-                ->references('id')->on('tag')
-                ->onDelete('cascade');
             $table->foreign('recipe_id')
                 ->references('id')->on('recipes')
                 ->onDelete('cascade');
 
-            $table->unique(['tag_id', 'recipe_id']);
+            $table->unique(['recipe_id']);
 
             $table->timestamps();
         });
@@ -38,6 +37,6 @@ class CreateTagVerificationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tag_verification');
+        Schema::dropIfExists('materrials');
     }
 }
