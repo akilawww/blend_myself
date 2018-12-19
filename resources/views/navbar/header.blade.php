@@ -1,32 +1,25 @@
 <html lang="{{ app()->getLocale() }}">
   <head>
     <title>さけばさだー</title>
+
+    <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+    <script src="{{ asset('/js/app.js') }}" defer></script>
   </head>
-<body>
-<nav class="navbar navbar-default fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
 
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="index.php"><img src="{{ asset('image/sakebasada.png') }}"></a></li>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.php"><img src="{{ asset('/image/sakebasada.png') }}"></a>
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="Navber">
+    <ul class="navbar-nav mr-auto">
     </ul>
-    <form class="navbar-form navbar-left">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search">
-        <div class="input-group-btn">
-          <button class="btn btn-default" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
+    <form class="form-inline my-2 my-lg-0">
+      <input type="search" class="form-control mr-sm-2" placeholder="検索..." aria-label="検索...">
+      <button type="submit" class="btn btn-outline-success my-2 my-sm-0">検索</button>
     </form>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
-
-  </div>
+  </div><!-- /.navbar-collapse -->
 </nav>
 
 @yield('content')
