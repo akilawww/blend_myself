@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('navbar.header');
+    return view('recipes.index');
 });
