@@ -12,6 +12,8 @@
     </style>
   </head>
 
+  <body style="margin-right: 0px;">
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" href="index.php"><img src="{{ asset('/image/sakebasada.png') }}"></a>
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
@@ -27,13 +29,32 @@
     </ul>
   </div><!-- /.navbar-collapse -->
 
+  <!-- ログイン・未ログイン状態で表示を変える必要あり -->
   <div class="collapse navbar-collapse justify-content-end">
-      <ul class=~navbar-nav">
+      <ul class="navbar-nav">
           <a class="navbar-brand" href="">sign up</a>
           <a class="navbar-brand" href="">sign in</a>
       </ul>
   </div>
 </nav>
+
+
+<!-- sidebar -->
+<!--
+<nav class="navbar-dark bg-dark navbar-inverse navbar-fixed-left col-md-2">
+  <div class="sidebar-sticky">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+            <br>
+        </li>
+        <li class="navbar-nav">
+            <div class="navbar-brand">カクテルの味で探す!</div>
+        </li>
+      </ul>
+  </div>  
+</nav>
+-->
+
 <div class="m-100">
 @yield('content')
 </div>
@@ -45,3 +66,5 @@
     <li><a href="">ヘルプ</a></li>
     <li><a href="">お問い合わせ</a></li>
 </ul>
+
+</body>
