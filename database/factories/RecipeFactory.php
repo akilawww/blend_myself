@@ -8,7 +8,7 @@ $factory->define(App\Recipe::class, function (Faker $faker) {
            return factory(App\User::class)->create()->id;
        },
        'title' => $faker->title,
-       'body' => $faker->paragraph,
+       'body' => $faker->sentence(7),
        'image' => '',
     ];
 });
