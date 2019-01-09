@@ -13,3 +13,5 @@
 
 Route::get('/', 'RecipesController@index'); 
 Route::get('/recipes/{id}', 'RecipesController@show'); 
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
