@@ -24,8 +24,6 @@ class CreateRecipeProceduresTable extends Migration
                 ->references('id')->on('recipes')
                 ->onDelete('cascade');
 
-            $table->unique(['recipe_id']);
-
             $table->timestamps();
         });
     }
