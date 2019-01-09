@@ -12,3 +12,4 @@
 */
 
 Route::get('/', 'RecipesController@index'); 
+Route::get('/recipes/{id}', 'RecipesController@show'); 
