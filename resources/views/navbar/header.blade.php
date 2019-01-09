@@ -19,7 +19,7 @@
   <body style="margin-right: 0px;">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="index.php"><img src="{{ asset('/image/sakebasada.png') }}"></a>
+    <a class="navbar-brand" href="{{ action('RecipesController@index') }}"><img src="{{ asset('/image/sakebasada.png') }}"></a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -69,7 +69,7 @@
 
 
 <!-- sidebar -->
-<div class="row text-light">
+<div class="row text-light" style="margin-top: 30px;">
 <nav class="navbar-dark bg-dark navbar-inverse navbar-fixed-left col-md-2">
   <div class="sidebar-sticky" style="margin-left: 10px;">
       <ul class="nav flex-column">
@@ -176,9 +176,7 @@
       </ul>
   </div>  
 </nav>
-
-<div style="margin-top: 70px;">
-    aaa
+<div class="container text-dark" style="margin-top: 70px;">
 @yield('content')
 </div>
 </div>
