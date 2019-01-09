@@ -69,7 +69,7 @@
 
 
 <!-- sidebar -->
-<div class="row text-light">
+<div class="row text-light" style="margin-top: 30px;">
 <nav class="navbar-dark bg-dark navbar-inverse navbar-fixed-left col-md-2">
   <div class="sidebar-sticky" style="margin-left: 10px;">
       <ul class="nav flex-column">
@@ -176,9 +176,7 @@
       </ul>
   </div>  
 </nav>
-
-<div style="margin-top: 70px;">
-    aaa
+<div class="container text-dark" style="margin-top: 70px;">
 @yield('content')
 </div>
 </div>
