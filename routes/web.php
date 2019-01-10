@@ -15,3 +15,9 @@ Route::get('/', 'RecipesController@index');
 Route::get('/recipes/{id}', 'RecipesController@show'); 
 Auth::routes();
 Route::get('/home', 'RecipesController@index'); 
+// レシピフォームのルーティング
+Route::get('/recipe_form', 'RecipeFormController@index')
+    ->middleware('auth.basic'); 
+Route::get('/recipe_form/materrial', 'RecipeFormController@index')
+    ->middleware('auth.basic'); 
+Route::post('/recipe_form/posts', 'RecipeFormController@store');
