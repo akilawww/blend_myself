@@ -2,6 +2,10 @@
 @section('title', '')
 @section('content')
 
+
+@extends('navbar.sidebar')
+@section('sidebar')
+
 <div class="container">
     @foreach ($recipes as $recipe)
         <div class="container-fluid">
