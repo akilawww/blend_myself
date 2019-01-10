@@ -9,11 +9,7 @@
     <link rel="stylesheet" href="{{ asset('/css/styles.css') }}">
     <script src="{{ asset('/js/app.js') }}" defer></script>
 
-    <style>
-        .m-70{
-            margin-top: 70px;
-        }
-    </style>
+
   </head>
 
   <body style="margin-right: 0px;">
@@ -36,22 +32,23 @@
     <!-- ログイン・未ログイン状態で表示を変える必要あり -->
     <!-- Authentication Links -->
     @guest
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+    <ul>
+    <li class="nav-item" style="display: inline-block;">
+        <a class="nav-link text-light" href="{{ route('login') }}">{{ __('Login') }}</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" style="display: inline-block;">
         @if (Route::has('register'))
-            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+            <a class="nav-link text-light" href="{{ route('register') }}">{{ __('Register') }}</a>
         @endif
     </li>
         @else
     <li class="nav-item dropdown">
-        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+        <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             {{ Auth::user()->name }} <span class="caret"></span>
         </a>
 
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ route('logout') }}"
+            <a class="dropdown-item text-light" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
@@ -62,8 +59,8 @@
             </form>
         </div>
     </li>
+</ul>
     @endguest
-    </ul>
 
 </nav>
 
@@ -79,15 +76,15 @@
         <li class="navbar-nav">
             カクテルの味で探す!
 <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">甘い系</label>
+        <input type="checkbox" class="custom-control-input" id="taste_1">
+        <label class="custom-control-label" for="taste_1">甘い系</label>
     </div>
 <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">辛い系</label>
+        <input type="checkbox" class="custom-control-input" id="taste_2">
+        <label class="custom-control-label" for="taste_2">辛い系</label>
     </div><div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">苦い系</label>
+        <input type="checkbox" class="custom-control-input" id="taste_3">
+        <label class="custom-control-label" for="taste_3">サッパリ系</label>
     </div>
         </li>
       </ul>
@@ -101,20 +98,20 @@
         <li class="navbar-nav">
             アルコール度数で探す!
 <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">0%</label>
+        <input type="checkbox" class="custom-control-input" id="arc_1">
+        <label class="custom-control-label" for="arc_1">0%</label>
     </div>
 <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">1%～15%</label>
+        <input type="checkbox" class="custom-control-input" id="arc_2">
+        <label class="custom-control-label" for="arc_2">1%～15%</label>
     </div>
 <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">16%～24%</label>
+        <input type="checkbox" class="custom-control-input" id="arc_3">
+        <label class="custom-control-label" for="arc_3">16%～24%</label>
     </div>
 <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">25%以上</label>
+        <input type="checkbox" class="custom-control-input" id="arc_4">
+        <label class="custom-control-label" for="arc_4">25%以上</label>
     </div>
         </li>
       </ul>
@@ -128,48 +125,48 @@
         <li class="navbar-nav">
             ベースのお酒で探す！
 <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">ジン</label>
+        <input type="checkbox" class="custom-control-input" id="base_1">
+        <label class="custom-control-label" for="base_1">ジン</label>
     </div>
 <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">テキーラ</label>
+        <input type="checkbox" class="custom-control-input" id="base_2">
+        <label class="custom-control-label" for="base_2">テキーラ</label>
     </div>
 <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">ウォッカ</label>
+        <input type="checkbox" class="custom-control-input" id="base_3">
+        <label class="custom-control-label" for="base_3">ウォッカ</label>
     </div>
 <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">ラム</label>
+        <input type="checkbox" class="custom-control-input" id="base_4">
+        <label class="custom-control-label" for="base_4">ラム</label>
     </div>
 <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">リキュール</label>
+        <input type="checkbox" class="custom-control-input" id="base_5">
+        <label class="custom-control-label" for="base_5">リキュール</label>
     </div>
 <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">ワイン</label>
+        <input type="checkbox" class="custom-control-input" id="base_6">
+        <label class="custom-control-label" for="base_6">ワイン</label>
     </div>
 <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">ウィスキー</label>
+        <input type="checkbox" class="custom-control-input" id="base_7">
+        <label class="custom-control-label" for="base_7">ウィスキー</label>
     </div>
 <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">ブランデー</label>
+        <input type="checkbox" class="custom-control-input" id="base_8">
+        <label class="custom-control-label" for="base_8">ブランデー</label>
     </div>
 <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">ビール</label>
+        <input type="checkbox" class="custom-control-input" id="base_9">
+        <label class="custom-control-label" for="base_9">ビール</label>
     </div>
 <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">焼酎</label>
+        <input type="checkbox" class="custom-control-input" id="base_10">
+        <label class="custom-control-label" for="base_10">焼酎</label>
     </div>
 <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">日本酒</label>
+        <input type="checkbox" class="custom-control-input" id="base_11">
+        <label class="custom-control-label" for="base_11">日本酒</label>
     </div>
 
         </li>
@@ -181,7 +178,7 @@
 @yield('content')
 </div>
 </div>
-<hr>
+<div class="bg-dark">
 <ul class="list-group">
     <li><a href="">ガイドライン</a></li>
     <li><a href="">個人情報の取り扱いについて</a></li>
@@ -189,4 +186,5 @@
     <li><a href="">ヘルプ</a></li>
     <li><a href="">お問い合わせ</a></li>
 </ul>
+</div>
 </body>
