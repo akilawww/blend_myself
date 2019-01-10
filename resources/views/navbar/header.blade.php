@@ -69,25 +69,25 @@
 
 
 <!-- sidebar -->
-<div class="row text-light" style="margin-top: 30px;">
+<div class="row text-light">
 <nav class="navbar-dark bg-dark navbar-inverse navbar-fixed-left col-md-2">
   <div class="sidebar-sticky" style="margin-left: 10px;">
       <ul class="nav flex-column">
         <li class="nav-item">
-            <br><br><br>
+            <br><br><br><br>
         </li>
         <li class="navbar-nav">
             カクテルの味で探す!
 <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">Check this custom checkbox</label>
+        <label class="custom-control-label" for="customCheckBox1">甘い系</label>
     </div>
 <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">Check this custom checkbox</label>
+        <label class="custom-control-label" for="customCheckBox1">辛い系</label>
     </div><div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">Check this custom checkbox</label>
+        <label class="custom-control-label" for="customCheckBox1">苦い系</label>
     </div>
         </li>
       </ul>
@@ -102,19 +102,19 @@
             アルコール度数で探す!
 <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">Check this custom checkbox</label>
+        <label class="custom-control-label" for="customCheckBox1">0%</label>
     </div>
 <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">Check this custom checkbox</label>
+        <label class="custom-control-label" for="customCheckBox1">1%～15%</label>
     </div>
 <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">Check this custom checkbox</label>
+        <label class="custom-control-label" for="customCheckBox1">16%～24%</label>
     </div>
 <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">Check this custom checkbox</label>
+        <label class="custom-control-label" for="customCheckBox1">25%以上</label>
     </div>
         </li>
       </ul>
@@ -126,57 +126,58 @@
             <br><br><br>
         </li>
         <li class="navbar-nav">
-            アルコール度数で探す!
+            ベースのお酒で探す！
 <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">Check this custom checkbox</label>
+        <label class="custom-control-label" for="customCheckBox1">ジン</label>
     </div>
 <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">Check this custom checkbox</label>
+        <label class="custom-control-label" for="customCheckBox1">テキーラ</label>
     </div>
 <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">Check this custom checkbox</label>
+        <label class="custom-control-label" for="customCheckBox1">ウォッカ</label>
     </div>
 <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">Check this custom checkbox</label>
+        <label class="custom-control-label" for="customCheckBox1">ラム</label>
     </div>
 <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">Check this custom checkbox</label>
+        <label class="custom-control-label" for="customCheckBox1">リキュール</label>
     </div>
 <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">Check this custom checkbox</label>
+        <label class="custom-control-label" for="customCheckBox1">ワイン</label>
     </div>
 <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">Check this custom checkbox</label>
+        <label class="custom-control-label" for="customCheckBox1">ウィスキー</label>
     </div>
 <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">Check this custom checkbox</label>
+        <label class="custom-control-label" for="customCheckBox1">ブランデー</label>
     </div>
 <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">Check this custom checkbox</label>
+        <label class="custom-control-label" for="customCheckBox1">ビール</label>
     </div>
 <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">Check this custom checkbox</label>
+        <label class="custom-control-label" for="customCheckBox1">焼酎</label>
     </div>
 <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="customCheckBox1">
-        <label class="custom-control-label" for="customCheckBox1">Check this custom checkbox</label>
+        <label class="custom-control-label" for="customCheckBox1">日本酒</label>
     </div>
 
         </li>
       </ul>
   </div>  
 </nav>
-<div class="container text-dark" style="margin-top: 70px;">
+
+<div class="container text-dark" style="margin-top: 100px;">
 @yield('content')
 </div>
 </div>
