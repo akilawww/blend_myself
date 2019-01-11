@@ -1,13 +1,8 @@
-
-
 <!-- sidebar -->
 <div class="row text-light">
 <nav class="navbar-dark bg-dark navbar-inverse navbar-fixed-left col-md-2">
-  <div class="sidebar-sticky" style="margin-left: 10px;">
+  <div class="sidebar-sticky" style="margin-left: 10px;margin-top: 100px;">
       <ul class="nav flex-column">
-        <li class="nav-item">
-            <br><br><br><br>
-        </li>
         <li class="navbar-nav">
             カクテルの味で探す!
 <div class="custom-control custom-checkbox">
@@ -25,11 +20,8 @@
       </ul>
   </div>
 
-  <div class="sidebar-sticky" style="margin-left: 10px;">
+  <div class="sidebar-sticky" style="margin-left: 10px; margin-top:50px;">
       <ul class="nav flex-column">
-        <li class="nav-item">
-            <br><br><br>
-        </li>
         <li class="navbar-nav">
             アルコール度数で探す!
 <div class="custom-control custom-checkbox">
@@ -52,11 +44,8 @@
       </ul>
   </div>
 
-  <div class="sidebar-sticky" style="margin-left: 10px;">
+  <div class="sidebar-sticky" style="margin-left: 10px;margin-top:50px;">
       <ul class="nav flex-column">
-        <li class="nav-item">
-            <br><br><br>
-        </li>
         <li class="navbar-nav">
             ベースのお酒で探す！
 <div class="custom-control custom-checkbox">
@@ -112,4 +101,4 @@
 <div class="container text-dark" style="margin-top: 100px;">
 @yield('sidebar')
 </div>
-
+</div>
