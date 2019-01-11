@@ -12,7 +12,7 @@
 
   </head>
 
-  <body style="margin-right: 0px;">
+  <body style="margin-right: 0px;font-size: 17px;">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="{{ action('RecipesController@index') }}"><img src="{{ asset('/image/sakebasada.png') }}"></a>
@@ -42,7 +42,7 @@
         @endif
     </li>
         @else
-    <li class="nav-item dropdown">
+    <li class="nav-item dropdown" style="display: inline-block;">
         <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             {{ Auth::user()->name }} <span class="caret"></span>
         </a>
@@ -74,11 +74,11 @@
 
 <div class="bg-dark">
 <ul class="list-group">
-    <span class="text-dark"><a href="">ガイドライン</a></span>
-    <span class="text-dark"><a href="">個人情報の取り扱いについて</a></span>
-    <span class="text-dark"><a href="">当サイトご利用の際の規約</a></span>
-    <span class="text-dark"><a href="">ヘルプ</a></span>
-    <span class="text-dark"><a href="">お問い合わせ</a></span>
+    <span><a href="" class="text-light">ガイドライン</a></span>
+    <span><a href="" class="text-light">個人情報の取り扱いについて</a></span>
+    <span><a href="" class="text-light">当サイトご利用の際の規約</a></span>
+    <span><a href="" class="text-light">ヘルプ</a></span>
+    <span><a href="" class="text-light">お問い合わせ</a></span>
 </ul>
 </div>
 </body>
