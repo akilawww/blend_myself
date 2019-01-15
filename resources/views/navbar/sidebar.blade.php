@@ -1,8 +1,8 @@
 <!-- sidebar -->
 
 @section('sidebar')
-<div class="row text-light">
-<nav class="navbar-dark bg-dark navbar-inverse navbar-fixed-left col-md-2">
+<div class="row">
+<nav class="text-light bg-dark navbar-inverse col-md-2">
   <div class="sidebar-sticky sidebar">
       <ul class="nav flex-column">
         <li class="navbar-nav">
@@ -14,10 +14,11 @@
 <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="taste_2">
         <label class="custom-control-label" for="taste_2">辛い系</label>
-    </div><div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="taste_3">
-        <label class="custom-control-label" for="taste_3">サッパリ系</label>
-    </div>
+</div>
+<div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="taste_3">
+    <label class="custom-control-label" for="taste_3">サッパリ系</label>
+</div>
         </li>
       </ul>
   </div>

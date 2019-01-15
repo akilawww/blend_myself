@@ -3,12 +3,12 @@
     @yield('head')
   </head>
 
-  <body style="margin-right: 0px;font-size: 17px;">
+  <body>
     @yield('header')
 
-    <div class="container-fulid text-dark">
+    <div class="container-fulid">
       @yield('sidebar')
-       <div class="m-100">
+       <div class="m-100 container">
         @yield('content')
       </div>
     </div>
