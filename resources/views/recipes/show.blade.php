@@ -1,5 +1,12 @@
-@extends('navbar.header')
+@extends('navbar.parent')
 @section('title'){{ $recipe->title }}@endsection
+
+@include('navbar.head')
+
+@include('navbar.header')
+
+@include('navbar.sidebar')
+
 @section('content')
     {{ $recipe->title }}
     <br>
@@ -27,3 +34,5 @@
     @endforeach
     </div>
 @endsection
+
+@include('navbar.footer')
