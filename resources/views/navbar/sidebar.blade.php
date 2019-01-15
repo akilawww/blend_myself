@@ -1,7 +1,9 @@
 <!-- sidebar -->
+
+@section('sidebar')
 <div class="row text-light">
 <nav class="navbar-dark bg-dark navbar-inverse navbar-fixed-left col-md-2">
-  <div class="sidebar-sticky" style="margin-left: 10px;margin-top: 100px;">
+  <div class="sidebar-sticky sidebar">
       <ul class="nav flex-column">
         <li class="navbar-nav">
             カクテルの味で探す!
@@ -44,7 +46,7 @@
       </ul>
   </div>
 
-  <div class="sidebar-sticky" style="margin-left: 10px;margin-top:50px;">
+  <div class="sidebar-sticky" style="margin-left: 10px;margin-top:50px; margin-bottom: 50px;">
       <ul class="nav flex-column">
         <li class="navbar-nav">
             ベースのお酒で探す！
@@ -95,10 +97,6 @@
 
         </li>
       </ul>
-  </div>  
+  </div>
 </nav>
-
-<div class="container text-dark" style="margin-top: 100px;">
-@yield('sidebar')
-</div>
-</div>
+@endsection
