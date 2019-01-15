@@ -4,6 +4,14 @@
 @endphp
 
 @section('title', 'error:403')
+
+@include('navbar.head')
+
+@include('navbar.header')
+
+@section('sidebar')
+@endsection
+
 @section('content')
 <div class="container">
     <h1>{{ $title }}</h1>
@@ -11,3 +19,5 @@
     <p>{{ __('You do not have permission to access this page.') }}</p>
 </div>
 @endsection
+
+@include('navbar.footer')

@@ -1,5 +1,14 @@
 @extends('navbar.header')
 
+@section('title','')
+
+@include('navbar.head')
+
+@include('navbar.header')
+
+@section('sidebar')
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -22,3 +31,5 @@
     </div>
 </div>
 @endsection
+
+@include('navbar.footer')

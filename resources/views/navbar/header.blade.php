@@ -48,7 +48,6 @@
     </li>
 </ul>
     @endguest
-
 </nav>
 
 @endsection
