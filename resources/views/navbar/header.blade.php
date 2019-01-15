@@ -53,7 +53,7 @@
                             document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
             </a>
-            <a class="dropdown-item" href="/recipe_form">レシピ作成</a>
+            <a class="dropdown-item" href="{{ url('/recipe_form') }}">レシピ作成</a>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
