@@ -1,4 +1,4 @@
-@extends('navbar.header')
+@extends('navbar.parent')
 
 @section('title','')
 

@@ -1,4 +1,4 @@
-@extends('navbar.header')
+@extends('navbar.parent')
 @php
     $title = __('Forbidden');
 @endphp
