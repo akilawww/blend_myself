@@ -5,10 +5,13 @@
 
 @include('navbar.header')
 
-@include('navbar.sidebar')
+@section('sidebar')
+@endsection
 
 @section('content')
-    {{ $recipe->title }}
+    <div class="container-fulid">
+        <div class="row">
+    <div class="recipetitle bg-white">{{ $recipe->title }}</div>
     <br>
     <img src="{{ $recipe->image }}" alt="Sample">
     <br>
@@ -22,6 +25,7 @@
                 {{ empty($materrial->degree) ? '' : $materrial->degree.'％' }}</li>
         @endforeach
     </ul>
+</div>
     <div class="row">
     @foreach ($recipe_procedures as $recipe_procedure)
         <div class="card" style="width: 20rem;">
@@ -33,6 +37,7 @@
         </div>
     @endforeach
     </div>
+</div>
 @endsection
 
 @include('navbar.footer')

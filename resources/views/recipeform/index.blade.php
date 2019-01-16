@@ -1,5 +1,13 @@
-@extends('navbar.header')
+@extends('navbar.parent')
 @section('title', '')
+
+@include('navbar.head')
+
+@include('navbar.header')
+
+@section('sidebar')
+@endsection
+
 @section('content')
 <div class="container">
         <form method="POST" action="{{ url('/recipe_form/posts') }}" enctype="multipart/form-data">
@@ -72,3 +80,5 @@
 @endif
             </div>
 @endsection
+
+@include('navbar.footer')
