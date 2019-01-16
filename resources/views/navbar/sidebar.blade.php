@@ -23,7 +23,7 @@
       </ul>
   </div>
 
-  <div class="sidebar-sticky" style="margin-left: 10px; margin-top:50px;">
+  <div class="sidebar-sticky smargin">
       <ul class="nav flex-column">
         <li class="navbar-nav">
             アルコール度数で探す!
@@ -47,7 +47,7 @@
       </ul>
   </div>
 
-  <div class="sidebar-sticky" style="margin-left: 10px;margin-top:50px; margin-bottom: 50px;">
+  <div class="sidebar-sticky smargin">
       <ul class="nav flex-column">
         <li class="navbar-nav">
             ベースのお酒で探す！
