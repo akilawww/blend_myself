@@ -1,18 +1,4 @@
-<html lang="{{ app()->getLocale() }}">
-  <head>
-    <meta charset="utf-8">
-    <title>@yield('title') - さけばさだー</title>
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/styles.css') }}">
-    <script src="{{ asset('/js/app.js') }}" defer></script>
-
-
-  </head>
-
-  <body style="margin-right: 0px;font-size: 17px;">
+@section('header')
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="{{ action('RecipesController@index') }}"><img src="{{ asset('/image/sakebasada.png') }}"></a>
@@ -62,23 +48,6 @@
     </li>
 </ul>
     @endguest
-
 </nav>
 
-
-
-<div class="container text-dark" style="margin-top: 100px;">
-@yield('content')
-</div>
-
-
-<div class="bg-dark">
-<ul class="list-group">
-    <span><a href="" class="text-light">ガイドライン</a></span>
-    <span><a href="" class="text-light">個人情報の取り扱いについて</a></span>
-    <span><a href="" class="text-light">当サイトご利用の際の規約</a></span>
-    <span><a href="" class="text-light">ヘルプ</a></span>
-    <span><a href="" class="text-light">お問い合わせ</a></span>
-</ul>
-</div>
-</body>
+@endsection

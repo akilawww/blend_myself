@@ -1,4 +1,13 @@
-@extends('navbar.header')
+@extends('navbar.parent')
+
+@section('title','')
+
+@include('navbar.head')
+
+@include('navbar.header')
+
+@section('sidebar')
+@endsection
 
 @section('content')
 <div class="container">
@@ -75,3 +84,5 @@
     </div>
 </div>
 @endsection
+
+@include('navbar.footer')

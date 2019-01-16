@@ -1,7 +1,14 @@
-@extends('navbar.header')
+@extends('navbar.parent')
 @php
     $title = __('Internal Server Error');
 @endphp
+
+@include('navbar.head')
+
+@include('navbar.header')
+
+@section('sidebar')
+@endsection
 
 @section('title', 'error:500')
 @section('content')
@@ -11,3 +18,5 @@
     <p>{{ __('The server was unable to complete your request.') }}</p>
 </div>
 @endsection
+
+@include('navbar.footer')

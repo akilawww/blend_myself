@@ -1,11 +1,13 @@
-@extends('navbar.header')
+@extends('navbar.parent')
 @section('title', '')
+
+@include('navbar.head')
+
+@include('navbar.header')
+
+@include('navbar.sidebar')
+
 @section('content')
-
-
-@extends('navbar.sidebar')
-@section('sidebar')
-
 <div class="container">
     @foreach ($recipes as $recipe)
         <div class="container-fluid">
@@ -31,4 +33,7 @@
     @endforeach
     {{ $recipes->links() }}
 </div>
+</div>
 @endsection
+
+@include('navbar.footer')
