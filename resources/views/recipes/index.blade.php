@@ -15,7 +15,7 @@
                 <div class="card-horizon">
                     <div class="row card-horizon-con">
                         <div class="col-md-4 col-4 p-0 wh-100 left bg-secondary">
-                            <img src="https://placehold.jp/200x200.jpg" alt="Sample">
+                            <img src="{{ asset($recipe->image) }}" alt="Sample">
                         </div>
                         <div class="col-md-8 p-0 wh-100 right bg-secondary">
                             <h5 class="card-title text-white">

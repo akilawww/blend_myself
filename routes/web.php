@@ -18,6 +18,11 @@ Route::get('/home', 'RecipesController@index');
 // レシピフォームのルーティング
 Route::get('/recipe_form', 'RecipeFormController@index')
     ->middleware('auth.basic'); 
-Route::get('/recipe_form/materrial', 'RecipeFormController@index')
+Route::get('/recipe_form/materrial_procedure', 'RecipeFormController@materrialProcedure')
     ->middleware('auth.basic'); 
-Route::post('/recipe_form/posts', 'RecipeFormController@store');
+Route::post('/recipe_form/posts', 'RecipeFormController@store')
+    ->middleware('auth.basic');
+Route::post('/recipe_form/materrial/posts', 'RecipeFormController@materrialStore')
+    ->middleware('auth.basic');
+Route::post('/recipe_form/procedure/posts', 'RecipeFormController@procedureStore')
+    ->middleware('auth.basic');
