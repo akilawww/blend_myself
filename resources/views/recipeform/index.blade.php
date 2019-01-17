@@ -12,12 +12,12 @@
 <div class="container">
     <form method="POST" action="{{ url('/recipe_form/posts') }}" enctype="multipart/form-data">
           {{ csrf_field() }}
-                <div class="form-group row">
+               <div class="form-group row">
                   <label for="inputText" class="col-sm-2 col-form-label">タイトル</label>
                   <div class="col-7">
                     <input type="text" required="required" name="title" id="inputText" class="form-control" placeholder="タイトル">
                   </div>
-                </div>
+                </div> 
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">概要</label>
                     <textarea required="required" name="body" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
