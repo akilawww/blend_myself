@@ -12,36 +12,71 @@ class MaterrialsTableSeeder extends Seeder
      */
     public function run()
     {
+        // レシピ 1
         App\Materrial::create([
-            'name' => '酒1',
-            'quantity' => '200ml',
-            'degree' => '20',
-            'recipe_id' => 1,
-            'created_at' => Carbon::now()->subDays(32),
-            'updated_at' => Carbon::now()->subDays(32),
-        ]);
-
-        App\Materrial::create([
-            'name' => '酒2',
-            'quantity' => '100ml',
-            'degree' => '10',
+            'name' => 'ジン',
+            'quantity' => '30ml',
+            'degree' => '37%',
             'recipe_id' => 1,
             'created_at' => Carbon::now()->subDays(32),
             'updated_at' => Carbon::now()->subDays(32),
         ]);
         App\Materrial::create([
-            'name' => '酒3',
+            'name' => 'ジンジャエール',
+            'quantity' => '160ml',
+            'degree' => '0%',
+            'recipe_id' => 1,
+            'created_at' => Carbon::now()->subDays(32),
+            'updated_at' => Carbon::now()->subDays(32),
+        ]);
+        // レシピ 2
+        App\Materrial::create([
+            'name' => 'ウォッカ',
+            'quantity' => '40ml',
+            'degree' => '50%',
+            'recipe_id' => 2,
+            'created_at' => Carbon::now()->subDays(32),
+            'updated_at' => Carbon::now()->subDays(32),
+        ]);
+        App\Materrial::create([
+            'name' => 'カルーア',
             'quantity' => '20ml',
-            'degree' => '40',
-            'recipe_id' => 1,
+            'degree' => '20%',
+            'recipe_id' => 2,
+            'created_at' => Carbon::now()->subDays(32),
+            'updated_at' => Carbon::now()->subDays(32),
+        ]);
+        // レシピ 3
+        App\Materrial::create([
+            'name' => 'マリーブリザールチャールストン',
+            'quantity' => '30ml',
+            'degree' => '20%',
+            'recipe_id' => 3,
             'created_at' => Carbon::now()->subDays(32),
             'updated_at' => Carbon::now()->subDays(32),
         ]);
         App\Materrial::create([
-            'name' => '果物',
-            'quantity' => '1個',
-            'degree' => '',
-            'recipe_id' => 1,
+            'name' => 'ソーダ',
+            'quantity' => '160ml',
+            'degree' => '0%',
+            'recipe_id' => 3,
+            'created_at' => Carbon::now()->subDays(32),
+            'updated_at' => Carbon::now()->subDays(32),
+        ]);
+        // レシピ 4
+        App\Materrial::create([
+            'name' => 'ジムビーム',
+            'quantity' => '30ml',
+            'degree' => '40%',
+            'recipe_id' => 4,
+            'created_at' => Carbon::now()->subDays(32),
+            'updated_at' => Carbon::now()->subDays(32),
+        ]);
+        App\Materrial::create([
+            'name' => 'ソーダ',
+            'quantity' => '160ml',
+            'degree' => '0%',
+            'recipe_id' => 4,
             'created_at' => Carbon::now()->subDays(32),
             'updated_at' => Carbon::now()->subDays(32),
         ]);
