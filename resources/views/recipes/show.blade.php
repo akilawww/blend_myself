@@ -34,12 +34,12 @@
             <ul class="list-group" style="max-width: 400px;">
                 @foreach ($materrials as $materrial)
                 <li class="list-group-item">{{ $materrial->name }}： {{ $materrial->quantity }} 
-                    {{ empty($materrial->degree) ? '' : $materrial->degree.'％' }}</li>
+                    {{ empty($materrial->degree) ? '' : $materrial->degree }}</li>
                 @endforeach
             </ul>
     @foreach ($recipe_procedures as $recipe_procedure)
         <div class="card left" style="width: 20rem;">
-            <img class="card-img-top" src="{{ $recipe_procedure->image }}" alt="Sample">
+            <img class="card-img-top" src="{{ asset($recipe_procedure->image) }}" alt="Sample">
             <div class="card-body">
                 <h4 class="card-title">{{ $recipe_procedure->process_num }}</h4>
                 <p class="card-text">{{ $recipe_procedure->body }}</p>
