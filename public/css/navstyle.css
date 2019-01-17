@@ -4,10 +4,6 @@ body{
 	height: 100%;
 }
 
-table{
-	width: 800px;
-}
-
 .m-100{
 	padding-top: 100px;
 }
@@ -36,12 +32,4 @@ table{
 .wrapper{
 	min-height: 100%;
 	margin-bottom: -150px;
-}
-
-.showmain{
-	width: 800px;
-}
-
-.bgcol{
-	background-color: #c6b3ab;
 }
