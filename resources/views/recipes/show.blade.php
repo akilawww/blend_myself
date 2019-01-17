@@ -25,7 +25,7 @@
             <div class="left col-md-4">
                 <img src="{{ asset($recipe->image) }}" alt="Sample">
             </div>
-            <div class="right col-md-8">
+            <div class="col-md-8">
                 {!! nl2br(e($recipe->body)) !!}<br>
                 <ul class="list-group" style="max-width: 400px;">
                 @foreach ($materrials as $materrial)
