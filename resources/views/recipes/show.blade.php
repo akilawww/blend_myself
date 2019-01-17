@@ -22,17 +22,26 @@
         @endif
     </div>
         <div class="row">
-            <div class="left col-md-4">
-                <img src="{{ asset($recipe->image) }}" alt="Sample">
+            <div class="card left col-md-4">
+                <img src="{{ asset($recipe->image) }}" alt="Sample" class="center">
+                <div class="card-body">
+                    <table class="table">
+                        <tr><th scope="col">味</th><td>a</td></tr>
+                        <tr><th scope="col">度数</th><td>b</td></tr>
+                        <tr><th scope="col">ベースのお酒</th><td>c</td></tr>
+                    </table>
+                </div>
             </div>
             <div class="col-md-8">
                 {!! nl2br(e($recipe->body)) !!}<br>
-                <ul class="list-group" style="max-width: 400px;">
-                @foreach ($materrials as $materrial)
-                <li class="list-group-item">{{ $materrial->name }}： {{ $materrial->quantity }} 
-                    {{ empty($materrial->degree) ? '' : $materrial->degree }}</li>
-                @endforeach
-            </ul>
+                <table>
+                    <tr><th scope="col">材料名</th><th scope="col">度数(%)</th><th scope="col">分量</th><th scope="col">購入</th></tr>
+                    @foreach ($materrials as $materrial)
+                    <tr><td>{{ $materrial->name }}</td><td>{{ $materrial->quantity }} </td><td> {{ empty($materrial->degree) ? '' : $materrial->degree }}</td></tr>
+                    @endforeach
+                </table>
+                
+
             </div>
         </div>
             
