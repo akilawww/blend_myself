@@ -17,27 +17,26 @@
     <br>
     <div class="row">
         投稿日：{{ $recipe->created_at->format('Y年m月d日　H時m分') }}　
-        @if(true)
+        @if($recipe::select('created_at') == $recipe::select('updated_at'))
             更新日：{{ $recipe->updated_at->format('Y年m月d日　H時m分') }}
         @endif
     </div>
-    <div class="row">
-        <div class="rounded left">
-            <img src="{{ asset($recipe->image) }}" alt="Sample">
+    <div class="card-horizon">
+        <div class="row card-horizon-con">
+            <div class="left">
+                <img src="{{ asset($recipe->image) }}" alt="Sample">
+            </div>
+            <div class="">
+                {!! nl2br(e($recipe->body)) !!}
+            </div>
         </div>
-        <div class="container">
-            {!! nl2br(e($recipe->body)) !!}
-            <br>
-            {{ $recipe->update_at }}
-            <br>
+        </div>
             <ul class="list-group" style="max-width: 400px;">
                 @foreach ($materrials as $materrial)
                 <li class="list-group-item">{{ $materrial->name }}： {{ $materrial->quantity }} 
                     {{ empty($materrial->degree) ? '' : $materrial->degree.'％' }}</li>
                 @endforeach
             </ul>
-        </div>
-    </div>
     @foreach ($recipe_procedures as $recipe_procedure)
         <div class="card left" style="width: 20rem;">
             <img class="card-img-top" src="{{ $recipe_procedure->image }}" alt="Sample">
