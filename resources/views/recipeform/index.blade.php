@@ -10,7 +10,7 @@
 
 @section('content')
 <div class="container">
-        <form method="POST" action="{{ url('/recipe_form/posts') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ url('/recipe_form/posts') }}" enctype="multipart/form-data">
           {{ csrf_field() }}
                 <div class="form-group row">
                   <label for="inputText" class="col-sm-2 col-form-label">タイトル</label>
