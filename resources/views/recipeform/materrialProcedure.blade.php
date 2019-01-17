@@ -10,7 +10,52 @@
 
 @section('content')
 <div class="container">
-    {{--"{{ var_dump($recipe_procedures) }}"--}}
+    <h2>材料</h2>
+    @if (isset($materrials))
+        <table class="table">
+            @foreach ($materrials as $materrial)
+                <tbody>
+                    <tr>
+                    <td scope="col">{{ $materrial->name }}</td>
+                    <td scope="col">{{ $materrial->quantity }}</td>
+                    <td scope="col">{{ $materrial->degree }}</td>
+                    </tr>
+                </tbody>
+            @endforeach
+        </table>
+    @endif
+
+    <form method="POST" action="{{ url('/recipe_form/materrial/posts') }}">
+        {{ csrf_field() }}
+        <input type="hidden" name="recipe_id" value="{{ $recipe_id }}">
+        <div class="form-group row">
+            <label for="inputText" class="col-sm-2 col-form-label">材料名</label>
+            <div class="col-7">
+                <input type="text" required="required" name="name" id="inputText" class="form-control" placeholder="材料名">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputText" class="col-sm-2 col-form-label">個数</label>
+            <div class="col-7">
+                <input type="text" required="required" name="quantity" id="inputText" class="form-control" placeholder="個数">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputText" class="col-sm-2 col-form-label">度数</label>
+            <div class="col-7">
+                <input type="text" required="required" name="degree" id="inputText" class="form-control" placeholder="度数" value="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">保存</button>
+            </div>
+        </div> 
+    </form>
+
+    <hr>
+
+    <h2>手順</h2>
     @if (isset($recipe_procedures))
         @foreach ($recipe_procedures as $recipe_procedure)
             <div class="card" style="width: 20rem;">
@@ -44,10 +89,14 @@
         
         <div class="form-group row">
             <div class="offset-sm-2 col-sm-10">
-            <button type="submit" class="btn btn-primary">保存</button>
+                <button type="submit" class="btn btn-primary">保存</button>
             </div>
         </div>
     </form>
+    <hr>
+    <a href="{{ url('/recipes', $recipe_id) }}">
+        <button class="btn btn-primary">完了</button>
+    </a>
             <!-- エラーメッセージ -->
     @if(count($errors) > 0)
         <ul>
@@ -60,13 +109,3 @@
     @endsection
 
 @include('navbar.footer')
-
-<script>
-        function add()
-        {
-            var div_element = document.createElement("div");
-            div_element.innerHTML = '<hr>Title: <br><input type="text" name="title" size="50" value="試験文字列"><br>Contents: <br><textarea name="contents" rows="30" cols="100">試験\n試験\n試験</textarea>';
-            var parent_object = document.getElementById("piyo");
-            parent_object.appendChild(div_element);
-        }
-        </script>
