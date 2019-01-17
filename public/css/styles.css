@@ -91,3 +91,11 @@
         font-size: 0.75rem;
     }
 }
+
+.showpad{
+    padding-left: 10px;
+}
+
+.showmain{
+    width: 800px;
+}
