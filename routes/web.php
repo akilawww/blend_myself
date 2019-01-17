@@ -24,5 +24,5 @@ Route::get('/recipe_form/materrial_procedure/{id}', 'RecipeFormController@materr
     ->middleware('auth.basic');
 Route::post('/recipe_form/materrial/posts', 'RecipeFormController@materrialStore')
     ->middleware('auth.basic');
-    Route::post('/recipe_form/procedure/posts', 'RecipeFormController@procedureStore')
+Route::post('/recipe_form/procedure/posts', 'RecipeFormController@procedureStore')
     ->middleware('auth.basic');
