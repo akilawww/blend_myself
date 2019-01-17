@@ -17,7 +17,7 @@ class CreateMaterrialsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('quantity');
-            $table->string('degree');
+            $table->string('degree')->nullable();
 
             $table->unsignedInteger('recipe_id');
             $table->foreign('recipe_id')

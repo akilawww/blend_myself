@@ -43,7 +43,7 @@
         <div class="form-group row">
             <label for="inputText" class="col-sm-2 col-form-label">度数</label>
             <div class="col-7">
-                <input type="text" required="required" name="degree" id="inputText" class="form-control" placeholder="度数" value="">
+                <input type="text" name="degree" id="inputText" class="form-control" placeholder="度数" value="">
             </div>
         </div>
         <div class="form-group row">

@@ -26,7 +26,7 @@ class MaterrialsRequest extends FormRequest
         return [
             'name' => 'required|string|max:100',
             'quantity' => 'required|string|max:100',
-            'degree' => 'required|string|max:100',
+            'degree' => 'max:100',
             'recipe_id' => 'required',
         ];
     }
