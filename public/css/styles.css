@@ -96,21 +96,19 @@
     width: 800px;
 }
 
-
-.showbody{
-    margin: 1rem;
-    width: 30rem;
-}
-
 .container .Target{
   width: 100%;
   height: 250px;
   margin-top: 10%;
   margin-right: 10%;
-  margin-left: 10%
+  margin-left: 10%;
 
   position: absolute;
  text-align: center;
  display: inline-block;
+}
 
+.showbody{
+    margin: 1rem;
+    width: 30rem;
 }
