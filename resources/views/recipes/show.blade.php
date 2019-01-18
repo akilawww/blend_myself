@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <div class="container showmain">
+    <div class="container showmain border rounded" style="padding: 2rem;">
         <div class="row">
             <div class="recipetitle">{{ $recipe->title }}</div>
             <a href="{{ url('/edit', $recipe->id) }}"><button class="btn float-right">レシピを編集</button></a>
@@ -46,7 +46,7 @@
         </div>
         <div class="container-fulid row">
             @foreach ($recipe_procedures as $recipe_procedure)
-            <div class="card left" style="width: 15rem;margin: 10px;">
+            <div class="card proimg" style="width: 12rem;margin: 10px;margin-top: 50px;">
                 <img class="card-img-top center" src="{{ asset($recipe_procedure->image) }}" alt="Sample">
                 <div class="card-body">
                     <h4 class="card-title">{{ $recipe_procedure->process_num }}</h4>
