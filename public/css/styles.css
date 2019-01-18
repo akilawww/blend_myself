@@ -99,3 +99,16 @@
 .showmain{
     width: 800px;
 }
+
+.container .Target{
+  width: 100%;
+  height: 250px;
+  margin-top: 10%;
+  margin-right: 10%;
+  margin-left: 10%
+
+  position: absolute;
+ text-align: center;
+ display: inline-block;
+
+}

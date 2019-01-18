@@ -20,11 +20,11 @@
     @guest
     <ul>
     <li class="nav-item" style="display: inline-block;">
-        <a class="nav-link text-light" href="{{ route('login') }}">{{ __('Login') }}</a>
+        <a class="nav-link text-light" href="{{ route('login') }}">{{ __('ログイン') }}</a>
     </li>
     <li class="nav-item" style="display: inline-block;">
         @if (Route::has('register'))
-            <a class="nav-link text-light" href="{{ route('register') }}">{{ __('Register') }}</a>
+            <a class="nav-link text-light" href="{{ route('register') }}">{{ __('新規登録') }}</a>
         @endif
     </li>
         @else
