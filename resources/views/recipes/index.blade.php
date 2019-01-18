@@ -8,20 +8,20 @@
 @include('navbar.sidebar')
 
 @section('content')
-<div class="container">
+<div class="container bg-dark" style="padding: 1rem;margin: 1rem;">
     @foreach ($recipes as $recipe)
         <div class="container-fluid">
             <a href="{{ url('/recipes', $recipe->id) }}">
                 <div class="card-horizon">
-                    <div class="row card-horizon-con">
-                        <div class="col-md-3 col-3 p-0 wh-100 left bg-secondary">
+                    <div class="row card-horizon-con bg-light">
+                        <div class="col-md-3 col-3 p-0 wh-100 left">
                             <img src="{{ asset($recipe->image) }}" alt="Sample">
                         </div>
-                        <div class="col-md-9 p-0 wh-100 right bg-secondary">
-                            <h5 class="card-title text-white">
+                        <div class="col-md-9 p-0 wh-100 right bg-light">
+                            <div class="title_f card-title text-dark">
                                 {{ $recipe->title }}
-                            </h5>
-                            <p class="card-text text-white">
+                            </div>
+                            <p class="card-text card-footer text-dark bg-light">
                                 {{ $recipe->body }}
                             </p>
                         </div>
