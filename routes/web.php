@@ -13,6 +13,7 @@
 
 Route::get('/', 'RecipesController@index'); 
 Route::get('/recipes/{id}', 'RecipesController@show'); 
+Route::get('/guideline', 'GuidesController@guideline');
 Auth::routes();
 Route::get('/home', 'RecipesController@index'); 
 // レシピフォームのルーティング
