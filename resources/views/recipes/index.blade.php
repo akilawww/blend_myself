@@ -14,10 +14,10 @@
             <a href="{{ url('/recipes', $recipe->id) }}">
                 <div class="card-horizon">
                     <div class="row card-horizon-con">
-                        <div class="col-md-4 col-4 p-0 wh-100 left bg-secondary">
+                        <div class="col-md-3 col-3 p-0 wh-100 left bg-secondary">
                             <img src="{{ asset($recipe->image) }}" alt="Sample">
                         </div>
-                        <div class="col-md-8 p-0 wh-100 right bg-secondary">
+                        <div class="col-md-9 p-0 wh-100 right bg-secondary">
                             <h5 class="card-title text-white">
                                 {{ $recipe->title }}
                             </h5>
