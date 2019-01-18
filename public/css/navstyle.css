@@ -27,6 +27,7 @@ body{
 .footer{
 	height:150px;
 	padding-top: 10px;
+	min-width: 800px;
 }
 
 .wrapper{

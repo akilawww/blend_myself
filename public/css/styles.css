@@ -92,10 +92,11 @@
     }
 }
 
-.showpad{
-    padding-left: 10px;
-}
-
 .showmain{
     width: 800px;
+}
+
+.showbody{
+    margin: 1rem;
+    width: 30rem;
 }
