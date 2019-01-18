@@ -12,7 +12,7 @@ class RecipeProceduresTableSeeder extends Seeder
      */
     public function run()
     {
-        /* レシピ 1 */
+        // レシピ1
         App\RecipeProcedure::create([
             'process_num' => 1,
             'body' => 'グラスに氷を入れる',
@@ -45,7 +45,7 @@ class RecipeProceduresTableSeeder extends Seeder
             'created_at' => Carbon::now()->subDays(32),
             'updated_at' => Carbon::now()->subDays(32),
         ]);
-        /* レシピ 2 */
+        // レシピ 2
         App\RecipeProcedure::create([
             'process_num' => 1,
             'body' => 'グラスに氷を入れる',
@@ -78,7 +78,7 @@ class RecipeProceduresTableSeeder extends Seeder
             'created_at' => Carbon::now()->subDays(32),
             'updated_at' => Carbon::now()->subDays(32),
         ]);
-        /* レシピ 3 */
+        // レシピ 3
         App\RecipeProcedure::create([
             'process_num' => 1,
             'body' => 'グラスに氷を入れる',
@@ -111,7 +111,7 @@ class RecipeProceduresTableSeeder extends Seeder
             'created_at' => Carbon::now()->subDays(32),
             'updated_at' => Carbon::now()->subDays(32),
         ]);
-        /* レシピ 4 */
+        // レシピ 4
         App\RecipeProcedure::create([
             'process_num' => 1,
             'body' => 'グラスに氷を入れる',
@@ -143,6 +143,40 @@ class RecipeProceduresTableSeeder extends Seeder
               'recipe_id' => 4,
               'created_at' => Carbon::now()->subDays(32),
               'updated_at' => Carbon::now()->subDays(32),
+          ]);
+          // レシピ 5
+          App\RecipeProcedure::create([
+              'process_num' => 1,
+              'body' => '氷を入れたタンブラーに注ぐ',
+              'image' => '/storage/testdata/グラス.jpg',
+              'recipe_id' => 5,
+              'created_at' => Carbon::now()->subDays(32),
+              'updated_at' => Carbon::now()->subDays(32),
+          ]);
+          App\RecipeProcedure::create([
+              'process_num' => 2,
+              'body' => '軽くかき混ぜる',
+              'image' => '/storage/testdata/ステア.jpg',
+              'recipe_id' => 5,
+              'created_at' => Carbon::now()->subDays(32),
+              'updated_at' => Carbon::now()->subDays(32),
+          ]);
+          // レシピ 6
+          App\RecipeProcedure::create([
+              'process_num' => 1,
+              'body' => '氷を入れたグラスを用意する',
+              'image' => '/storage/testdata/not.jpg',
+              'recipe_id' => 6,
+              'created_at' => Carbon::now()->subDays(32),
+              'updated_at' => Carbon::now(),
+          ]);
+          App\RecipeProcedure::create([
+              'process_num' => 1,
+              'body' => 'カルーアとミルクを入れる',
+              'image' => '/storage/testdata/not.jpg',
+              'recipe_id' => 6,
+              'created_at' => Carbon::now()->subDays(32),
+              'updated_at' => Carbon::now(),
           ]);
     }
 }

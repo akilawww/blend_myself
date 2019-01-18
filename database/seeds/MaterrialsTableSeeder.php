@@ -80,5 +80,63 @@ class MaterrialsTableSeeder extends Seeder
             'created_at' => Carbon::now()->subDays(32),
             'updated_at' => Carbon::now()->subDays(32),
         ]);
+        // レシピ 5
+        App\Materrial::create([
+            'name' => 'ミドリ',
+            'quantity' => '20ml',
+            'degree' => '20%',
+            'recipe_id' => 5,
+            'created_at' => Carbon::now()->subDays(32),
+            'updated_at' => Carbon::now()->subDays(34),
+        ]);
+        App\Materrial::create([
+            'name' => 'ブルガル　エクストラドライ',
+            'quantity' => '30ml',
+            'degree' => '40%',
+            'recipe_id' => 5,
+            'created_at' => Carbon::now()->subDays(32),
+            'updated_at' => Carbon::now()->subDays(34),
+        ]);
+        App\Materrial::create([
+            'name' => 'マリブ',
+            'quantity' => '15ml',
+            'degree' => '21%',
+            'recipe_id' => 5,
+            'created_at' => Carbon::now()->subDays(32),
+            'updated_at' => Carbon::now()->subDays(34),
+        ]);
+        App\Materrial::create([
+            'name' => 'フレッシュライムジュース',
+            'quantity' => '15ml',
+            'degree' => '0%',
+            'recipe_id' => 5,
+            'created_at' => Carbon::now()->subDays(32),
+            'updated_at' => Carbon::now()->subDays(34),
+        ]);
+        App\Materrial::create([
+            'name' => 'パイナップルジュース',
+            'quantity' => '15ml',
+            'degree' => '0%',
+            'recipe_id' => 5,
+            'created_at' => Carbon::now()->subDays(32),
+            'updated_at' => Carbon::now(),
+        ]);
+        // レシピ 6
+        App\Materrial::create([
+            'name' => 'カルーア',
+            'quantity' => '30ml',
+            'degree' => '20%',
+            'recipe_id' => 6,
+            'created_at' => Carbon::now()->subDays(32),
+            'updated_at' => Carbon::now(),
+        ]);
+        App\Materrial::create([
+            'name' => 'ミルク',
+            'quantity' => '90ml',
+            'degree' => '0%',
+            'recipe_id' => 6,
+            'created_at' => Carbon::now()->subDays(32),
+            'updated_at' => Carbon::now(),
+        ]);
     }
 }

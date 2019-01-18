@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <div class="container showmain border rounded" style="padding: 2rem;">
+    <div class="container showmain border rounded" style="padding: 1rem;">
         <div class="row">
             <div class="recipetitle">{{ $recipe->title }}</div>
             <a href="{{ url('/edit', $recipe->id) }}"><button class="btn float-right">レシピを編集</button></a>
@@ -40,7 +40,7 @@
                     <tr><td>{{ $materrial->name }}</td><td>{{ empty($materrial->degree) ? '' : $materrial->degree }}</td><td>{{ $materrial->quantity }}</td></tr>
                     @endforeach
                 </table>
-                
+
 
             </div>
         </div>
