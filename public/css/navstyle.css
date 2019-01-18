@@ -20,6 +20,8 @@ body{
 
 .recipetitle{
 	font-size: 30;
+	margin-left: 10px;
+	margin-right: 10px; 
 	width: 600px;
 }
 

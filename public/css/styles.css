@@ -94,6 +94,7 @@
 
 .showmain{
     width: 800px;
+    margin-bottom: 10px;
 }
 
 .showbody{
@@ -103,4 +104,9 @@
 
 .title_f{
     font-size: 1.5rem;
+}
+
+.proimg > img{
+    width: 100px;
+    height: 100px;
 }
