@@ -2,7 +2,7 @@
 
 @section('sidebar')
 <div class="row">
-<nav class="text-light bg-dark navbar-inverse col-md-2">
+<nav class="text-light bg-secondary navbar-inverse col-md-2">
   <div class="sidebar-sticky sidebar">
       <ul class="nav flex-column">
         <li class="navbar-nav">
