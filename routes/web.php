@@ -26,3 +26,6 @@ Route::post('/recipe_form/materrial/posts', 'RecipeFormController@materrialStore
     ->middleware('auth.basic');
 Route::post('/recipe_form/procedure/posts', 'RecipeFormController@procedureStore')
     ->middleware('auth.basic');
+// マイページのルーティング
+Route::get('/mypage', 'MyPageController@index')
+    ->middleware('auth.basic');
