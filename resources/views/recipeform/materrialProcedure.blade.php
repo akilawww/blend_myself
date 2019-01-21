@@ -55,8 +55,9 @@
   <hr>
   <h2>手順</h2>
   @if (isset($recipe_procedures))
+  <div class="container row">
   @foreach ($recipe_procedures as $recipe_procedure)
-  <div class="card" style="width: 20rem;">
+  <div class="card" style="width: 12rem;margin: 10px;">
     <img class="card-img-top" src="{{ asset($recipe_procedure->image) }}" alt="Sample">
     <div class="card-body">
       <h4 class="card-title">{{ $recipe_procedure->process_num }}</h4>
@@ -64,6 +65,8 @@
     </div>
   </div>
   @endforeach
+  </div>
+
   @endif
   <form method="POST" action="{{ url('/recipe_form/procedure/posts') }}" enctype="multipart/form-data">
     {{ csrf_field() }}
