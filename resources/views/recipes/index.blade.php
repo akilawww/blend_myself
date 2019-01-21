@@ -6,8 +6,7 @@
 @include('navbar.head')
 @include('navbar.header')
 
-@section('sidebar')
-@endsection
+@include('navbar.sidebar')
 
 @section('content')
 <div class="container bg-dark rounded" style="padding: 1rem;margin: 1rem;">
