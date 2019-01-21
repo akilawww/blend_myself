@@ -13,4 +13,8 @@ class GuidesController extends Controller
 	public function privacypolicy(){
 		return view('guides.privacypolicy');
 	}
+
+	public function serviceterms(){
+		return view('guides.serviceterms');
+	}
 }
