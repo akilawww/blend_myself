@@ -16,9 +16,9 @@
       <div class="card-horizon">
         <div class="row card-horizon-con bg-light">
           <div class="col-md-3 col-3 p-0 wh-100 left">
-            <img src="{{ asset($recipe->image) }}" alt="Sample">
+            <img src="{{ asset($recipe->image) }}" class="img-thumbnail" alt="Sample" style="object-fit: contain;">
           </div>
-          <div class="col-md-9 p-0 wh-100 right bg-light">
+          <div class="col-md-9 col p-0 wh-100 right bg-light">
             <div class="title_f card-title text-dark">
               {{ $recipe->title }}
             </div>

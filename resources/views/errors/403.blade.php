@@ -9,6 +9,9 @@
 @include('navbar.head')
 @include('navbar.header')
 
+@section('sidebar')
+@endsection
+
 @section('content')
 <center>
   <img src="{{ asset('/image/gummy.png') }}">
