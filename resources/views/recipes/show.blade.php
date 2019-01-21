@@ -26,7 +26,7 @@
   </div>
   <div class="row">
     <div class="card left" style="width: 18rem;">
-      <img src="{{ asset($recipe->image) }}" alt="Sample" class="center">
+      <img src="{{ asset($recipe->image) }}" alt="Sample" class="center" style="object-fit: contain;">
       <div class="card-body">
         <table class="table">
           <tr><th scope="col">味</th><td>a</td></tr>
@@ -48,7 +48,7 @@
   <div class="container-fulid row">
     @foreach ($recipe_procedures as $recipe_procedure)
     <div class="card proimg" style="width: 12rem;margin: 10px;margin-top: 50px;">
-      <img class="card-img-top center" src="{{ asset($recipe_procedure->image) }}" alt="Sample">
+      <img class="card-img-top center" src="{{ asset($recipe_procedure->image) }}" alt="Sample" style="object-fit: contain;">
       <div class="card-body">
         <h4 class="card-title">{{ $recipe_procedure->process_num }}</h4>
         <p class="card-text">{{ $recipe_procedure->body }}</p>
