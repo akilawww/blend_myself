@@ -14,6 +14,7 @@
 Route::get('/', 'RecipesController@index');
 Route::get('/recipes/{id}', 'RecipesController@show');
 Route::get('/guideline', 'GuidesController@guideline');
+Route::get('/privacypolicy', 'GuidesController@privacypolicy');
 Auth::routes();
 Route::get('/home', 'RecipesController@index');
 
