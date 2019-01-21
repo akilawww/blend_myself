@@ -34,3 +34,15 @@ Route::post('/recipe_form/procedure/posts', 'RecipeFormController@procedureStore
 // マイページのルーティング
 Route::get('/mypage', 'MyPageController@index')
     ->middleware('auth.basic');
+// 編集ページのルーティング
+Route::get('/edit/{id}', 'EditController@index')
+    ->middleware('auth.basic');
+    
+Route::put('/edit/updateRecipe/{id}',  'EditController@updateRecipe')
+    ->middleware('auth.basic');
+Route::delete('/edit/deleteMaterrial/{id}',  'EditController@deleteMaterrial')
+    ->middleware('auth.basic');
+Route::delete('/edit/deleteProcedure/{id}',  'EditController@deleteProcedure')
+    ->middleware('auth.basic');
+Route::put('/edit/putProcedure/{id}',  'EditController@putProcedure')
+    ->middleware('auth.basic');
