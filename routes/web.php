@@ -18,6 +18,7 @@ Route::get('/privacypolicy', 'GuidesController@privacypolicy');
 Route::get('/serviceterms', 'GuidesController@serviceterms');
 Auth::routes();
 Route::get('/home', 'RecipesController@index');
+Route::get('/result','RecipesController@search');
 
 // レシピ投稿画面のルーティング
 Route::get('/recipe_form', 'RecipeFormController@index')
@@ -37,7 +38,7 @@ Route::get('/mypage', 'MyPageController@index')
 // 編集ページのルーティング
 Route::get('/edit/{id}', 'EditController@index')
     ->middleware('auth.basic');
-    
+
 Route::put('/edit/updateRecipe/{id}',  'EditController@updateRecipe')
     ->middleware('auth.basic');
 Route::delete('/edit/deleteMaterrial/{id}',  'EditController@deleteMaterrial')
