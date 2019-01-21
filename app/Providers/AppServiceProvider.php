@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use App\Tag;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,6 +17,11 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Schema::defaultStringLength(191);
+        
+        view()->composer('navbar.sidebar', function ($view) {
+            $tags = Tag::orderBy('id', 'asc')->get();
+            $view->with('tags', $tags);
+        });
     }
 
     /**
