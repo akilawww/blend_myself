@@ -12,8 +12,6 @@
 @endsection
 
 @section('content')
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
 <div class="container showmain border rounded" style="padding: 1rem;">
   <div class="row">
     <div class="recipetitle">{{ $recipe->title }}</div>
