@@ -31,4 +31,16 @@ class RecipesController extends Controller
             ->with('recipe_procedures', $recipe_procedures)
             ->with('materrials', $materrials);
    }
+
+   // headerの検索機能
+   public function search(Request $request){
+     $search = $request->get('search');
+     $query = Recipe::query();
+     // 検索するテキストが入力されている場合のみ
+     if(!empty($search)) {
+       $query->where('title','like','%'.$search.'%');
+     }
+     $data = $query->paginate();
+     return view('recipes.index')->with('recipes', $data);
+   }
 }
