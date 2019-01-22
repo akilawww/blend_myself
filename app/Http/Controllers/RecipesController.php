@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Recipe;
 use App\RecipeProcedure;
 use App\Materrial;
+use App\Tag_verification;
 
 class RecipesController extends Controller
 {
@@ -40,7 +41,23 @@ class RecipesController extends Controller
      if(!empty($search)) {
        $query->where('title','like','%'.$search.'%');
      }
-     $data = $query->paginate();
+     $data = $query->paginate(5);
      return view('recipes.index')->with('recipes', $data);
+   }
+
+   public function searchTag(Request $request){
+        $tagQuery = Tag_verification::query();
+        $recipeQuery = Recipe::query();
+        foreach( $request->tags as $tag ){
+            $tagQuery->orWhere('tag_id', '=', $tag);
+        }
+        $tagVerifications = $tagQuery->get()->toArray();
+        //dd($tagVerifications);
+        foreach( $tagVerifications as $tagVer){
+            //dd($tagVer['recipe_id']);
+            $recipeQuery->orWhere('id', '=', $tagVer['recipe_id']); 
+        }
+        $data = $recipeQuery->paginate(5);
+        return view('recipes.index')->with('recipes', $data);
    }
 }
