@@ -1,6 +1,7 @@
 <!-- footer -->
 
 @section('footer')
+
   <footer class="bg-dark footer text-light">
   	<center>
     <ul style="padding-top: 1rem;">
