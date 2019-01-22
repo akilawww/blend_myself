@@ -147,10 +147,42 @@
     </form>
 
     <hr>
-    <a href="{{ url('/recipes', $recipe->id) }}">
-        <button class="btn btn-primary">完了</button>
-    </a>
-
+    <h2>タグ</h2>
+    <form method="POST" action="{{ url('/recipe_form/create/posts') }}">
+      {{ csrf_field() }}
+      <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
+      <h4>カクテルの味</h4>
+      @foreach ($tags as $tag)
+        @if ($tag->tag_type === 1)
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="taste_{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
+            <label class="custom-control-label" for="taste_{{ $tag->id }}">{{ $tag->tag_name }}</label>
+          </div>
+        @endif
+      @endforeach 
+      <h4>度数</h4>
+      @foreach ($tags as $tag)
+        @if ($tag->tag_type === 2)
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="degree_{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
+            <label class="custom-control-label" for="degree_{{ $tag->id }}">{{ $tag->tag_name }}</label>
+          </div>
+        @endif
+      @endforeach
+      <h4>ベース</h4>
+      @foreach ($tags as $tag)
+        @if ($tag->tag_type === 3)
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="base_{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
+            <label class="custom-control-label" for="base_{{ $tag->id }}">{{ $tag->tag_name }}</label>
+          </div>
+        @endif
+      @endforeach   
+      <div class="offset-sm-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">完了</button>
+      </div>
+    </form>
+ 
     <!-- エラーメッセージ -->
     @if(count($errors) > 0)
         <ul>

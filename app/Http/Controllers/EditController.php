@@ -9,6 +9,8 @@ use App\Http\Requests\MaterrialsRequest;
 use App\Recipe;
 use App\RecipeProcedure;
 use App\Materrial;
+use App\Tag;
+use App\Tag_verification;
 use Illuminate\Support\Facades\Storage;
 
 class EditController extends Controller
@@ -21,10 +23,16 @@ class EditController extends Controller
         // レシピに紐づく材料の取得
         $materrials = Materrial::where('recipe_id', '=', $id)
             ->orderBy('id', 'asc')->get();
+        $tags = Tag::orderBy('id', 'asc')->get();
+        // Todo タグのチェック済みをつくる？
+        //$tagVer = Tag_verification::where('recipe_id', '=', $id)->get();
+        
         return view('edit.index', [
             'recipe' => $recipe,
             'recipe_procedures' => $recipe_procedures,
             'materrials' => $materrials,
+            'tags' => $tags,
+            // 'tag_verifications' => $tagVer,
         ]);
     }
 
