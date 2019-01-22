@@ -9,6 +9,8 @@ use App\Http\Requests\MaterrialsRequest;
 use App\Recipe;
 use App\RecipeProcedure;
 use App\Materrial;
+use App\Tag;
+use App\Tag_verification;
 
 class RecipeFormController extends Controller
 {
@@ -22,10 +24,12 @@ class RecipeFormController extends Controller
         $recipe_procedures = RecipeProcedure::where('recipe_id', '=', $id)
             ->orderBy('process_num', 'asc')->get();
         $materrials = Materrial::where('recipe_id', '=', $id)->get();
+        $tags = Tag::orderBy('id', 'asc')->get();
 
         return view('recipeform.materrialProcedure', [
             'recipe_procedures' => $recipe_procedures,
             'materrials' => $materrials,
+            'tags' => $tags,
         ])->with('recipe_id', $id);
     }
 
@@ -57,4 +61,17 @@ class RecipeFormController extends Controller
         return back();
     }
 
+    // 完了ボタンを押し、タグの登録を行う
+    public function create(Request $request){
+        // タグが登録されていたら削除
+        Tag_verification::where('recipe_id', '=', $request->recipe_id)->delete();
+        // タグ登録
+        foreach ($request->tags as $tag){
+            $tagVer = new Tag_verification;
+            $tagVer->tag_id = $tag;
+            $tagVer->recipe_id = $request->recipe_id;
+            $tagVer->save();
+        }
+        return redirect()->action('RecipesController@show', ['id' => $request->recipe_id]);
+    }
 }
