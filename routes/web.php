@@ -19,6 +19,7 @@ Route::get('/serviceterms', 'GuidesController@serviceterms');
 Auth::routes();
 Route::get('/home', 'RecipesController@index');
 Route::get('/result','RecipesController@search');
+Route::get('/result/tag','RecipesController@searchTag');
 
 // レシピ投稿画面のルーティング
 Route::get('/recipe_form', 'RecipeFormController@index')
