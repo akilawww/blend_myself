@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
   <link rel="stylesheet"  href="{{ asset('/css/styles.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/navstyle.css') }}">
+ 	<link rel="shortcut icon" href="{{ asset('/image/icon.ico') }}" type="image/vnd.microsoft.icon">
   <script src="{{ asset('/js/app.js') }}" defer></script>
 @endsection
 
