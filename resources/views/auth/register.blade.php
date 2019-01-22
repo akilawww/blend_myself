@@ -70,9 +70,21 @@
                             </div>
                         </div>
 
+						<div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="check_st" required="required">
+                                    <label class="form-check-label" for="check_st">
+                                        <a href="{{ url('/serviceterms')}}">{{ __('利用規約') }}</a>
+                                        {{ __('に同意する。') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button id="new_user"　type="submit" class="btn btn-primary">
                                     {{ __('新規登録する') }}
                                 </button>
                             </div>
