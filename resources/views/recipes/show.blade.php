@@ -20,7 +20,7 @@
   <br>
   <div class="row">
     投稿日：{{ $recipe->created_at->format('Y年m月d日　H時m分') }}　
-    @if($recipe->created_at < $recipe->updated_at)
+    @if($recipe::select('created_at') == $recipe::select('updated_at'))
       更新日：{{ $recipe->updated_at->format('Y年m月d日　H時m分') }}
     @endif
   </div>
