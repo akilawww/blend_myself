@@ -46,18 +46,19 @@ class RecipesController extends Controller
    }
 
    public function searchTag(Request $request){
-        $tagQuery = Tag_verification::query();
-        $recipeQuery = Recipe::query();
+    $tagQuery = Tag_verification::query();
+    $recipeQuery = Recipe::query();
+    // Todo: 検索Hitした時何も表示しない
+    if(!empty($request->get('tags'))){
         foreach( $request->tags as $tag ){
             $tagQuery->orWhere('tag_id', '=', $tag);
         }
         $tagVerifications = $tagQuery->get()->toArray();
-        //dd($tagVerifications);
         foreach( $tagVerifications as $tagVer){
-            //dd($tagVer['recipe_id']);
             $recipeQuery->orWhere('id', '=', $tagVer['recipe_id']); 
         }
-        $data = $recipeQuery->paginate(5);
-        return view('recipes.index')->with('recipes', $data);
+    }
+    $data = $recipeQuery->paginate(5);
+    return view('recipes.index')->with('recipes', $data);
    }
 }
