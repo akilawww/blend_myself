@@ -9,6 +9,8 @@
 @include('navbar.sidebar')
 
 @section('content')
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <div class="container bg-dark rounded" style="padding: 1rem;margin: 1rem;">
   @foreach ($recipes as $recipe)
   <div class="container-fluid">
