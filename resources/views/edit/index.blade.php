@@ -102,11 +102,34 @@
                     <div class="card-body">
                         <h4 class="card-title">{{ $recipe_procedure->process_num }}</h4>
                         <p class="card-text">{{ $recipe_procedure->body }}</p>
-                        <form action="{{ url('/edit/putProcedure') }}" method="POST">
-                            {{ csrf_field() }}
-                            {{ method_field('PUT') }}
-                            <input type="button" class="btn btn-primary" value="編集" onClick="kakunin()">
-                        </form>
+
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                            編集
+                        </button>
+
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <form action="{{ url('/edit/updateProcedure/'.$recipe_procedure->id) }}" method="POST" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    {{ method_field('PUT') }}
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <label for="image">画像</label>
+                                        <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像"> 
+                                    </div>
+                                    <div class="modal-body">
+                                        <label for="exampleFormControlTextarea1">説明</label>
+                                        <textarea required="required" name="body" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                                        <button type="submit" class="btn btn-primary">保存</button>
+                                    </div><!-- /.modal-footer -->
+                                    </div><!-- /.modal-content -->
+                                </form>
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+
                         <form action="{{ url('/edit/deleteProcedure/'.$recipe_procedure->id) }}" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}

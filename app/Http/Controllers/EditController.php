@@ -68,4 +68,12 @@ class EditController extends Controller
         }
         return back();
     }
+
+    public function updateProcedure(Request $request, $id){
+        $procedure = RecipeProcedure::findOrFail($id)->fill($request->all());
+        // ファイルを保存した後、シンボリックリンクを貼ったstorage/をpathに差し込む
+        $procedure->image = makeImagePath($request->file('image')->store('public/images')); 
+        $procedure->save();
+        return back();
+    }
 }
