@@ -96,49 +96,6 @@
     <input type="hidden" name="recipe_id" value="{{ $recipe_id }}">
     <div class="container">
       <div class="row">
-<<<<<<< HEAD
-    <ul class="list-unstyled col">
-    <h4>カクテルの味</h4>
-    @foreach ($tags as $tag)
-      @if ($tag->tag_type === 1)
-      <li>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="taste_{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
-          <label class="custom-control-label" for="taste_{{ $tag->id }}">{{ $tag->tag_name }}</label>
-        </div>
-      </li>
-      @endif
-
-    @endforeach
-    </ul><ul class="list-unstyled col">
-    <h4>度数</h4>
-    @foreach ($tags as $tag)
-      @if ($tag->tag_type === 2)
-      <li>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="degree_{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
-          <label class="custom-control-label" for="degree_{{ $tag->id }}">{{ $tag->tag_name }}</label>
-        </div>
-      </li>
-      @endif
-    @endforeach
-  </ul>
-    <ul class="list-unstyled col">
-    <h4>ベース</h4>
-    @foreach ($tags as $tag)
-      @if ($tag->tag_type === 3)
-      <li>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="base_{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
-          <label class="custom-control-label" for="base_{{ $tag->id }}">{{ $tag->tag_name }}</label>
-        </div>
-      </li>
-      @endif
-    @endforeach
-</ul>
-</div>
-</div>
-=======
         <ul class="list-unstyled col">
           <h4>カクテルの味</h4>
           @foreach ($tags as $tag)
@@ -180,7 +137,6 @@
         </ul>
       </div>
     </div>
->>>>>>> master
     <div class="offset-sm-2 col-sm-10">
       <button type="submit" class="btn btn-primary">完了</button>
     </div>
