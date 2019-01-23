@@ -49,3 +49,9 @@ Route::delete('/edit/deleteProcedure/{id}',  'EditController@deleteProcedure')
     ->middleware('auth.basic');
 Route::put('/edit/updateProcedure/{id}',  'EditController@updateProcedure')
     ->middleware('auth.basic');
+
+// お気に入り機能ルーティング
+Route::post('/favorite/add', 'FavoriteController@add')
+    ->middleware('auth.basic');
+Route::delete('/favorite/remove', 'FavoriteController@remove')
+    ->middleware('auth.basic');
