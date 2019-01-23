@@ -1,4 +1,3 @@
-<!-- Controllers related to My Page -->
 <?php
 
 namespace App\Http\Controllers;
