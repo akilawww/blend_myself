@@ -1,4 +1,5 @@
 <!-- header -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
 @section('header')
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -19,11 +20,11 @@
   @guest
   <ul>
     <li class="nav-item" style="display: inline-block;">
-      <a class="nav-link text-light" href="{{ route('login') }}">{{ __('ログイン') }}</a>
+      <a class="nav-link text-light" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i>{{ __(' ログイン') }}</a>
     </li>
     <li class="nav-item" style="display: inline-block;">
     @if (Route::has('register'))
-      <a class="nav-link text-light" href="{{ route('register') }}">{{ __('新規登録') }}</a>
+      <a class="nav-link text-light" href="{{ route('register') }}"><i class="fas fa-user-edit"></i>{{ __(' 新規登録') }}</a>
     @endif
     </li>
     @else
