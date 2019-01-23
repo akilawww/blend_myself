@@ -1,7 +1,7 @@
 <!-- Recipe submission form Child -->
 
 @extends('navbar.parent')
-@section('title', '')
+@section('title', 'Recipe details')
 
 @include('navbar.head')
 @include('navbar.header')
@@ -104,7 +104,7 @@
           <label class="custom-control-label" for="taste_{{ $tag->id }}">{{ $tag->tag_name }}</label>
         </div>
       @endif
-    @endforeach 
+    @endforeach
     <h4>度数</h4>
     @foreach ($tags as $tag)
       @if ($tag->tag_type === 2)
@@ -122,7 +122,7 @@
           <label class="custom-control-label" for="base_{{ $tag->id }}">{{ $tag->tag_name }}</label>
         </div>
       @endif
-    @endforeach   
+    @endforeach
     <div class="offset-sm-2 col-sm-10">
       <button type="submit" class="btn btn-primary">完了</button>
     </div>
