@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Recipe;
 use App\RecipeProcedure;
 use App\Materrial;
 use App\Tag_verification;
+use App\Favorite;
 
 class RecipesController extends Controller
 {
@@ -25,12 +27,13 @@ class RecipesController extends Controller
         // レシピに紐づく材料の取得
         $materrials = Materrial::where('recipe_id', '=', $id)
             ->orderBy('id', 'asc')->get();
-        //dd($materrials->toArray());
+        $favorite = Favorite::where('recipe_id', '=', $id)->where('user_id', '=', Auth::id())->get();
         // recipes/showに変数、recipe,recipe_procedures,materrials
         return view('recipes.show')
             ->with('recipe', $recipe)
             ->with('recipe_procedures', $recipe_procedures)
-            ->with('materrials', $materrials);
+            ->with('materrials', $materrials)
+            ->with('favorite', $favorite);
    }
 
    // headerの検索機能
