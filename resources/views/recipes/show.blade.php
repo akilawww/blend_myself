@@ -80,8 +80,9 @@
       {!! nl2br(e($recipe->body)) !!}<br><br>
       <table class="table">
         <tr><th scope="col">材料名</th><th scope="col">度数(%)</th><th scope="col">分量</th><th scope="col">購入</th></tr>
+        
         @foreach ($materrials as $materrial)
-        <tr><td>{{ $materrial->name }}</td><td>{{ empty($materrial->degree) ? '' : $materrial->degree }}</td><td>{{ $materrial->quantity }}</td></tr>
+        <tr><td>{{ $materrial->name }}</td><td>{{ empty($materrial->degree) ? '' : $materrial->degree }}</td><td>{{ $materrial->quantity }}<td><button>購入</button></td></td></tr>
         @endforeach
       </table>
     </div>
