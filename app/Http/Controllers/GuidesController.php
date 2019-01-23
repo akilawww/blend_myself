@@ -1,4 +1,3 @@
-<!-- Controller for footer link -->
 <?php
 
 namespace App\Http\Controllers;
