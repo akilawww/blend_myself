@@ -17,17 +17,26 @@
     <div class="recipetitle">{{ $recipe->title }}</div>
     @if ($recipe->user_id === Auth::id())
       <a href="{{ url('/edit', $recipe->id) }}"><button class="btn float-right">レシピを編集</button></a>
+    @else
+      @if ($favorite->isEmpty())
+        <form method="POST" action="{{ url('/favorite/add') }}">
+          {{ csrf_field() }}
+          <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
+          <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+          <button type="submit" class="btn btn-default hoge">お気に入りに追加</button>
+        </form>
+      @else
+        <form method="POST" action="{{ url('/favorite/remove') }}">
+          {{ csrf_field() }}
+          {{ method_field('DELETE') }}
+          <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
+          <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+          <button type="submit" class="btn btn-default hoge">お気に入りにから外す</button>
+        </form>
+      @endif
     @endif
   </div>
-  <div class="container">
-      <section>
-        <p>
-          <button type="button" class="btn btn-default hoge" data-toggle="popover" data-content="お気に入りリストに追加しました" data-placement="top">
-            お気に入りに追加
-          </button>
-        </p>
-      </section>
-    </div>
+      
   <br>
   <div class="row">
     投稿日：{{ $recipe->created_at->format('Y年m月d日　H時m分') }}　
