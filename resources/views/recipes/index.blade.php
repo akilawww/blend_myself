@@ -1,7 +1,7 @@
 <!-- Recipe overview -->
 @extends('navbar.parent')
 
-@section('title', '')
+@section('title', 'Recipe list')
 
 @include('navbar.head')
 @include('navbar.header')

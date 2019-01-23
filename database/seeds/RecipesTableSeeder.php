@@ -17,7 +17,7 @@ class RecipesTableSeeder extends Seeder
       'title' => 'ジンバック',
       'body' => 'さっぱりしていて美味しい',
       'image' => '/storage/testdata/ジンバック.jpg',
-      'user_id' => 1,
+      'user_id' => 2,
       'created_at' => Carbon::now()->subDays(32),
       'updated_at' => Carbon::now()->subDays(32),
     ]);
