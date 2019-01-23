@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RecipeProceduresTableSeeder::class);
         $this->call(MaterrialsTableSeeder::class);
         $this->call(TagsTableSeeder::class);
+        $this->call(TagVerificationsTableSeeder::class);
 
         Model::reguard(); //再設定
     }
