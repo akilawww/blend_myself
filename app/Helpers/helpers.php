@@ -12,6 +12,7 @@
         return implode('/', $ary);
     }
 
+    // タグの選択に全件Hitしたrecipe_idを抽出
     function tagVerCount($tagVers, $tagCount){
         $result = array();
         foreach ($tagVers as $tagVer1){
