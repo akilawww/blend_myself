@@ -1,4 +1,3 @@
-<!-- Controllers related to editing screens -->
 <?php
 
 namespace App\Http\Controllers;
