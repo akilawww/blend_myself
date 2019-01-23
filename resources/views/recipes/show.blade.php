@@ -12,7 +12,6 @@
 @endsection
 
 @section('content')
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
 <div class="container showmain border rounded" style="padding: 1rem;">
   <div class="row">
@@ -33,15 +32,7 @@
         <table class="table">
           <tr><th scope="col">味</th><td>a</td></tr>
           <tr><th scope="col">度数</th><td>b</td></tr>
-          <tr><th scope="col">ベースのお酒</th>c<td>c</td></tr>
-          
-          <tr><th scope="col">
-              
-              <a href="http://twitter.com/intent/tweet?hashtags=さけばさだー&u&text=test&ULR=">
-                <i class="fab fa-twitter fa-2x"></i></a>
-
-           </th><td></td></tr>
-
+          <tr><th scope="col">ベースのお酒</th><td>c</td></tr>
         </table>
       </div>
     </div>
