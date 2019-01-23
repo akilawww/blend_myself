@@ -1,7 +1,7 @@
 <!-- Recipe submission form Child -->
 
 @extends('navbar.parent')
-@section('title', '')
+@section('title', 'Recipe details')
 
 @include('navbar.head')
 @include('navbar.header')
@@ -109,8 +109,9 @@
         </div>
       </li>
       @endif
+
     @endforeach 
-    <br>
+    </ul><ul class="list-unstyled col">
     <h4>度数</h4>
     @foreach ($tags as $tag)
       @if ($tag->tag_type === 2)

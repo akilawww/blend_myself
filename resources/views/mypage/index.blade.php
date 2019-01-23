@@ -41,6 +41,7 @@
     投稿されたレシピはありません
   @endif
 </div>
+</div>
 @endsection
 
 @include('navbar.footer')
