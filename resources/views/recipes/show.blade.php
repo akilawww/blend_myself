@@ -16,8 +16,28 @@
 <div class="container showmain border rounded" style="padding: 1rem;">
   <div class="row">
     <div class="recipetitle">{{ $recipe->title }}</div>
-    <a href="{{ url('/edit', $recipe->id) }}"><button class="btn float-right">レシピを編集</button></a>
+    @if ($recipe->user_id === Auth::id())
+      <a href="{{ url('/edit', $recipe->id) }}"><button class="btn float-right">レシピを編集</button></a>
+    @else
+      @if ($favorite->isEmpty())
+        <form method="POST" action="{{ url('/favorite/add') }}">
+          {{ csrf_field() }}
+          <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
+          <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+          <button type="submit" class="btn btn-default hoge">お気に入りに追加</button>
+        </form>
+      @else
+        <form method="POST" action="{{ url('/favorite/remove') }}">
+          {{ csrf_field() }}
+          {{ method_field('DELETE') }}
+          <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
+          <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+          <button type="submit" class="btn btn-default hoge">お気に入りにから外す</button>
+        </form>
+      @endif
+    @endif
   </div>
+      
   <br>
   <div class="row">
     投稿日：{{ $recipe->created_at->format('Y年m月d日　H時m分') }}　
@@ -61,3 +81,21 @@
 @endsection
 
 @include('navbar.footer')
+<script>
+    $(document).ready(function(){
+        $(".hoge").click(function(){
+             
+          if($(this).hasClass("disabled")){
+            void(0);
+          }else{
+            $("[data-toggle='popover']").popover('show');
+            setTimeout(function(){
+                 $("[data-toggle='popover']").popover('destroy');
+            },3000);
+            $(this).addClass("disabled");
+            $(this).text("お気に入りに追加済み");
+          }
+             
+        });
+    });
+    </script>
