@@ -15,8 +15,19 @@
 <div class="container showmain border rounded" style="padding: 1rem;">
   <div class="row">
     <div class="recipetitle">{{ $recipe->title }}</div>
-    <a href="{{ url('/edit', $recipe->id) }}"><button class="btn float-right">レシピを編集</button></a>
+    @if ($recipe->user_id === Auth::id())
+      <a href="{{ url('/edit', $recipe->id) }}"><button class="btn float-right">レシピを編集</button></a>
+    @endif
   </div>
+  <div class="container">
+      <section>
+        <p>
+          <button type="button" class="btn btn-default hoge" data-toggle="popover" data-content="お気に入りリストに追加しました" data-placement="top">
+            お気に入りに追加
+          </button>
+        </p>
+      </section>
+    </div>
   <br>
   <div class="row">
     投稿日：{{ $recipe->created_at->format('Y年m月d日　H時m分') }}　
@@ -60,3 +71,21 @@
 @endsection
 
 @include('navbar.footer')
+<script>
+    $(document).ready(function(){
+        $(".hoge").click(function(){
+             
+          if($(this).hasClass("disabled")){
+            void(0);
+          }else{
+            $("[data-toggle='popover']").popover('show');
+            setTimeout(function(){
+                 $("[data-toggle='popover']").popover('destroy');
+            },3000);
+            $(this).addClass("disabled");
+            $(this).text("お気に入りに追加済み");
+          }
+             
+        });
+    });
+    </script>
