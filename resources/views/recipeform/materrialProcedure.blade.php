@@ -1,7 +1,7 @@
 <!-- Recipe submission form Child -->
 
 @extends('navbar.parent')
-@section('title', '')
+@section('title', 'Recipe details')
 
 @include('navbar.head')
 @include('navbar.header')
@@ -109,6 +109,7 @@
         </div>
       </li>
       @endif
+
     @endforeach 
     </ul><ul class="list-unstyled col">
     <h4>度数</h4>
