@@ -1,7 +1,7 @@
 <!-- Recipe submission form parent -->
 
 @extends('navbar.parent')
-@section('title', '')
+@section('title', 'Recipe summary')
 
 @include('navbar.head')
 @include('navbar.header')
