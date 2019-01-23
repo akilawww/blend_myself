@@ -53,3 +53,5 @@ Route::put('/edit/updateProcedure/{id}',  'EditController@updateProcedure')
 // お気に入り機能ルーティング
 Route::post('/favorite/add', 'FavoriteController@add')
     ->middleware('auth.basic');
+Route::delete('/favorite/remove', 'FavoriteController@remove')
+    ->middleware('auth.basic');
