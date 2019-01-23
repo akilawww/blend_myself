@@ -109,8 +109,9 @@
         </div>
       </li>
       @endif
-      @endforeach
-      </ul><ul class="list-unstyled col">
+
+    @endforeach
+    </ul><ul class="list-unstyled col">
     <h4>度数</h4>
     @foreach ($tags as $tag)
       @if ($tag->tag_type === 2)
@@ -135,9 +136,9 @@
       </li>
       @endif
     @endforeach
-  </ul>
-  </div>
-  </div>
+</ul>
+</div>
+</div>
     <div class="offset-sm-2 col-sm-10">
       <button type="submit" class="btn btn-primary">完了</button>
     </div>
