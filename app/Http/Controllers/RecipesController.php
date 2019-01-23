@@ -27,6 +27,7 @@ class RecipesController extends Controller
         // レシピに紐づく材料の取得
         $materrials = Materrial::where('recipe_id', '=', $id)
             ->orderBy('id', 'asc')->get();
+        // ログインユーザーのお気に入り状態を取得
         $favorite = Favorite::where('recipe_id', '=', $id)->where('user_id', '=', Auth::id())->get();
         // recipes/showに変数、recipe,recipe_procedures,materrials
         return view('recipes.show')
@@ -36,8 +37,8 @@ class RecipesController extends Controller
             ->with('favorite', $favorite);
    }
 
-   // headerの検索機能
-   public function search(Request $request){
+    // headerの検索機能
+    public function search(Request $request){
      $search = $request->get('search');
      $query = Recipe::query();
      // 検索するテキストが入力されている場合のみ
@@ -48,20 +49,25 @@ class RecipesController extends Controller
      return view('recipes.index')->with('recipes', $data);
    }
 
-   public function searchTag(Request $request){
+    public function searchTag(Request $request){
     $tagQuery = Tag_verification::query();
     $recipeQuery = Recipe::query();
-    // Todo: 検索Hitした時何も表示しない
+    // Todo: 検索Hit0件の時何も表示しない
     if(!empty($request->get('tags'))){
+        $tagCount = 0;
+        // 選択したタグで、タグ照合テーブルを抽出
         foreach( $request->tags as $tag ){
             $tagQuery->orWhere('tag_id', '=', $tag);
+            $tagCount++;
         }
         $tagVerifications = $tagQuery->get()->toArray();
-        foreach( $tagVerifications as $tagVer){
-            $recipeQuery->orWhere('id', '=', $tagVer['recipe_id']); 
+        // タグの全件Hitしたrecipe_idを抽出
+        $hitRecipeIds = tagVerCount($tagVerifications, $tagCount);
+        foreach( $hitRecipeIds as $hitRecipeId){
+            $recipeQuery->orWhere('id', '=', $hitRecipeId); 
         }
     }
     $data = $recipeQuery->paginate(5);
     return view('recipes.index')->with('recipes', $data);
-   }
+    }
 }
