@@ -57,8 +57,8 @@
   @if (isset($recipe_procedures))
   <div class="container row">
   @foreach ($recipe_procedures as $recipe_procedure)
-  <div class="card" style="width: 12rem;margin: 10px;">
-    <img class="card-img-top" src="{{ asset($recipe_procedure->image) }}" alt="Sample">
+  <div class="card proimg" style="width: 12rem;margin: 10px;">
+    <img class="card-img-top center" src="{{ asset($recipe_procedure->image) }}" alt="Sample" style="object-fit: contain;">
     <div class="card-body">
       <h4 class="card-title">{{ $recipe_procedure->process_num }}</h4>
       <p class="card-text">{{ $recipe_procedure->body }}</p>
@@ -96,33 +96,48 @@
   <form method="POST" action="{{ url('/recipe_form/create/posts') }}">
     {{ csrf_field() }}
     <input type="hidden" name="recipe_id" value="{{ $recipe_id }}">
+    <div class="container">
+      <div class="row">
+    <ul class="list-unstyled col">
     <h4>カクテルの味</h4>
     @foreach ($tags as $tag)
       @if ($tag->tag_type === 1)
+      <li>
         <div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="taste_{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
           <label class="custom-control-label" for="taste_{{ $tag->id }}">{{ $tag->tag_name }}</label>
         </div>
+      </li>
       @endif
     @endforeach 
+    <br>
     <h4>度数</h4>
     @foreach ($tags as $tag)
       @if ($tag->tag_type === 2)
+      <li>
         <div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="degree_{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
           <label class="custom-control-label" for="degree_{{ $tag->id }}">{{ $tag->tag_name }}</label>
         </div>
+      </li>
       @endif
     @endforeach
+  </ul>
+    <ul class="list-unstyled col">
     <h4>ベース</h4>
     @foreach ($tags as $tag)
       @if ($tag->tag_type === 3)
+      <li>
         <div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="base_{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
           <label class="custom-control-label" for="base_{{ $tag->id }}">{{ $tag->tag_name }}</label>
         </div>
+      </li>
       @endif
-    @endforeach   
+    @endforeach
+</ul>
+</div>
+</div>
     <div class="offset-sm-2 col-sm-10">
       <button type="submit" class="btn btn-primary">完了</button>
     </div>
