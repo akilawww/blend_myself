@@ -103,7 +103,7 @@ width:100%;
 }
 
 .showmain{
-    width: 900px;
+    max-width: 890px;
     margin-bottom: 10px;
 }
 
@@ -117,12 +117,10 @@ width:100%;
 }
 
 .proimg > img{
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
 }
 
 .bg-dark{
-	font-size 20%;
 	width: 100%;
 }
-

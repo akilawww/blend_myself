@@ -9,6 +9,8 @@ use App\RecipeProcedure;
 use App\Materrial;
 use App\Tag_verification;
 use App\Favorite;
+use App\Nice;
+use App\Tag;
 
 class RecipesController extends Controller
 {
@@ -29,12 +31,28 @@ class RecipesController extends Controller
             ->orderBy('id', 'asc')->get();
         // ログインユーザーのお気に入り状態を取得
         $favorite = Favorite::where('recipe_id', '=', $id)->where('user_id', '=', Auth::id())->get();
-        // recipes/showに変数、recipe,recipe_procedures,materrials
+        // いいね取得
+        $nice = Nice::where('recipe_id', '=', $id)->where('user_id', '=', Auth::id())->get();
+        $niceCount = Nice::where('recipe_id', '=', $id)->get();
+        // タグ取得
+        $tagVers = Tag_verification::where('recipe_id', '=', $id)->get();
+        $tagQuery = Tag::query();
+        if(!empty($tagVers->toArray())){
+            foreach( $tagVers as $tagVer ){
+                $tagQuery->orWhere('id', '=', $tagVer->tag_id);
+            }
+            $tags = $tagQuery->get();
+        } else {
+            $tags = $tagVer;
+        }
         return view('recipes.show')
             ->with('recipe', $recipe)
             ->with('recipe_procedures', $recipe_procedures)
             ->with('materrials', $materrials)
-            ->with('favorite', $favorite);
+            ->with('favorite', $favorite)
+            ->with('nice', $nice)
+            ->with('niceCount', $niceCount)
+            ->with('tags', $tags);
    }
 
     // headerの検索機能

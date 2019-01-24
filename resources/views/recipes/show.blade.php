@@ -15,9 +15,9 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-<div class="container showmain border rounded" style="padding: 1rem;">
+<div class="container showmain border rounded" style="padding: 2rem;">
   <div class="row">
-    <div class="recipetitle">{{ $recipe->title }}</div>
+    <div class="recipetitle" style="font-size: 50px ; text-align: left">{{ $recipe->title }}</div>
     @if ($recipe->user_id === Auth::id())
       <a href="{{ url('/edit', $recipe->id) }}"><button class="btn float-right">レシピを編集</button></a>
     @else
@@ -34,7 +34,7 @@
           {{ method_field('DELETE') }}
           <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
           <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-          <button type="submit" class="btn btn-default hoge">お気に入りにから外す</button>
+          <button type="submit" class="btn btn-default hoge">お気に入りから外す</button>
         </form>
       @endif
     @endif
@@ -43,7 +43,7 @@
   <br>
   <div class="row">
     投稿日：{{ $recipe->created_at->format('Y年m月d日　H時m分') }}　
-    @if($recipe::select('created_at') == $recipe::select('updated_at'))
+    @if($recipe->created_at < $recipe->updated_at)
       更新日：{{ $recipe->updated_at->format('Y年m月d日　H時m分') }}
     @endif
   </div>
@@ -52,9 +52,22 @@
       <img src="{{ asset($recipe->image) }}" alt="Sample" class="center" style="object-fit: contain;">
       <div class="card-body">
         <table class="table">
-          <tr><th scope="col">味</th><td>a</td></tr>
-          <tr><th scope="col">度数</th><td>b</td></tr>
-          <tr><th scope="col">ベースのお酒</th><td>c</td></tr>
+          @if (!$tags->isEmpty())
+            @foreach ($tags as $tag)
+              @switch($tag->tag_type)
+                  @case(1)
+                    <tr><th scope="col">味</th><td>{{ $tag->tag_name }}</td></tr>
+                    @break
+                  @case(2)
+                    <tr><th scope="col">度数</th><td>{{ $tag->tag_name }}</td></tr>
+                    @break
+                  @case(3)
+                    <tr><th scope="col">ベースのお酒</th><td>{{ $tag->tag_name }}</td></tr>
+                    @break
+                  @default
+              @endswitch
+            @endforeach
+          @endif
         </table>
 
         <table width="220">
@@ -63,7 +76,7 @@
                <a href="javascript:window.open('http://twitter.com/share?text='+encodeURIComponent(document.title)+'&hashtag'+'&url='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"><i class="fab fa-twitter fa-2x"></i></a>
              </th>
              <th >
-                <a href="javascript:window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"><i class="fab fa-facebook fa-2x" style="color: #000088"></i></a>
+                <a href="javascript:window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"><i class="fab fa-facebook fa-2x" style="color: #3B5998"></i></a>
              </th>
              <th >
                 <a href="javascript:window.open('https://plus.google.com/share?url='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"><i class="fab fa-google-plus fa-2x" style="color: #CC3300"></i></a>
@@ -82,17 +95,39 @@
         <tr><th scope="col">材料名</th><th scope="col">度数(%)</th><th scope="col">分量</th><th scope="col">購入</th></tr>
         
         @foreach ($materrials as $materrial)
-        <tr><td>{{ $materrial->name }}</td><td>{{ empty($materrial->degree) ? '' : $materrial->degree }}</td><td>{{ $materrial->quantity }}<td><button>購入</button></td></td></tr>
+        <tr><td>{{ $materrial->name }}</td><td>{{ empty($materrial->degree) ? '' : $materrial->degree }}</td><td>{{ $materrial->quantity }}<td><button class="btn btn-default">購入</button></td></td></tr>
         @endforeach
       </table>
     </div>
   </div>
+  @if ($recipe->user_id === Auth::id())
+    <button class="btn btn-default hoge">いいね</button> 
+  @else
+    @if ($nice->isEmpty())
+      <form method="POST" action="{{ url('/nice/add') }}">
+        {{ csrf_field() }}
+        <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
+        <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+        <button type="submit" class="btn btn-default hoge">いいね</button>
+      </form>
+    @else
+      <form method="POST" action="{{ url('/nice/remove') }}">
+        {{ csrf_field() }}
+        {{ method_field('DELETE') }}
+        <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
+        <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+        <button type="submit" class="btn btn-default hoge">いいね削除</button>
+      </form>
+    @endif
+  @endif
+  {{ count($niceCount) }}
   <div class="container-fulid row">
     @foreach ($recipe_procedures as $recipe_procedure)
     <div class="card proimg" style="width: 12rem;margin: 10px;margin-top: 50px;">
       <img class="card-img-top center" src="{{ asset($recipe_procedure->image) }}" alt="Sample" style="object-fit: contain;">
       <div class="card-body">
         <h4 class="card-title">{{ $recipe_procedure->process_num }}</h4>
+        <hr>
         <p class="card-text">{{ $recipe_procedure->body }}</p>
       </div>
     </div>
