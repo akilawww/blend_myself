@@ -10,7 +10,7 @@
       <span><a href="" class="text-light">ヘルプ</a>　|　</span>
       <span><a href="" class="text-light">お問い合わせ</a></span>
     </ul>
-    <ul>こぴーらいと</ul>
+    <ul>(c)2019 L group of Kobe College of Computing</ul>
   </center>
   </footer>
 @endsection

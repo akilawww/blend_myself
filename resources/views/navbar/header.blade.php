@@ -11,7 +11,7 @@
     <ul class="navbar-nav form-row">
       <form class="form-inline my-2 my-lg-0" action="{{ url('/result') }}">
         <input type="search" name="search" class="form-control mr-sm-2" placeholder="検索..." aria-label="検索...">
-        <button type="submit" class="btn btn-outline-light my-2 my-sm-0">検索</button>
+        <button type="submit" class="btn btn-outline-light my-2 my-sm-0 btn-lg"><i class="fas fa-search"></i></button>
       </form>
     </ul>
   </div><!-- /.navbar-collapse -->
@@ -33,12 +33,12 @@
         {{ Auth::user()->name }} <span class="caret"></span>
       </a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="{{ url('/mypage') }}">マイページ</a>
-        <a class="dropdown-item" href="{{ url('/recipe_form') }}">レシピ作成</a>
+        <a class="dropdown-item" href="{{ url('/mypage') }}"><i class="fas fa-user"></i> マイページ</a>
+        <a class="dropdown-item" href="{{ url('/recipe_form') }}"><i class="fas fa-file-signature"></i> レシピ作成</a>
         <a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
-              ログアウト
+              <i class="fas fa-sign-out-alt"></i> ログアウト
         </a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
           @csrf
