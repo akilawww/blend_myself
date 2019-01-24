@@ -31,14 +31,14 @@
 
         .push,
         .footer{
-                height:150px;
+                height:110px;
                 padding-top: 10px;
                 /*min-width: 800px;*/
         }
 
         .wrapper{
                 min-height: 100%;
-                margin-bottom: -150px;
+                margin-bottom: -110px;
         }
 }
 

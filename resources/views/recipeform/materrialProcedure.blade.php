@@ -96,7 +96,7 @@
     <input type="hidden" name="recipe_id" value="{{ $recipe_id }}">
     <div class="container">
       <div class="row">
-        <ul class="list-unstyled col">
+        <ul class="list-unstyled col-md-3">
           <h4>カクテルの味</h4>
           @foreach ($tags as $tag)
           @if ($tag->tag_type === 1)
@@ -109,7 +109,7 @@
           @endif
           @endforeach
         </ul>
-        <ul class="list-unstyled col">
+        <ul class="list-unstyled col-md-3">
           <h4>度数</h4>
           @foreach ($tags as $tag)
           @if ($tag->tag_type === 2)
@@ -122,11 +122,11 @@
           @endif
           @endforeach
         </ul>
-        <ul class="list-unstyled col">
+        <ul class="list-unstyled col-md-6" style="width: 100%;">
           <h4>ベース</h4>
           @foreach ($tags as $tag)
           @if ($tag->tag_type === 3)
-          <li>
+          <li style="width: 50%;float: left;">
             <div class="custom-control custom-checkbox">
               <input type="radio" class="custom-control-input" id="base_{{ $tag->id }}" name="tag{{ $tag->tag_type }}" value="{{ $tag->id }}">
               <label class="custom-control-label" for="base_{{ $tag->id }}">{{ $tag->tag_name }}</label>
