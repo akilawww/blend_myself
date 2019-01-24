@@ -87,6 +87,27 @@
       </table>
     </div>
   </div>
+  @if ($recipe->user_id === Auth::id())
+    <button class="btn btn-default hoge">いいね</button> 
+  @else
+    @if ($nice->isEmpty())
+      <form method="POST" action="{{ url('/nice/add') }}">
+        {{ csrf_field() }}
+        <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
+        <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+        <button type="submit" class="btn btn-default hoge">いいね</button>
+      </form>
+    @else
+      <form method="POST" action="{{ url('/nice/remove') }}">
+        {{ csrf_field() }}
+        {{ method_field('DELETE') }}
+        <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
+        <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+        <button type="submit" class="btn btn-default hoge">いいね削除</button>
+      </form>
+    @endif
+  @endif
+  {{ count($niceCount) }}
   <div class="container-fulid row">
     @foreach ($recipe_procedures as $recipe_procedure)
     <div class="card proimg" style="width: 12rem;margin: 10px;margin-top: 50px;">
