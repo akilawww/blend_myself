@@ -102,7 +102,7 @@
           @if ($tag->tag_type === 1)
           <li>
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="taste_{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
+              <input type="radio" class="custom-control-input" id="taste_{{ $tag->id }}" name="tag{{ $tag->tag_type }}" value="{{ $tag->id }}">
               <label class="custom-control-label" for="taste_{{ $tag->id }}">{{ $tag->tag_name }}</label>
             </div>
           </li>
@@ -115,7 +115,7 @@
           @if ($tag->tag_type === 2)
           <li>
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="degree_{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
+              <input type="radio" class="custom-control-input" id="degree_{{ $tag->id }}" name="tag{{ $tag->tag_type }}" value="{{ $tag->id }}">
               <label class="custom-control-label" for="degree_{{ $tag->id }}">{{ $tag->tag_name }}</label>
             </div>
           </li>
@@ -128,7 +128,7 @@
           @if ($tag->tag_type === 3)
           <li>
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="base_{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}">
+              <input type="radio" class="custom-control-input" id="base_{{ $tag->id }}" name="tag{{ $tag->tag_type }}" value="{{ $tag->id }}">
               <label class="custom-control-label" for="base_{{ $tag->id }}">{{ $tag->tag_name }}</label>
             </div>
           </li>

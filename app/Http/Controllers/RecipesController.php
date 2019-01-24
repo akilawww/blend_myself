@@ -43,7 +43,7 @@ class RecipesController extends Controller
             }
             $tags = $tagQuery->get();
         } else {
-            $tags = $tagVer;
+            $tags = $tagVers;
         }
         return view('recipes.show')
             ->with('recipe', $recipe)
