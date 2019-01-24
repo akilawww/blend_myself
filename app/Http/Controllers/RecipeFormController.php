@@ -63,13 +63,13 @@ class RecipeFormController extends Controller
 
     // 完了ボタンを押し、タグの登録を行う
     public function create(Request $request){
-        if(!empty($request->get('tags'))){
+        if(!empty($request->get('tag1')) || !empty($request->get('tag2')) || !empty($request->get('tag3')) ){
             // タグが登録されていたら削除
             Tag_verification::where('recipe_id', '=', $request->recipe_id)->delete();
             // タグ登録
-            foreach ($request->tags as $tag){
+            for ( $i = 1 ; $i <= 3 ; $i++){ 
                 $tagVer = new Tag_verification;
-                $tagVer->tag_id = $tag;
+                $tagVer->tag_id = $request->get('tag'.(string)$i);
                 $tagVer->recipe_id = $request->recipe_id;
                 $tagVer->save();
             }
