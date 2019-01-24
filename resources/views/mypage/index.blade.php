@@ -42,7 +42,6 @@
   投稿されたレシピはありません
 @endif
 
-
 <h2>お気に入りレシピ</h2>
   @if (!$favoriteRecipes->isEmpty())
   <div class="container bg-dark rounded" style="padding: 1rem;margin: 1rem;">
@@ -57,7 +56,7 @@
               <div class="col-md-8 p-0 wh-100 right bg-light">
                 <div class="title_f card-title text-dark">
                   {{ $favoriteRecipe->title }}
-                </div>:
+                </div>
                 <p class="card-text card-footer text-dark bg-light">
                   {{ $favoriteRecipe->body }}
                 </p>
