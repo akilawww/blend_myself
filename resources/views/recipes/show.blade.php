@@ -52,9 +52,22 @@
       <img src="{{ asset($recipe->image) }}" alt="Sample" class="center" style="object-fit: contain;">
       <div class="card-body">
         <table class="table">
-          <tr><th scope="col">味</th><td>a</td></tr>
-          <tr><th scope="col">度数</th><td>b</td></tr>
-          <tr><th scope="col">ベースのお酒</th><td>c</td></tr>
+          @if (!$tags->isEmpty())
+            @foreach ($tags as $tag)
+              @switch($tag->tag_type)
+                  @case(1)
+                    <tr><th scope="col">味</th><td>{{ $tag->tag_name }}</td></tr>
+                    @break
+                  @case(2)
+                    <tr><th scope="col">度数</th><td>{{ $tag->tag_name }}</td></tr>
+                    @break
+                  @case(3)
+                    <tr><th scope="col">ベースのお酒</th><td>{{ $tag->tag_name }}</td></tr>
+                    @break
+                  @default
+              @endswitch
+            @endforeach
+          @endif
         </table>
 
         <table width="220">
