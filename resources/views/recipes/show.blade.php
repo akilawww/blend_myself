@@ -15,7 +15,7 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-<div class="container showmain border rounded" style="padding: 1rem;">
+<div class="container showmain border rounded" style="padding: 2rem;">
   <div class="row">
     <div class="recipetitle">{{ $recipe->title }}</div>
     @if ($recipe->user_id === Auth::id())
@@ -63,7 +63,7 @@
                <a href="javascript:window.open('http://twitter.com/share?text='+encodeURIComponent(document.title)+'&hashtag'+'&url='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"><i class="fab fa-twitter fa-2x"></i></a>
              </th>
              <th >
-                <a href="javascript:window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"><i class="fab fa-facebook fa-2x" style="color: #000088"></i></a>
+                <a href="javascript:window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"><i class="fab fa-facebook fa-2x" style="color: #3B5998"></i></a>
              </th>
              <th >
                 <a href="javascript:window.open('https://plus.google.com/share?url='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"><i class="fab fa-google-plus fa-2x" style="color: #CC3300"></i></a>
@@ -82,7 +82,7 @@
         <tr><th scope="col">材料名</th><th scope="col">度数(%)</th><th scope="col">分量</th><th scope="col">購入</th></tr>
         
         @foreach ($materrials as $materrial)
-        <tr><td>{{ $materrial->name }}</td><td>{{ empty($materrial->degree) ? '' : $materrial->degree }}</td><td>{{ $materrial->quantity }}<td><button>購入</button></td></td></tr>
+        <tr><td>{{ $materrial->name }}</td><td>{{ empty($materrial->degree) ? '' : $materrial->degree }}</td><td>{{ $materrial->quantity }}<td><button class="btn btn-default">購入</button></td></td></tr>
         @endforeach
       </table>
     </div>

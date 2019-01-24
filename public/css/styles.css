@@ -103,7 +103,7 @@ width:100%;
 }
 
 .showmain{
-    width: 900px;
+    max-width: 890px;
     margin-bottom: 10px;
 }
 
