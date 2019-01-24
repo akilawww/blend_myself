@@ -52,9 +52,10 @@
             @endforeach 
           </li>
         </ul>
+        <br>
       </div>
       <div class="offset-sm-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">検索</button>
+        <button type="submit" class="btn btn-outline-light">検索</button>
       </div>
     </form>
   </nav>
