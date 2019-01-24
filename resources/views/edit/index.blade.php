@@ -33,7 +33,7 @@
     
       <div class="form-group row">
         <div class="offset-sm-2 col-sm-10">
-          <button type="submit" class="btn btn-primary">保存</button>
+          <button type="submit" class="btn btn-primary"><i class="fas fa-file-medical"></i> 保存</button>
         </div>
       </div>
     </form>
@@ -52,7 +52,7 @@
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                             <button type="submit" class="btn btn-danger">
-                                <i class="fa fa-trash"></i>削除
+                                <i class="fa fa-trash"></i> 削除
                             </button>
                         </form>
                     </td>
@@ -85,7 +85,7 @@
         </div>
         <div class="form-group row">
             <div class="offset-sm-2 col-sm-10">
-            <button type="submit" class="btn btn-primary">保存</button>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-file-medical"></i> 保存</button>
             </div>
         </div> 
     </form>
@@ -117,7 +117,9 @@
                                     <div class="modal-content">
                                     <div class="modal-header">
                                         <label for="image">画像</label>
-                                        <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像"> 
+                                        <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像">
+                                          
+                                        </style>"> 
                                     </div>
                                     <div class="modal-body">
                                         <label for="exampleFormControlTextarea1">説明</label>
@@ -125,7 +127,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                                        <button type="submit" class="btn btn-primary">保存</button>
+                                        <button type="submit" class="btn btn-primary"><i class="fas fa-file-medical"></i> 保存</button>
                                     </div><!-- /.modal-footer -->
                                     </div><!-- /.modal-content -->
                                 </form>
@@ -137,7 +139,7 @@
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                             <button type="submit" class="btn btn-danger">
-                                <i class="fa fa-trash"></i>削除
+                                <i class="fa fa-trash"></i> 削除
                             </button>
                         </form>
                     </div>
@@ -160,14 +162,14 @@
             <label for="image">画像</label>
             <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像">
         </div>
-        <div class="form-group">
+        <div class="form-group col-sm-10">
             <label for="exampleFormControlTextarea1">説明</label>
             <textarea required="required" name="body" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
         
         <div class="form-group row">
             <div class="offset-sm-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">保存</button>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-file-medical"></i> 保存</button>
             </div>
         </div>
     </form>
@@ -220,7 +222,7 @@
   </ul>
 </div></div>
       <div class="offset-sm-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">完了</button>
+        <button type="submit" class="btn btn-primary"><i class="fas fa-check-circle"></i> 完了</button>
       </div>
     </form>
  

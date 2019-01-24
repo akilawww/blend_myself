@@ -55,3 +55,9 @@ Route::post('/favorite/add', 'FavoriteController@add')
     ->middleware('auth.basic');
 Route::delete('/favorite/remove', 'FavoriteController@remove')
     ->middleware('auth.basic');
+
+// いいね機能ルーティング
+Route::post('/nice/add', 'NiceController@add')
+    ->middleware('auth.basic');
+Route::delete('/nice/remove', 'NiceController@remove')
+    ->middleware('auth.basic');
