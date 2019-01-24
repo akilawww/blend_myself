@@ -100,6 +100,7 @@
       </table>
     </div>
   </div>
+  <br>
   @if ($recipe->user_id === Auth::id())
     <button class="btn btn-default hoge">いいね</button> 
   @else
