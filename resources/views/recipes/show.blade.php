@@ -17,7 +17,7 @@
 
 <div class="container showmain border rounded" style="padding: 2rem;">
   <div class="row">
-    <div class="recipetitle">{{ $recipe->title }}</div>
+    <div class="recipetitle" style="font-size: 50px ; text-align: left">{{ $recipe->title }}</div>
     @if ($recipe->user_id === Auth::id())
       <a href="{{ url('/edit', $recipe->id) }}"><button class="btn float-right">レシピを編集</button></a>
     @else
