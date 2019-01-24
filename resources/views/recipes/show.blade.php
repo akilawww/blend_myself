@@ -34,7 +34,7 @@
           {{ method_field('DELETE') }}
           <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
           <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-          <button type="submit" class="btn btn-default hoge">お気に入りにから外す</button>
+          <button type="submit" class="btn btn-default hoge">お気に入りから外す</button>
         </form>
       @endif
     @endif
@@ -43,7 +43,7 @@
   <br>
   <div class="row">
     投稿日：{{ $recipe->created_at->format('Y年m月d日　H時m分') }}　
-    @if($recipe::select('created_at') == $recipe::select('updated_at'))
+    @if($recipe->created_at < $recipe->updated_at)
       更新日：{{ $recipe->updated_at->format('Y年m月d日　H時m分') }}
     @endif
   </div>
@@ -93,6 +93,7 @@
       <img class="card-img-top center" src="{{ asset($recipe_procedure->image) }}" alt="Sample" style="object-fit: contain;">
       <div class="card-body">
         <h4 class="card-title">{{ $recipe_procedure->process_num }}</h4>
+        <hr>
         <p class="card-text">{{ $recipe_procedure->body }}</p>
       </div>
     </div>
