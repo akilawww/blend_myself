@@ -50,15 +50,15 @@
       <div class="container-fluid">
         <a href="{{ url('/recipes', $favoriteRecipe->id) }}">
           <div class="card-horizon">
-            <div class="row card-horizon-con">
-              <div class="col-md-4 col-4 p-0 wh-100 left bg-secondary">
-                <img src="{{ asset($favoriteRecipe->image) }}" alt="Sample">
+            <div class="row card-horizon-con bg-light">
+              <div class="col-md-3 col-3 p-0 wh-100 left">
+                <img src="{{ asset($favoriteRecipe->image) }}" class="img-thumbnail" alt="Sample" style="object-fit: contain;">
               </div>
-              <div class="col-md-8 p-0 wh-100 right bg-secondary">
-                <h5 class="card-title text-white">
+              <div class="col-md-8 p-0 wh-100 right bg-light">
+                <div class="title_f card-title text-dark">
                   {{ $favoriteRecipe->title }}
-                </h5>
-                <p class="card-text text-white">
+                </div>:
+                <p class="card-text card-footer text-dark bg-light">
                   {{ $favoriteRecipe->body }}
                 </p>
               </div>
