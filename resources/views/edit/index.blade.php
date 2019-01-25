@@ -24,7 +24,7 @@
           <label for="exampleFormControlTextarea1">概要</label>
       <textarea required="required" name="body" class="form-control" id="exampleFormControlTextarea1" rows="3" >{{ $recipe->body }}</textarea>
       </div>
-      <div class="form-group">
+      <div class="form-group left">
           <label for="image">画像</label>
           <img src="{{ asset($recipe->image) }}" alt="Sample" class="center">
           <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像">
