@@ -27,7 +27,7 @@
           <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
           <input type="hidden" name="user_id" value="{{ Auth::id() }}">
           <button type="submit" class="btn btn-default hoge">
-            <i class="far fa-bookmark"></i> お気に入りに追加</button>
+            <i class="fas fa-bookmark"></i> お気に入りに追加</button>
         </form>
       @else
         <form method="POST" action="{{ url('/favorite/remove') }}">
@@ -35,8 +35,7 @@
           {{ method_field('DELETE') }}
           <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
           <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-          <button type="submit" class="btn btn-default hoge">
-              <i class="fas fa-bookmark"></i> お気に入りから外す</button>
+          <button type="submit" class="btn btn-default hoge">お気に入りから外す</button>
         </form>
       @endif
     @endif
