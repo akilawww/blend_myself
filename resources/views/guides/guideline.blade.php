@@ -6,8 +6,8 @@
 @include('navbar.header')
 
 @section('content')
-<div class="container">
-	<center><div style="width:53em" align="left">
+<div class="container-fluid">
+	<center><div align="left">
 		<center><p><h1><u>さけばさだーのガイドライン</u></h1></p></center>
 		<br>
 		「家でバーのようなカクテルが飲みたい」 そんな思いからさけばさだーは生まれました。<br>

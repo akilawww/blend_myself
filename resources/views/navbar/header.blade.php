@@ -10,7 +10,7 @@
   <div class="collapse navbar-collapse justify-content-center" id="Navber">
     <ul class="navbar-nav form-row">
       <form class="form-inline my-2 my-lg-0" action="{{ url('/result') }}">
-        <input type="search" name="search" class="form-control mr-sm-2" placeholder="検索..." aria-label="検索...">
+        <input type="search" name="search" autocomplete="off" results="" class="form-control mr-sm-2"  placeholder="検索..." aria-label="検索...">
         <button type="submit" class="btn btn-outline-light my-2 my-sm-0 btn-lg"><i class="fas fa-search"></i></button>
       </form>
     </ul>
