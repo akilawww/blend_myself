@@ -5,16 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 class GuidesController extends Controller{
-	// Transition to guideline
+	// ガイドライン
 	public function guideline(){
 		return view('guides.guideline');
 	}
-	// Transition to privacy policy
+	// プライバシーポリシー
 	public function privacypolicy(){
 		return view('guides.privacypolicy');
 	}
-	// DTransition to serviceterms
+	// 利用規約
 	public function serviceterms(){
 		return view('guides.serviceterms');
+	}
+	// お問い合わせ
+	public function contact(){
+		return view('guides.contact');
 	}
 }
