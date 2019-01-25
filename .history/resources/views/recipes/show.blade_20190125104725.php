@@ -17,17 +17,16 @@
 
 <div class="container showmain border rounded" style="padding: 2rem;">
   <div class="row">
-    <div class="recipetitle text-left" style="border-bottom: solid 2px orange"><h1>{{ $recipe->title }}<h1></div>
+    <div class="recipetitle" style="font-size: 50px ; text-align: left">{{ $recipe->title }}</div>
     @if ($recipe->user_id === Auth::id())
-      <a href="{{ url('/edit', $recipe->id) }}"><button class="btn float-right"><i class="fas fa-pen-alt"></i> レシピを編集</button></a>
+      <a href="{{ url('/edit', $recipe->id) }}"><button class="btn float-right">レシピを編集</button></a>
     @else
       @if ($favorite->isEmpty())
         <form method="POST" action="{{ url('/favorite/add') }}">
           {{ csrf_field() }}
           <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
           <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-          <button type="submit" class="btn btn-default hoge">
-            <i class="far fa-bookmark"></i> お気に入りに追加</button>
+          <button type="submit" class="btn btn-default hoge">お気に入りに追加</button>
         </form>
       @else
         <form method="POST" action="{{ url('/favorite/remove') }}">
@@ -35,8 +34,7 @@
           {{ method_field('DELETE') }}
           <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
           <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-          <button type="submit" class="btn btn-default hoge">
-              <i class="fas fa-bookmark"></i> お気に入りから外す</button>
+          <button type="submit" class="btn btn-default hoge">お気に入りから外す</button>
         </form>
       @endif
     @endif
@@ -75,6 +73,41 @@
         <table width="220">
           <tr align="center">
             <th>
+                @if ($recipe->user_id === Auth::id())
+                <button class="btn btn-default hoge">いいね</button> 
+              @else
+                @if ($nice->isEmpty())
+                  <form method="POST" action="{{ url('/nice/add') }}">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
+                    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                    <button type="submit" class="btn btn-default hoge">いいね</button>
+                  </form>
+                @else
+                  <form method="POST" action="{{ url('/nice/remove') }}">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                    <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
+                    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                    <button type="submit" class="btn btn-default hoge">いいね削除</button>
+                  </form>
+                @endif
+              @endif
+              {{ count($niceCount) }}
+              <div class="container-fulid row">
+                @foreach ($recipe_procedures as $recipe_procedure)
+                <div class="card proimg" style="width: 12rem;margin: 10px;margin-top: 50px;">
+                  <img class="card-img-top center" src="{{ asset($recipe_procedure->image) }}" alt="Sample" style="object-fit: contain;">
+                  <div class="card-body">
+                    <h4 class="card-title">{{ $recipe_procedure->process_num }}</h4>
+                    <hr>
+                    <p class="card-text">{{ $recipe_procedure->body }}</p>
+                  </div>
+                </div>
+                @endforeach
+              </div>
+            </th>
+            <th>
                <a href="javascript:window.open('http://twitter.com/share?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"><i class="fab fa-twitter fa-2x"></i></a>
              </th>
              <th >
@@ -92,58 +125,18 @@
       </div>
     </div>
     <div class="showbody">
-      <div style="padding-left: 10px"><b>概要</b></div>
+      {!! nl2br(e($recipe->body)) !!}<br><br>
       <table class="table">
-        <tr><td>{!! nl2br(e($recipe->body)) !!}<br><br></td></tr>
-      
         <tr><th scope="col">材料名</th><th scope="col">度数(%)</th><th scope="col">分量</th><th scope="col">購入</th></tr>
         
         @foreach ($materrials as $materrial)
-        <tr><td>{{ $materrial->name }}</td><td>{{ empty($materrial->degree) ? '' : $materrial->degree }}</td><td>{{ $materrial->quantity }}
-          <td><button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> 購入</button></td></td></tr>
+        <tr><td>{{ $materrial->name }}</td><td>{{ empty($materrial->degree) ? '' : $materrial->degree }}</td><td>{{ $materrial->quantity }}<td><button class="btn btn-default">購入</button></td></td></tr>
         @endforeach
       </table>
     </div>
   </div>
   <br>
-  @if ($recipe->user_id === Auth::id())
-    <button class="btn btn-default hoge"><i class="far fa-thumbs-up"></i> いいね</button> 
-  @else
-    @if ($nice->isEmpty())
-    <div style="display:inline-flex">
-      <form method="POST" action="{{ url('/nice/add') }}" >
-        {{ csrf_field() }}
-        <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
-        <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-        <button type="submit" class="btn btn-defalt hoge"　style="background:white ; color:red ; border-color: red">
-          <i class="far fa-thumbs-up"></i> いいね</button>
-      </form>
-    @else
-      <form method="POST" action="{{ url('/nice/remove') }}">
-        {{ csrf_field() }}
-        {{ method_field('DELETE') }}
-        <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
-        <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-        <button type="submit" class="btn btn-danger hoge">
-          <i class="fas fa-thumbs-up"></i> いいね</button>
-      </form>
-    @endif
-  @endif
-    <div style="padding-left:50px ; padding-top:5">
-      <u>{{ count($niceCount) }}件</u></div>
-  </div>
-  <div class="container-fulid row">
-    @foreach ($recipe_procedures as $recipe_procedure)
-    <div class="card proimg" style="width: 12rem;margin: 10px;margin-top: 50px;">
-      <img class="card-img-top center" src="{{ asset($recipe_procedure->image) }}" alt="Sample" style="object-fit: contain;">
-      <div class="card-body">
-        <h4 class="card-title">{{ $recipe_procedure->process_num }}</h4>
-        <hr>
-        <p class="card-text">{{ $recipe_procedure->body }}</p>
-      </div>
-    </div>
-    @endforeach
-  </div>
+  
 </div>
 @endsection
 

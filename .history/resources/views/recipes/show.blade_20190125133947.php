@@ -26,8 +26,7 @@
           {{ csrf_field() }}
           <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
           <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-          <button type="submit" class="btn btn-default hoge">
-            <i class="far fa-bookmark"></i> お気に入りに追加</button>
+          <button type="submit" class="btn btn-default hoge">お気に入りに追加</button>
         </form>
       @else
         <form method="POST" action="{{ url('/favorite/remove') }}">
@@ -35,8 +34,7 @@
           {{ method_field('DELETE') }}
           <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
           <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-          <button type="submit" class="btn btn-default hoge">
-              <i class="fas fa-bookmark"></i> お気に入りから外す</button>
+          <button type="submit" class="btn btn-default hoge">お気に入りから外す</button>
         </form>
       @endif
     @endif
@@ -119,6 +117,7 @@
           <i class="far fa-thumbs-up"></i> いいね</button>
       </form>
     @else
+    <div style="display:inline-flex">
       <form method="POST" action="{{ url('/nice/remove') }}">
         {{ csrf_field() }}
         {{ method_field('DELETE') }}
@@ -127,6 +126,7 @@
         <button type="submit" class="btn btn-danger hoge">
           <i class="fas fa-thumbs-up"></i> いいね</button>
       </form>
+    </div>
     @endif
   @endif
     <div style="padding-left:50px ; padding-top:5">
