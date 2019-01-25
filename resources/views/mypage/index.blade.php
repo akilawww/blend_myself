@@ -41,7 +41,7 @@
 @else
   投稿されたレシピはありません
 @endif
-
+<hr>
 <h2>お気に入りレシピ</h2>
   @if (!$favoriteRecipes->isEmpty())
   <div class="container bg-dark rounded" style="padding: 1rem;margin: 1rem;">
