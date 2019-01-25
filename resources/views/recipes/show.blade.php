@@ -106,11 +106,11 @@
     </div>
   </div>
   <br>
+<div style="display:inline-flex">
   @if ($recipe->user_id === Auth::id())
-    <button class="btn btn-default hoge"><i class="far fa-thumbs-up"></i> いいね</button> 
+    <i class="far fa-thumbs-up"></i> いいね
   @else
     @if ($nice->isEmpty())
-    <div style="display:inline-flex">
       <form method="POST" action="{{ url('/nice/add') }}" >
         {{ csrf_field() }}
         <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
