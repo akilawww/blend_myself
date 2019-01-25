@@ -6,8 +6,8 @@
 @include('navbar.header')
 
 @section('content')
-<div class="container">
-	<center><div style="width:53em" align="left">
+<div class="container-fluid">
+	<center><div align="left">
 		<center><p><h1><u>サービスプライバシーポリシー</u></h1></p></center>
 		<br>
 		さけばさだー運営(以下「当方」といいます。)は、当方が運営するサービス(以下「本サービス」といいます。)を提供するにあたり、個人情報保護に関する法規範を遵守し、以下のプライバシーポリシー(以下「本ポリシー」といいます。)に従って個人情報の適切な取得、利用、提供等を行います。なお当方は、本ポリシーとは別に、個別サービス毎のプライバシーポリシー(以下総称して「個別サービスポリシー」といいます。)を定める場合があります。
