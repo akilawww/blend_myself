@@ -26,8 +26,7 @@
           {{ csrf_field() }}
           <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
           <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-          <button type="submit" class="btn btn-default hoge">
-            <i class="far fa-bookmark"></i> お気に入りに追加</button>
+          <button type="submit" class="btn btn-default hoge">お気に入りに追加</button>
         </form>
       @else
         <form method="POST" action="{{ url('/favorite/remove') }}">
@@ -35,8 +34,7 @@
           {{ method_field('DELETE') }}
           <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
           <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-          <button type="submit" class="btn btn-default hoge">
-              <i class="fas fa-bookmark"></i> お気に入りから外す</button>
+          <button type="submit" class="btn btn-default hoge">お気に入りから外す</button>
         </form>
       @endif
     @endif
@@ -110,12 +108,12 @@
     <button class="btn btn-default hoge"><i class="far fa-thumbs-up"></i> いいね</button> 
   @else
     @if ($nice->isEmpty())
-    <div style="display:inline-flex">
+      <div style="display:inline-flex">
       <form method="POST" action="{{ url('/nice/add') }}" >
         {{ csrf_field() }}
         <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
         <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-        <button type="submit" class="btn btn-defalt hoge"　style="background:white ; color:red ; border-color: red">
+        <button type="submit" class="btn btn-danger hoge">
           <i class="far fa-thumbs-up"></i> いいね</button>
       </form>
     @else
@@ -124,13 +122,12 @@
         {{ method_field('DELETE') }}
         <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
         <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-        <button type="submit" class="btn btn-danger hoge">
-          <i class="fas fa-thumbs-up"></i> いいね</button>
+        <button type="submit" class="btn btn-defalt hoge" style="background:white ; color:red ; border-color: red">
+          <i class="fas fa-thumbs-up"></i> 取り消し</button>
       </form>
     @endif
   @endif
-    <div style="padding-left:50px ; padding-top:5">
-      <u>{{ count($niceCount) }}件</u></div>
+    <div style="padding-left:50px ; padding-top:1px">{{ count($niceCount) }}件</div>
   </div>
   <div class="container-fulid row">
     @foreach ($recipe_procedures as $recipe_procedure)
