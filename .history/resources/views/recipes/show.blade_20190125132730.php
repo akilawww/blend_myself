@@ -21,33 +21,12 @@
     @if ($recipe->user_id === Auth::id())
       <a href="{{ url('/edit', $recipe->id) }}"><button class="btn float-right"><i class="fas fa-pen-alt"></i> レシピを編集</button></a>
     @else
-      <!-- フォロー表示 -->
-      <a href="{{ url('/userpage', $recipeUser->id ) }}">{{ $recipeUser->name }}</a>
-      @if ($follow->isEmpty())
-        <form method="POST" action="{{ url('/follow/add') }}">
-          {{ csrf_field() }}
-          <input type="hidden" name="follower_id" value="{{ Auth::id() }}">
-          <input type="hidden" name="follow_id" value="{{ $recipeUser->id }}">
-          <button type="submit" class="btn btn-default hoge">フォロー</button>
-        </form>
-      @else
-        <form method="POST" action="{{ url('/follow/remove') }}">
-          {{ csrf_field() }}
-          {{ method_field('DELETE') }}
-          <input type="hidden" name="follower_id" value="{{ Auth::id() }}">
-          <input type="hidden" name="follow_id" value="{{ $recipeUser->id }}">
-          <button type="submit" class="btn btn-default hoge">アンフォロー</button>
-        </form>
-      @endif
-      <!-- お気に入り -->
-
       @if ($favorite->isEmpty())
         <form method="POST" action="{{ url('/favorite/add') }}">
           {{ csrf_field() }}
           <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
           <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-          <button type="submit" class="btn btn-default hoge">
-            <i class="far fa-bookmark"></i> お気に入りに追加</button>
+          <button type="submit" class="btn btn-default hoge">お気に入りに追加</button>
         </form>
       @else
         <form method="POST" action="{{ url('/favorite/remove') }}">
@@ -55,8 +34,7 @@
           {{ method_field('DELETE') }}
           <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
           <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-          <button type="submit" class="btn btn-default hoge">
-              <i class="fas fa-bookmark"></i> お気に入りから外す</button>
+          <button type="submit" class="btn btn-default hoge">お気に入りから外す</button>
         </form>
       @endif
     @endif
@@ -126,16 +104,16 @@
     </div>
   </div>
   <br>
-<div style="display:inline-flex">
   @if ($recipe->user_id === Auth::id())
-    <i class="far fa-thumbs-up"></i> いいね
+    <button class="btn btn-default hoge"><i class="far fa-thumbs-up"></i> いいね</button> 
   @else
     @if ($nice->isEmpty())
+      <div style="display:inline-flex">
       <form method="POST" action="{{ url('/nice/add') }}" >
         {{ csrf_field() }}
         <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
         <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-        <button type="submit" class="btn btn-defalt hoge"　style="background:white ; color:red ; border-color: red">
+        <button type="submit" class="btn btn-danger hoge">
           <i class="far fa-thumbs-up"></i> いいね</button>
       </form>
     @else
@@ -144,12 +122,12 @@
         {{ method_field('DELETE') }}
         <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
         <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-        <button type="submit" class="btn btn-danger hoge">
-          <i class="fas fa-thumbs-up"></i> いいね</button>
+        <button type="submit" class="btn btn-defalt hoge" style="background:white ; color:red ; border-color: red">
+          <i class="fas fa-thumbs-up"></i> 取り消し</button>
       </form>
     @endif
   @endif
-    <div style="padding-left:50px ; padding-top:5">
+    <div style="padding-left:50px ; padding-top:8px">
       <u>{{ count($niceCount) }}件</u></div>
   </div>
   <div class="container-fulid row">

@@ -19,35 +19,14 @@
   <div class="row">
     <div class="recipetitle text-left" style="border-bottom: solid 2px orange"><h1>{{ $recipe->title }}<h1></div>
     @if ($recipe->user_id === Auth::id())
-      <a href="{{ url('/edit', $recipe->id) }}"><button class="btn float-right"><i class="fas fa-pen-alt"></i> レシピを編集</button></a>
+      <a href="{{ url('/edit', $recipe->id) }}"><button class="btn float-right">レシピを編集</button></a>
     @else
-      <!-- フォロー表示 -->
-      <a href="{{ url('/userpage', $recipeUser->id ) }}">{{ $recipeUser->name }}</a>
-      @if ($follow->isEmpty())
-        <form method="POST" action="{{ url('/follow/add') }}">
-          {{ csrf_field() }}
-          <input type="hidden" name="follower_id" value="{{ Auth::id() }}">
-          <input type="hidden" name="follow_id" value="{{ $recipeUser->id }}">
-          <button type="submit" class="btn btn-default hoge">フォロー</button>
-        </form>
-      @else
-        <form method="POST" action="{{ url('/follow/remove') }}">
-          {{ csrf_field() }}
-          {{ method_field('DELETE') }}
-          <input type="hidden" name="follower_id" value="{{ Auth::id() }}">
-          <input type="hidden" name="follow_id" value="{{ $recipeUser->id }}">
-          <button type="submit" class="btn btn-default hoge">アンフォロー</button>
-        </form>
-      @endif
-      <!-- お気に入り -->
-
       @if ($favorite->isEmpty())
         <form method="POST" action="{{ url('/favorite/add') }}">
           {{ csrf_field() }}
           <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
           <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-          <button type="submit" class="btn btn-default hoge">
-            <i class="far fa-bookmark"></i> お気に入りに追加</button>
+          <button type="submit" class="btn btn-default hoge">お気に入りに追加</button>
         </form>
       @else
         <form method="POST" action="{{ url('/favorite/remove') }}">
@@ -55,8 +34,7 @@
           {{ method_field('DELETE') }}
           <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
           <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-          <button type="submit" class="btn btn-default hoge">
-              <i class="fas fa-bookmark"></i> お気に入りから外す</button>
+          <button type="submit" class="btn btn-default hoge">お気に入りから外す</button>
         </form>
       @endif
     @endif
@@ -112,8 +90,8 @@
       </div>
     </div>
     <div class="showbody">
-      <div style="padding-left: 10px"><b>概要</b></div>
       <table class="table">
+        <th>概要</th>
         <tr><td>{!! nl2br(e($recipe->body)) !!}<br><br></td></tr>
       
         <tr><th scope="col">材料名</th><th scope="col">度数(%)</th><th scope="col">分量</th><th scope="col">購入</th></tr>
@@ -126,17 +104,15 @@
     </div>
   </div>
   <br>
-<div style="display:inline-flex">
   @if ($recipe->user_id === Auth::id())
-    <i class="far fa-thumbs-up"></i> いいね
+    <button class="btn btn-default hoge">いいね</button> 
   @else
     @if ($nice->isEmpty())
-      <form method="POST" action="{{ url('/nice/add') }}" >
+      <form method="POST" action="{{ url('/nice/add') }}">
         {{ csrf_field() }}
         <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
         <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-        <button type="submit" class="btn btn-defalt hoge"　style="background:white ; color:red ; border-color: red">
-          <i class="far fa-thumbs-up"></i> いいね</button>
+        <button type="submit" class="btn btn-default hoge">いいね</button>
       </form>
     @else
       <form method="POST" action="{{ url('/nice/remove') }}">
@@ -144,14 +120,11 @@
         {{ method_field('DELETE') }}
         <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
         <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-        <button type="submit" class="btn btn-danger hoge">
-          <i class="fas fa-thumbs-up"></i> いいね</button>
+        <button type="submit" class="btn btn-default hoge">いいね削除</button>
       </form>
     @endif
   @endif
-    <div style="padding-left:50px ; padding-top:5">
-      <u>{{ count($niceCount) }}件</u></div>
-  </div>
+  {{ count($niceCount) }}
   <div class="container-fulid row">
     @foreach ($recipe_procedures as $recipe_procedure)
     <div class="card proimg" style="width: 12rem;margin: 10px;margin-top: 50px;">

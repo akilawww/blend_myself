@@ -165,15 +165,15 @@ class RecipeProceduresTableSeeder extends Seeder
     App\RecipeProcedure::create([
       'process_num' => 1,
       'body' => '氷を入れたグラスを用意する',
-      'image' => '/storage/testdata/not.jpg',
+      'image' => '/storage/testdata/グラス.jpg',
       'recipe_id' => 6,
       'created_at' => Carbon::now()->subDays(32),
       'updated_at' => Carbon::now(),
     ]);
     App\RecipeProcedure::create([
-      'process_num' => 1,
+      'process_num' => 2,
       'body' => 'カルーアとミルクを入れる',
-      'image' => '/storage/testdata/not.jpg',
+      'image' => '/storage/testdata/カルーアミルク.jpg',
       'recipe_id' => 6,
       'created_at' => Carbon::now()->subDays(32),
       'updated_at' => Carbon::now(),

@@ -61,7 +61,7 @@ class RecipesTableSeeder extends Seeder
     App\Recipe::create([
       'title' => 'カルーアミルク',
       'body' => 'コーヒーミルクのようなカクテル',
-      'image' => '/storage/testdata/not.jpg',
+      'image' => '/storage/testdata/カルーアミルク.jpg',
       'user_id' => 1,
       'created_at' => Carbon::now()->subDays(32),
       'updated_at' => Carbon::now(),
