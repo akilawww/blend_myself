@@ -20,4 +20,4 @@
 </center>
 @endsection
 
-@include('navbar.footer')
+@include('navbar.footer') 
