@@ -14,8 +14,8 @@ class FollowsController extends Controller
     }
 
     public function remove(FollowsRequest $request){
-        Follow::where('user_id', '=', $request->user_id)
-            ->where('recipe_id', '=', $request->recipe_id)
+        Follow::where('follow_id', '=', $request->follow_id)
+            ->where('follower_id', '=', $request->follower_id)
             ->delete();
         return back();
     }
