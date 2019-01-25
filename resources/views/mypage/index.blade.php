@@ -72,7 +72,21 @@
     投稿されたレシピはありません
   @endif
 
-
+  <h2>フォローユーザー</h2>
+  @if (!$followUsers->isEmpty())
+  <div class="container bg-dark rounded" style="padding: 1rem;margin: 1rem;">
+    @foreach ($followUsers as $followUser)
+      <div class="container-fluid">
+        <a href="{{ url('/userpage', $followUser->id) }}">
+          {{ $followUser->name }}
+        </a>
+      </div>
+      <br>
+    @endforeach
+    </div>
+  @else
+    フォローしたユーザーはありません
+  @endif
 @endsection
 
 @include('navbar.footer')
