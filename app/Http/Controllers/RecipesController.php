@@ -11,6 +11,8 @@ use App\Tag_verification;
 use App\Favorite;
 use App\Nice;
 use App\Tag;
+use App\User;
+use App\Follow;
 
 class RecipesController extends Controller
 {
@@ -23,6 +25,7 @@ class RecipesController extends Controller
 
     public function show($id){
         $recipe = Recipe::findOrFail($id);
+        $recipeUser = User::findOrFail($recipe->user_id);
         // レシピに紐づくレシピ手順の取得
         $recipe_procedures = RecipeProcedure::where('recipe_id', '=', $id)
             ->orderBy('process_num', 'asc')->get();
@@ -34,6 +37,9 @@ class RecipesController extends Controller
         // いいね取得
         $nice = Nice::where('recipe_id', '=', $id)->where('user_id', '=', Auth::id())->get();
         $niceCount = Nice::where('recipe_id', '=', $id)->get();
+        // フォロー状態取得
+        $follow = Follow::where('follow_id', '=', $recipeUser->id)
+            ->where('follower_id', '=', Auth::id())->get();
         // タグ取得
         $tagVers = Tag_verification::where('recipe_id', '=', $id)->get();
         $tagQuery = Tag::query();
@@ -52,7 +58,9 @@ class RecipesController extends Controller
             ->with('favorite', $favorite)
             ->with('nice', $nice)
             ->with('niceCount', $niceCount)
-            ->with('tags', $tags);
+            ->with('tags', $tags)
+            ->with('recipeUser', $recipeUser)
+            ->with('follow', $follow);
    }
 
     // headerの検索機能
