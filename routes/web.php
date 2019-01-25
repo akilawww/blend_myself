@@ -61,3 +61,12 @@ Route::post('/nice/add', 'NiceController@add')
     ->middleware('auth.basic');
 Route::delete('/nice/remove', 'NiceController@remove')
     ->middleware('auth.basic');
+
+// フォロー機能ルーティング
+Route::post('/follow/add', 'FollowsController@add')
+    ->middleware('auth.basic');
+Route::delete('/follow/remove', 'FollowsController@remove')
+    ->middleware('auth.basic');
+
+// ユーザーページのルーティング
+Route::get('/userpage/{id}', 'UserPageController@index');

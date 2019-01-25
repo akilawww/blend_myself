@@ -21,6 +21,26 @@
     @if ($recipe->user_id === Auth::id())
       <a href="{{ url('/edit', $recipe->id) }}"><button class="btn float-right"><i class="fas fa-pen-alt"></i> レシピを編集</button></a>
     @else
+      <!-- フォロー表示 -->
+      <a href="{{ url('/userpage', $recipeUser->id ) }}">{{ $recipeUser->name }}</a>
+      @if ($follow->isEmpty())
+        <form method="POST" action="{{ url('/follow/add') }}">
+          {{ csrf_field() }}
+          <input type="hidden" name="follower_id" value="{{ Auth::id() }}">
+          <input type="hidden" name="follow_id" value="{{ $recipeUser->id }}">
+          <button type="submit" class="btn btn-default hoge">フォロー</button>
+        </form>
+      @else
+        <form method="POST" action="{{ url('/follow/remove') }}">
+          {{ csrf_field() }}
+          {{ method_field('DELETE') }}
+          <input type="hidden" name="follower_id" value="{{ Auth::id() }}">
+          <input type="hidden" name="follow_id" value="{{ $recipeUser->id }}">
+          <button type="submit" class="btn btn-default hoge">アンフォロー</button>
+        </form>
+      @endif
+      <!-- お気に入り -->
+
       @if ($favorite->isEmpty())
         <form method="POST" action="{{ url('/favorite/add') }}">
           {{ csrf_field() }}
