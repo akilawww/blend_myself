@@ -26,7 +26,7 @@
           {{ csrf_field() }}
           <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
           <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-          <button type="submit" class="btn btn-default hoge" style="background:white ; color:royalblue ; border-color: royalblue">
+          <button type="submit" class="btn btn-default hoge" style="background:white ; color:red ; border-color: blue">
             <i class="far fa-bookmark"></i> お気に入りに追加</button>
         </form>
       @else
@@ -44,9 +44,9 @@
       
   <br>
   <div class="row text-muted" style="font-size: 15px ; font-family: Courier">
-    投稿日：{{ $recipe->created_at->format('Y年m月d日 H時m分') }}　
+    投稿日：{{ $recipe->created_at->format('Y年m月d日　H時m分') }}　
     @if($recipe->created_at < $recipe->updated_at)
-      更新日：{{ $recipe->updated_at->format('Y年m月d日 H時m分') }}
+      更新日：{{ $recipe->updated_at->format('Y年m月d日　H時m分') }}
     @endif
   </div>
   <div class="row">
@@ -132,7 +132,6 @@
     <div style="padding-left:50px ; padding-top:5">
       <u>{{ count($niceCount) }}件</u></div>
   </div>
-  <div><br><h3><i class="fas fa-angle-right" style="color:orange">
   <div class="container-fulid row">
     @foreach ($recipe_procedures as $recipe_procedure)
     <div class="card proimg" style="width: 12rem;margin: 10px;margin-top: 50px;">

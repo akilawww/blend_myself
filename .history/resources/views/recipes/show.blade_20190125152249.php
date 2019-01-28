@@ -44,7 +44,8 @@
       
   <br>
   <div class="row text-muted" style="font-size: 15px ; font-family: Courier">
-    投稿日：{{ $recipe->created_at->format('Y年m月d日 H時m分') }}　
+    <i class="fas fa-history fa-fw"></i> <div syle="padding-top:10px">
+      投稿日：{{ $recipe->created_at->format('Y年m月d日 H時m分') }}　
     @if($recipe->created_at < $recipe->updated_at)
       更新日：{{ $recipe->updated_at->format('Y年m月d日 H時m分') }}
     @endif
@@ -132,7 +133,6 @@
     <div style="padding-left:50px ; padding-top:5">
       <u>{{ count($niceCount) }}件</u></div>
   </div>
-  <div><br><h3><i class="fas fa-angle-right" style="color:orange">
   <div class="container-fulid row">
     @foreach ($recipe_procedures as $recipe_procedure)
     <div class="card proimg" style="width: 12rem;margin: 10px;margin-top: 50px;">

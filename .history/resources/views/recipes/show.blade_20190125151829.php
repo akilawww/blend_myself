@@ -132,7 +132,6 @@
     <div style="padding-left:50px ; padding-top:5">
       <u>{{ count($niceCount) }}件</u></div>
   </div>
-  <div><br><h3><i class="fas fa-angle-right" style="color:orange">
   <div class="container-fulid row">
     @foreach ($recipe_procedures as $recipe_procedure)
     <div class="card proimg" style="width: 12rem;margin: 10px;margin-top: 50px;">
