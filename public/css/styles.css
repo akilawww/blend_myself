@@ -1,5 +1,9 @@
+.error-codes{
+    margin:5em;
+    max-width:350px;
+    background:rgba(255,255,255,0.4);
 
-
+}
 
 .wrapper{
     background-image: url("../image/haikei.jpg");
