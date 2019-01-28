@@ -5,7 +5,7 @@
 @include('navbar.header')
 
 @section('content')
-<div class="container-fluid" style="background: beige; margin-bottom:2rem;">
+<div class="container-fluid" style="background: beige; margin-bottom:2rem; padding-top:0.2rem;">
 	<center><div align="left">
 		<center><p><h1><u>さけばさだー利用規約</u></h1></p></center>
 		<br>
@@ -192,13 +192,10 @@
 			本規約またはサービス利用契約に起因し、または関連する一切の紛争については、東京地方裁判所を第一審の専属的合意管轄裁判所とします。
 			<br>
 			<br>
-			<br>
 		</div>
  	</center>
  	<center><a href="{{ url('/')}}" class="text-center">{{ __('Topへ戻る') }}</a></center>
  	<br>
- 	<br>
-	<br>
 </div>
 @endsection
 

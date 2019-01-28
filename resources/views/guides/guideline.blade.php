@@ -5,7 +5,7 @@
 @include('navbar.header')
 
 @section('content')
-<div class="container-fluid" style="background: beige; margin-bottom:2rem;">
+<div class="container-fluid" style="background: beige; margin-bottom:2rem; padding-top:0.2rem;">
 	<center>
 		<div align="left">
 			<center><p><h1><u>さけばさだーのガイドライン</u></h1></p></center>
