@@ -2,8 +2,8 @@
 
 
 .wrapper{
-  background-image: url("../image/haikei.jpg");
-width:100%;
+    background-image: url("../image/haikei.jpg");
+    width:100%;
 }
 
 .card-horizon-con{
@@ -109,6 +109,7 @@ width:100%;
 .showmain{
     max-width: 890px;
     margin-bottom: 10px;
+    background-color: #e3d0a5;
 }
 
 .showbody{
