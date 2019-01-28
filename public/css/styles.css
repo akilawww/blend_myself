@@ -7,6 +7,7 @@
 
 .wrapper{
     background-image: url("../image/haikei.jpg");
+    background-attachment: fixed;
     width:100%;
 }
 
@@ -105,7 +106,7 @@
     }
 
     .card-horizon {
-    	overflow:hidden;
+        overflow:hidden;
     }
 
 }
@@ -123,6 +124,7 @@
 
 .title_f{
     font-size: 1.5rem;
+    color: #3f312b;
 }
 
 .proimg > img{
@@ -131,5 +133,9 @@
 }
 
 .bg-dark{
-	width: 100%;
+    width: 100%;
+}
+
+.show-t{
+    max-width
 }
