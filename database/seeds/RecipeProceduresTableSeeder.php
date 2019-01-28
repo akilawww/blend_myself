@@ -147,19 +147,59 @@ class RecipeProceduresTableSeeder extends Seeder
     // recipe 5
     App\RecipeProcedure::create([
       'process_num' => 1,
-      'body' => '氷を入れたタンブラーに注ぐ',
+      'body' => '氷をグラスに入れる',
       'image' => '/storage/testdata/グラス.jpg',
       'recipe_id' => 5,
       'created_at' => Carbon::now()->subDays(32),
-      'updated_at' => Carbon::now()->subDays(32),
+      'updated_at' => Carbon::now(),
     ]);
     App\RecipeProcedure::create([
       'process_num' => 2,
-      'body' => '軽くかき混ぜる',
+      'body' => 'ミドリver.2(kawasaki SuperEdition)を入れる',
+      'image' => '/storage/testdata/ミドリ.jpg',
+      'recipe_id' => 5,
+      'created_at' => Carbon::now()->subDays(32),
+      'updated_at' => Carbon::now(),
+    ]);
+    App\RecipeProcedure::create([
+      'process_num' => 3,
+      'body' => 'ブルガル エクストラドライver.2(kawasaki SuperEdition)を入れる',
+      'image' => '/storage/testdata/ブルガル.jpg',
+      'recipe_id' => 5,
+      'created_at' => Carbon::now()->subDays(32),
+      'updated_at' => Carbon::now(),
+    ]);
+    App\RecipeProcedure::create([
+      'process_num' => 4,
+      'body' => 'マリブ(ココナッツリキュール)を入れる',
+      'image' => '/storage/testdata/マリブ.jpg',
+      'recipe_id' => 5,
+      'created_at' => Carbon::now()->subDays(32),
+      'updated_at' => Carbon::now(),
+    ]);
+    App\RecipeProcedure::create([
+      'process_num' => 5,
+      'body' => 'フレッシュライムジュース(超甘いver2)を入れる',
+      'image' => '/storage/testdata/フレッシュライムジュース.jpg',
+      'recipe_id' => 5,
+      'created_at' => Carbon::now()->subDays(32),
+      'updated_at' => Carbon::now(),
+    ]);
+    App\RecipeProcedure::create([
+      'process_num' => 6,
+      'body' => 'パイナップルジュースを入れる',
+      'image' => '/storage/testdata/パイナップルジュース.jpg',
+      'recipe_id' => 5,
+      'created_at' => Carbon::now()->subDays(32),
+      'updated_at' => Carbon::now(),
+    ]);
+    App\RecipeProcedure::create([
+      'process_num' => 7,
+      'body' => '軽く混ぜる',
       'image' => '/storage/testdata/ステア.jpg',
       'recipe_id' => 5,
       'created_at' => Carbon::now()->subDays(32),
-      'updated_at' => Carbon::now()->subDays(32),
+      'updated_at' => Carbon::now(),
     ]);
     // recipe 6
     App\RecipeProcedure::create([

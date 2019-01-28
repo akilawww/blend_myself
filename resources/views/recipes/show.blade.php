@@ -17,7 +17,7 @@
 
 <div class="container showmain border rounded" style="padding: 2rem;">
   <div class="row">
-    <div class="recipetitle text-left" style="border-bottom: solid 2px orange"><h1>{{ $recipe->title }}</h1></div>
+    <div class="recipetitle text-left" style="border-bottom: solid 2px orange"><h1 style="color: #622d18;">{{ $recipe->title }}</h1></div>
     @if ($recipe->user_id === Auth::id())
       <a href="{{ url('/edit', $recipe->id) }}"><button class="btn btn-light float-right"><i class="fas fa-pen-alt"></i> レシピを編集</button></a>
     @else
@@ -68,11 +68,12 @@
   <div class="row text-muted" style="font-size: 15px ; font-family: Courier">
     投稿日：{{ $recipe->created_at->format('Y年m月d日　H時m分') }}　
     @if($recipe->created_at < $recipe->updated_at)
+    <br>
       更新日：{{ $recipe->updated_at->format('Y年m月d日　H時m分') }}
     @endif
   </div>
   <div class="row">
-    <div class="card left" style="width: 18rem;">
+    <div class="card left" style="width: 18rem;max-height: 500px;">
       <img src="{{ asset($recipe->image) }}" alt="Sample" class="center" style="object-fit: contain;">
       <div class="card-body">
         <table class="table">
@@ -114,9 +115,9 @@
       </div>
     </div>
     <div class="showbody">
-      <table class="table bg-light rounded" >
+      <table class="table bg-light rounded show-t">
         <tr><th colspan="4">概要</th></tr>
-        <tr><td>{!! nl2br(e($recipe->body)) !!}<br><br></td></tr>
+        <tr><td colspan="4">{!! nl2br(e($recipe->body)) !!}<br><br></td></tr>
       
         <tr><th scope="col">材料名</th><th scope="col">度数(%)</th><th scope="col">分量</th><th scope="col">購入</th></tr>
         
