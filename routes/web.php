@@ -13,13 +13,16 @@
 // レシピ一覧画面のルーティング
 Route::get('/', 'RecipesController@index');
 Route::get('/recipes/{id}', 'RecipesController@show');
-Route::get('/guideline', 'GuidesController@guideline');
-Route::get('/privacypolicy', 'GuidesController@privacypolicy');
-Route::get('/serviceterms', 'GuidesController@serviceterms');
 Auth::routes();
 Route::get('/home', 'RecipesController@index');
 Route::get('/result','RecipesController@search');
 Route::get('/result/tag','RecipesController@searchTag');
+
+// ヘッダーのリンクのルーティング
+Route::get('/guideline', 'GuidesController@guideline');
+Route::get('/privacypolicy', 'GuidesController@privacypolicy');
+Route::get('/serviceterms', 'GuidesController@serviceterms');
+Route::get('/contact', 'GuidesController@contact');
 
 // レシピ投稿画面のルーティング
 Route::get('/recipe_form', 'RecipeFormController@index')
@@ -61,3 +64,12 @@ Route::post('/nice/add', 'NiceController@add')
     ->middleware('auth.basic');
 Route::delete('/nice/remove', 'NiceController@remove')
     ->middleware('auth.basic');
+
+// フォロー機能ルーティング
+Route::post('/follow/add', 'FollowsController@add')
+    ->middleware('auth.basic');
+Route::delete('/follow/remove', 'FollowsController@remove')
+    ->middleware('auth.basic');
+
+// ユーザーページのルーティング
+Route::get('/userpage/{id}', 'UserPageController@index');
