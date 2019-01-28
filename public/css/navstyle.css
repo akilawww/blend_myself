@@ -26,14 +26,12 @@
                 margin-right: 30px;
                 width: 600px;
 		text-align: center;
-
         }
 
         .push,
         .footer{
                 height:110px;
                 padding-top: 10px;
-                /*min-width: 800px;*/
         }
 
         .wrapper{
@@ -42,3 +40,12 @@
         }
 }
 
+.navbar,
+.navbar-dark{
+    width: 100%;
+    background-color: rgba(63,49,43,0.8);
+}
+
+.navbar-light{
+    width: 100%;
+}
