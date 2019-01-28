@@ -10,12 +10,19 @@
 @endsection
 
 @section('content')
-<div class="container">
-  <h2>材料</h2>
+<div class="container" style="background-color:steelblue">
+  <h2><i class="fas fa-cocktail" style="color:orange"></i> レシピの材料</h2>
   @if (isset($materrials))
   <table class="table">
-    @foreach ($materrials as $materrial)
+     <thead>
+        <tr>
+          <th scope="col">材料名</th>
+          <th scope="col">分量</th>
+          <th scope="col">アルコール度数</th>
+        </tr>
+     </thead>
     <tbody>
+    @foreach ($materrials as $materrial)
       <tr>
         <td scope="col">{{ $materrial->name }}</td>
         <td scope="col">{{ $materrial->quantity }}</td>
@@ -27,6 +34,7 @@
   @endif
   <form method="POST" action="{{ url('/recipe_form/materrial/posts') }}">
     {{ csrf_field() }}
+    <h3><i class="fas fa-plus-circle" style="color:orange"></i> 材料の追加</h3>
     <input type="hidden" name="recipe_id" value="{{ $recipe_id }}">
     <div class="form-group row">
       <label for="inputText" class="col-sm-2 col-form-label">材料名</label>
@@ -37,23 +45,27 @@
     <div class="form-group row">
       <label for="inputText" class="col-sm-2 col-form-label">個数</label>
       <div class="col-7">
+        <input type="radio" value=1 name="unit" checked="checked">ml
+        <input type="radio" value=2 name="unit">欠片
+        <input type="radio" value=3 name="unit">自由記入（なし)
         <input type="text" required="required" name="quantity" id="inputText" class="form-control" placeholder="個数">
       </div>
     </div>
     <div class="form-group row">
       <label for="inputText" class="col-sm-2 col-form-label">度数</label>
       <div class="col-7">
-        <input type="text" name="degree" id="inputText" class="form-control" placeholder="度数" value="">
+        <input type="text" name="degree" id="inputText" class="form-control" placeholder="度数" value="%" autofocus style="text-align:right">
+
       </div>
     </div>
     <div class="form-group row">
       <div class="offset-sm-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">保存</button>
+        <button type="submit" class="btn btn-primary">追加</button>
       </div>
     </div>
   </form>
   <hr>
-  <h2>手順</h2>
+  <h2><i class="far fa-hand-point-right" style="color:orange"></i> 手順</h2>
   @if (isset($recipe_procedures))
   <div class="container row">
     @foreach ($recipe_procedures as $recipe_procedure)
@@ -75,17 +87,28 @@
     @else
     <input type="hidden" name="process_num" value="1">
     @endif
-    <div class="form-group">
-      <label for="image">画像</label>
-      <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像">
+    <br>
+    <h3><i class="fas fa-plus-circle" style="color:orange"></i> 手順の追加</h3>
+
+
+    <div class="form-group row" >
+      <label for="image" class="col-sm-2 col-form-label">画像</label>
+      <div class="col-7">
+        <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像"  style="height:42px">
+      </div>
     </div>
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">説明</label>
-      <textarea required="required" name="body" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+
+    <div class="form-group row">
+      <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label">説明</label>
+      <div class="col-7">
+        <textarea required="required" name="body" class="form-control" id="exampleFormControlTextarea1" rows="3" style="width:620px"></textarea>
+      </div>
     </div>
+
     <div class="form-group row">
       <div class="offset-sm-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">保存</button>
+        <button type="submit" class="btn btn-primary">追加</button>
       </div>
     </div>
   </form>
