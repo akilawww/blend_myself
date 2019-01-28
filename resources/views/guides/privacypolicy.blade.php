@@ -5,7 +5,7 @@
 @include('navbar.header')
 
 @section('content')
-<div class="container-fluid" style="background: beige; margin-bottom:2rem;">
+<div class="container-fluid" style="background: beige; margin-bottom:2rem; padding-top:0.2rem;">
 	<center>
 		<div align="left">
 			<center><p><h1><u>サービスプライバシーポリシー</u></h1></p></center>
@@ -94,12 +94,9 @@
 			当方は、必要に応じて、本ポリシーを変更することがあります。 なお、法令上利用者様の同意が必要となるような変更を実施する場合、当方所定の方法により利用者様からの同意を取得いたします。
 			<br>
 			<br>
-			<br>
  		</div>
  	</center>
  	<center><a href="{{ url('/')}}" class="text-center">{{ __('Topへ戻る') }}</a></center>
- 	<br>
- 	<br>
 	<br>
 </div>
 @endsection
