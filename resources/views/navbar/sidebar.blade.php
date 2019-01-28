@@ -2,7 +2,7 @@
 
 @section('sidebar')
 <div class="row">
-  <nav class="text-light bg-secondary navbar-inverse col-md-2">
+  <nav class="text-light navbar-light navbar-inverse col-md-2">
     <form action="{{ url('/result/tag') }}">
       {{ csrf_field() }}
       <!-- cocktail category -->

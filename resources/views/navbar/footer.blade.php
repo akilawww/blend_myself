@@ -1,7 +1,7 @@
 <!-- footer -->
 
 @section('footer')
-<footer class="bg-dark footer text-light">
+<footer class="navbar navbar-dark footer text-light justify-content-center">
 	<center>
     <ul style="padding-top: 1rem;">
       <span><a href="{{ URL('/guideline') }}" class="text-light">ガイドライン</a>　|　</span>
