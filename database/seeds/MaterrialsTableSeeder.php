@@ -87,15 +87,15 @@ class MaterrialsTableSeeder extends Seeder
       'degree' => '20%',
       'recipe_id' => 5,
       'created_at' => Carbon::now()->subDays(32),
-      'updated_at' => Carbon::now()->subDays(34),
+      'updated_at' => Carbon::now(),
     ]);
     App\Materrial::create([
       'name' => 'ブルガル　エクストラドライ',
-      'quantity' => '30ml',
+      'quantity' => 'てきとう(about)',
       'degree' => '40%',
       'recipe_id' => 5,
       'created_at' => Carbon::now()->subDays(32),
-      'updated_at' => Carbon::now()->subDays(34),
+      'updated_at' => Carbon::now(),
     ]);
     App\Materrial::create([
       'name' => 'マリブ',
@@ -103,7 +103,7 @@ class MaterrialsTableSeeder extends Seeder
       'degree' => '21%',
       'recipe_id' => 5,
       'created_at' => Carbon::now()->subDays(32),
-      'updated_at' => Carbon::now()->subDays(34),
+      'updated_at' => Carbon::now(),
     ]);
     App\Materrial::create([
       'name' => 'フレッシュライムジュース',
@@ -111,7 +111,7 @@ class MaterrialsTableSeeder extends Seeder
       'degree' => '0%',
       'recipe_id' => 5,
       'created_at' => Carbon::now()->subDays(32),
-      'updated_at' => Carbon::now()->subDays(34),
+      'updated_at' => Carbon::now(),
     ]);
     App\Materrial::create([
       'name' => 'パイナップルジュース',

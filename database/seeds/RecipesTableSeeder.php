@@ -51,11 +51,11 @@ class RecipesTableSeeder extends Seeder
     // recipe 5
     App\Recipe::create([
       'title' => 'グリーンアイズ',
-      'body' => '南国の風味がする夏向きカクテル',
+      'body' => '南国の風味がする夏向きカクテル。メロンリキュールとラムの香りのハーモニー、パイナップルの酸味とココナッツミルクの滑らかな口当たり。メロンリキュール界の革命児カワサキによる革新的(kawasaki SuperEdition)',
       'image' => '/storage/testdata/グリーンアイズ.jpg',
       'user_id' => 1,
       'created_at' => Carbon::now()->subDays(32),
-      'updated_at' => Carbon::now()->subDays(32),
+      'updated_at' => Carbon::now(),
     ]);
     // recipe 6
     App\Recipe::create([

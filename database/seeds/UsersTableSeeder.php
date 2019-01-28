@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
             'created_at' => Carbon::now()->subDays(32),
             'updated_at' => Carbon::now()->subDays(32),
         ]);
-        
+
         App\User::create([
             'name' => 'test-staff',
             'email' => 'staff@example.com',
@@ -28,7 +28,15 @@ class UsersTableSeeder extends Seeder
             'created_at' => Carbon::now()->subDays(32),
             'updated_at' => Carbon::now()->subDays(32),
         ]);
-        
+
+        App\User::create([
+          'name' => 'akira',
+          'email' => 'kd1205710@st.kobedenshi.ac.jp',
+          'password' => bcrypt('1203'),
+          'created_at' => Carbon::now()->subDays(32),
+          'updated_at' => Carbon::now()->subDays(32),
+        ]);
+
         factory(App\User::class, 10)->create();
     }
 }
