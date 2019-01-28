@@ -5,7 +5,7 @@
 @include('navbar.header')
 
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid" style="background: beige; margin-bottom:2rem;">
 	<center>
 		<div align="left">
 			<center><p><h1><u>さけばさだーのガイドライン</u></h1></p></center>
@@ -67,12 +67,9 @@
 			また、ご自身の発信した情報により、相手の方や他の利用者の方々がどのように思うかを、深く考えた上で発信してください。
 			<br>
 			<br>
-			<br>
  		</div>
  	</center>
  	<center><a href="{{ url('/')}}" class="text-center">{{ __('Topへ戻る') }}</a></center>
- 	<br>
- 	<br>
  	<br>
 </div>
 @endsection
