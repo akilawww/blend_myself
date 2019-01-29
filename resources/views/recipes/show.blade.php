@@ -48,7 +48,7 @@
     @endif
   </div>
   <div class="row">
-    <div class="card left shadow-sm" style="width: 18rem;max-height: 500px;">
+    <div class="card left shadow-sm" style="width: 18rem;">
       <img src="{{ asset($recipe->image) }}" alt="Sample" class="center" style="object-fit: contain;">
       <div class="card-body">
         <table class="table">
@@ -68,10 +68,10 @@
               @endswitch
             @endforeach
           @endif
+          <tr><td colspan="2"></td></tr>
         </table>
         <!-- お気に入り -->
         <div>
-          <br>
           @if ($favorite->isEmpty())
           <form method="POST" action="{{ url('/favorite/add') }}">
             {{ csrf_field() }}
@@ -117,6 +117,7 @@
         <div style="padding-left:50px ; padding-top:5">
             <u>{{ count($niceCount) }}件</u></div>
         </div>
+        <div class="card-footer bg-white">
         <table width="220">
           <tr align="center">
             <th>
@@ -133,6 +134,7 @@
              </th>
           </tr>
         </table>
+    </div>
         <br>
       </div>
     </div>
