@@ -11,17 +11,15 @@
 
 @section('content')
 <div class="container">
-  <h2><i class="fas fa-cocktail" style="color:orange"></i> レシピの材料</h2>
+  <h2 style="color:white"><i class="fas fa-cocktail" style="color:orange"></i> レシピの材料</h2>
   @if (isset($materrials))
-  <table class="table">
-     <thead>
-        <tr>
-          <th scope="col">材料名</th>
-          <th scope="col">分量</th>
-          <th scope="col">アルコール度数</th>
-        </tr>
-     </thead>
+  <table class="table" style="color:white">
     <tbody>
+        <tr>
+          <th scope="col">#材料名</th>
+          <th scope="col">#分量</th>
+          <th scope="col">#アルコール度数</th>
+        </tr>
     @foreach ($materrials as $materrial)
       <tr>
         <td scope="col">{{ $materrial->name }}</td>
@@ -34,17 +32,17 @@
   @endif
   <form method="POST" action="{{ url('/recipe_form/materrial/posts') }}">
     {{ csrf_field() }}
-    <h3><i class="fas fa-plus-circle" style="color:orange"></i> 材料の追加</h3>
+    <h3 style="color:white"><i class="fas fa-plus-circle" style="color:orange"></i> 材料の追加</h3>
     <input type="hidden" name="recipe_id" value="{{ $recipe_id }}">
     <div class="form-group row">
-      <label for="inputText" class="col-sm-2 col-form-label">材料名</label>
+      <label for="inputText" class="col-sm-2 col-form-label"style="color:white;">材料名</label>
       <div class="col-7">
         <input type="text" required="required" name="name" id="inputText" class="form-control" placeholder="材料名">
       </div>
     </div>
     <div class="form-group row">
-      <label for="inputText" class="col-sm-2 col-form-label">個数</label>
-      <div class="col-7">
+      <label for="inputText" class="col-sm-2 col-form-label"style="color:white;">個数</label>
+      <div class="col-7" style="color:white">
         <input type="radio" value=1 name="unit" checked="checked">ml
         <input type="radio" value=2 name="unit">欠片
         <input type="radio" value=3 name="unit">自由記入（なし)
@@ -52,7 +50,7 @@
       </div>
     </div>
     <div class="form-group row">
-      <label for="inputText" class="col-sm-2 col-form-label">度数</label>
+      <label for="inputText" class="col-sm-2 col-form-label"style="color:white;">度数</label>
       <div class="col-7">
         <input type="text" name="degree" id="inputText" class="form-control" placeholder="度数" value="%" autofocus style="text-align:right">
 
@@ -65,7 +63,7 @@
     </div>
   </form>
   <hr>
-  <h2><i class="far fa-hand-point-right" style="color:orange"></i> 手順</h2>
+  <h2 style="color:white"><i class="far fa-hand-point-right" style="color:orange"></i> 手順</h2>
   @if (isset($recipe_procedures))
   <div class="container row">
     @foreach ($recipe_procedures as $recipe_procedure)
@@ -88,19 +86,17 @@
     <input type="hidden" name="process_num" value="1">
     @endif
     <br>
-    <h3><i class="fas fa-plus-circle" style="color:orange"></i> 手順の追加</h3>
-
+    <h3 style="color:white"><i class="fas fa-plus-circle" style="color:orange"></i> 手順の追加</h3>
 
     <div class="form-group row" >
-      <label for="image" class="col-sm-2 col-form-label">画像</label>
+      <label for="image" class="col-sm-2 col-form-label" style="color:white">画像</label>
       <div class="col-7">
         <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像"  style="height:42px">
       </div>
     </div>
 
-
     <div class="form-group row">
-      <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label">説明</label>
+      <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label" style="color:white">説明</label>
       <div class="col-7">
         <textarea required="required" name="body" class="form-control" id="exampleFormControlTextarea1" rows="3" style="width:620px"></textarea>
       </div>
@@ -111,48 +107,49 @@
         <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> 追加</button>
       </div>
     </div>
+      
   </form>
   <hr>
-  <h2>タグ</h2>
+  <h2 style="color:white;"><i class="fas fa-tags" style="color:orange"></i> タグ</h2>
   <form method="POST" action="{{ url('/recipe_form/create/posts') }}">
     {{ csrf_field() }}
     <input type="hidden" name="recipe_id" value="{{ $recipe_id }}">
     <div class="container">
       <div class="row">
         <ul class="list-unstyled col-md-3">
-          <h4>カクテルの味</h4>
+          <h4 style="color:white;">カクテルの味</h4>
           @foreach ($tags as $tag)
           @if ($tag->tag_type === 1)
           <li>
             <div class="custom-control custom-checkbox">
               <input type="radio" class="custom-control-input" id="taste_{{ $tag->id }}" name="tag{{ $tag->tag_type }}" value="{{ $tag->id }}">
-              <label class="custom-control-label" for="taste_{{ $tag->id }}">{{ $tag->tag_name }}</label>
+              <label class="custom-control-label" style="color:white;" for="taste_{{ $tag->id }}">{{ $tag->tag_name }}</label>
             </div>
           </li>
           @endif
           @endforeach
         </ul>
         <ul class="list-unstyled col-md-3">
-          <h4>度数</h4>
+          <h4 style="color:white;">度数</h4>
           @foreach ($tags as $tag)
           @if ($tag->tag_type === 2)
           <li>
             <div class="custom-control custom-checkbox">
               <input type="radio" class="custom-control-input" id="degree_{{ $tag->id }}" name="tag{{ $tag->tag_type }}" value="{{ $tag->id }}">
-              <label class="custom-control-label" for="degree_{{ $tag->id }}">{{ $tag->tag_name }}</label>
+              <label class="custom-control-label" style="color:white;" for="degree_{{ $tag->id }}">{{ $tag->tag_name }}</label>
             </div>
           </li>
           @endif
           @endforeach
         </ul>
         <ul class="list-unstyled col-md-6" style="width: 100%;">
-          <h4>ベース</h4>
+          <h4 style="color:white;">ベース</h4>
           @foreach ($tags as $tag)
           @if ($tag->tag_type === 3)
           <li style="width: 50%;float: left;">
             <div class="custom-control custom-checkbox">
               <input type="radio" class="custom-control-input" id="base_{{ $tag->id }}" name="tag{{ $tag->tag_type }}" value="{{ $tag->id }}">
-              <label class="custom-control-label" for="base_{{ $tag->id }}">{{ $tag->tag_name }}</label>
+              <label class="custom-control-label" style="color:white;" for="base_{{ $tag->id }}">{{ $tag->tag_name }}</label>
             </div>
           </li>
           @endif
