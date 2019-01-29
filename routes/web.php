@@ -22,6 +22,7 @@ Route::get('/result/tag','RecipesController@searchTag');
 Route::get('/guideline', 'GuidesController@guideline');
 Route::get('/privacypolicy', 'GuidesController@privacypolicy');
 Route::get('/serviceterms', 'GuidesController@serviceterms');
+Route::get('/glossary', 'GuidesController@glossary');
 Route::get('/contact', 'GuidesController@contact');
 
 // レシピ投稿画面のルーティング
