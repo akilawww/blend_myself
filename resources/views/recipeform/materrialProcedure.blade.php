@@ -11,7 +11,7 @@
 
 @section('content')
 <div class="container">
-  <h2>材料</h2>
+  <h2 style="color:white;">材料</h2>
   @if (isset($materrials))
   <table class="table">
     @foreach ($materrials as $materrial)
@@ -29,19 +29,19 @@
     {{ csrf_field() }}
     <input type="hidden" name="recipe_id" value="{{ $recipe_id }}">
     <div class="form-group row">
-      <label for="inputText" class="col-sm-2 col-form-label">材料名</label>
+      <label for="inputText" class="col-sm-2 col-form-label"style="color:white;">材料名</label>
       <div class="col-7">
         <input type="text" required="required" name="name" id="inputText" class="form-control" placeholder="材料名">
       </div>
     </div>
     <div class="form-group row">
-      <label for="inputText" class="col-sm-2 col-form-label">個数</label>
+      <label for="inputText" class="col-sm-2 col-form-label"style="color:white;">個数</label>
       <div class="col-7">
         <input type="text" required="required" name="quantity" id="inputText" class="form-control" placeholder="個数">
       </div>
     </div>
     <div class="form-group row">
-      <label for="inputText" class="col-sm-2 col-form-label">度数</label>
+      <label for="inputText" class="col-sm-2 col-form-label"style="color:white;">度数</label>
       <div class="col-7">
         <input type="text" name="degree" id="inputText" class="form-control" placeholder="度数" value="">
       </div>
@@ -53,7 +53,7 @@
     </div>
   </form>
   <hr>
-  <h2>手順</h2>
+  <h2 style="color:white;">手順</h2>
   @if (isset($recipe_procedures))
   <div class="container row">
     @foreach ($recipe_procedures as $recipe_procedure)
@@ -76,11 +76,11 @@
     <input type="hidden" name="process_num" value="1">
     @endif
     <div class="form-group">
-      <label for="image">画像</label>
+      <label for="image" style="color:white;">画像</label>
       <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像">
     </div>
     <div class="form-group">
-      <label for="exampleFormControlTextarea1">説明</label>
+      <label for="exampleFormControlTextarea1" style="color:white;">説明</label>
       <textarea required="required" name="body" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
     <div class="form-group row">
@@ -90,46 +90,46 @@
     </div>
   </form>
   <hr>
-  <h2>タグ</h2>
+  <h2 style="color:white;">タグ</h2>
   <form method="POST" action="{{ url('/recipe_form/create/posts') }}">
     {{ csrf_field() }}
     <input type="hidden" name="recipe_id" value="{{ $recipe_id }}">
     <div class="container">
       <div class="row">
         <ul class="list-unstyled col-md-3">
-          <h4>カクテルの味</h4>
+          <h4 style="color:white;">カクテルの味</h4>
           @foreach ($tags as $tag)
           @if ($tag->tag_type === 1)
           <li>
             <div class="custom-control custom-checkbox">
               <input type="radio" class="custom-control-input" id="taste_{{ $tag->id }}" name="tag{{ $tag->tag_type }}" value="{{ $tag->id }}">
-              <label class="custom-control-label" for="taste_{{ $tag->id }}">{{ $tag->tag_name }}</label>
+              <label class="custom-control-label" style="color:white;" for="taste_{{ $tag->id }}">{{ $tag->tag_name }}</label>
             </div>
           </li>
           @endif
           @endforeach
         </ul>
         <ul class="list-unstyled col-md-3">
-          <h4>度数</h4>
+          <h4 style="color:white;">度数</h4>
           @foreach ($tags as $tag)
           @if ($tag->tag_type === 2)
           <li>
             <div class="custom-control custom-checkbox">
               <input type="radio" class="custom-control-input" id="degree_{{ $tag->id }}" name="tag{{ $tag->tag_type }}" value="{{ $tag->id }}">
-              <label class="custom-control-label" for="degree_{{ $tag->id }}">{{ $tag->tag_name }}</label>
+              <label class="custom-control-label" style="color:white;" for="degree_{{ $tag->id }}">{{ $tag->tag_name }}</label>
             </div>
           </li>
           @endif
           @endforeach
         </ul>
         <ul class="list-unstyled col-md-6" style="width: 100%;">
-          <h4>ベース</h4>
+          <h4 style="color:white;">ベース</h4>
           @foreach ($tags as $tag)
           @if ($tag->tag_type === 3)
           <li style="width: 50%;float: left;">
             <div class="custom-control custom-checkbox">
               <input type="radio" class="custom-control-input" id="base_{{ $tag->id }}" name="tag{{ $tag->tag_type }}" value="{{ $tag->id }}">
-              <label class="custom-control-label" for="base_{{ $tag->id }}">{{ $tag->tag_name }}</label>
+              <label class="custom-control-label" style="color:white;" for="base_{{ $tag->id }}">{{ $tag->tag_name }}</label>
             </div>
           </li>
           @endif
