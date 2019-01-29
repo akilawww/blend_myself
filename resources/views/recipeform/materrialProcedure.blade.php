@@ -52,7 +52,7 @@
     <div class="form-group row">
       <label for="inputText" class="col-sm-2 col-form-label"style="color:white;">度数</label>
       <div class="col-7">
-        <input type="text" name="degree" id="inputText" class="form-control" placeholder="度数" value="%" autofocus style="text-align:right">
+        <input type="text" name="degree" id="inputText" class="form-control" placeholder="度数" value="0%" autofocus>
 
       </div>
     </div>
