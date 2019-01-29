@@ -14,23 +14,31 @@
   <form method="POST" action="{{ url('/recipe_form/posts') }}" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="form-group row">
-      <label for="inputText" class="col-sm-2 col-form-label">タイトル</label>
-      <div class="col-7">
-        <input type="text" required="required" name="title" id="inputText" class="form-control" placeholder="タイトル">
-      </div>
+      <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label" style="color:white">
+          <h3><i class="fas fa-cocktail" style="color:orange"></i> タイトル</h3></label>
+        <div class="col-8">
+          <input type="text" required="required" name="title" id="inputText" class="form-control" placeholder="タイトル">
+        </div>
     </div>
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">概要</label>
-      <textarea required="required" name="body" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <div class="form-group row">
+        <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label" style="color:white">
+          <h3><i class="far fa-comment" style="color:orange"></i> 概要</h3></label>
+        <div class="col-8">
+          <textarea required="required" name="body" class="form-control" id="exampleFormControlTextarea1" rows="3" style="width:710px"></textarea>
+        </div>
     </div>
-    <div class="form-group">
-      <label for="image">画像</label>
-      <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像">
+    <br>
+    <div class="form-group row">
+        <label for="image" class="col-sm-2 col-form-label" style="color:white">
+          <h3 style="color:white"><i class="far fa-image" style="color:orange"></i> 画像</h3></label>
+          <div class="col-8">
+            <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像">
+          </div>
     </div>
     <input type="hidden" name="user_id" value="{{ Auth::id() }}">
     <div class="form-group row">
-      <div class="offset-sm-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">次へ</button>
+      <div class="offset-sm-2 col-sm-8">
+        <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-arrow-circle-right"></i> 次へ</button>
       </div>
     </div>
   </form>

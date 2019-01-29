@@ -14,56 +14,31 @@
 @section('content')
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
 <div class="container showmain border rounded" style="padding: 2rem;">
   <div class="row">
     <div class="recipetitle text-left" style="border-bottom: solid 2px orange"><h1 style="color: #622d18;">{{ $recipe->title }}</h1></div>
     @if ($recipe->user_id === Auth::id())
-      <a href="{{ url('/edit', $recipe->id) }}"><button class="btn btn-light float-right"><i class="fas fa-pen-alt"></i> レシピを編集</button></a>
+    <a href="{{ url('/edit', $recipe->id) }}"><button class="btn btn-light float-right shadow-sm"><i class="fas fa-pen-alt"></i> レシピを編集</button></a>
     @else
-      <!-- フォロー表示 -->
-      <a href="{{ url('/userpage', $recipeUser->id ) }}" class="text-dark">{{ $recipeUser->name }}</a>　
-      @if ($follow->isEmpty())
-        <form method="POST" action="{{ url('/follow/add') }}">
-          {{ csrf_field() }}
-          <input type="hidden" name="follower_id" value="{{ Auth::id() }}">
-          <input type="hidden" name="follow_id" value="{{ $recipeUser->id }}">
-          <button type="submit" class="btn btn-light hoge">フォロー</button>
-        </form>
-      @else
-        <form method="POST" action="{{ url('/follow/remove') }}">
-          {{ csrf_field() }}
-          {{ method_field('DELETE') }}
-          <input type="hidden" name="follower_id" value="{{ Auth::id() }}">
-          <input type="hidden" name="follow_id" value="{{ $recipeUser->id }}">
-          <button type="submit" class="btn btn-light hoge">アンフォロー</button>
-        </form>
-      @endif
-      <!-- お気に入り -->
-      <div>
-        <br>
-      @if ($favorite->isEmpty())
-        <form method="POST" action="{{ url('/favorite/add') }}">
-          {{ csrf_field() }}
-          <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
-          <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-          <button type="submit" class="btn btn-light hoge">
-            <i class="far fa-bookmark"></i> お気に入りに追加</button>
-        </form>
-      @else
-        <form method="POST" action="{{ url('/favorite/remove') }}">
-          {{ csrf_field() }}
-          {{ method_field('DELETE') }}
-          <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
-          <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-          <button type="submit" class="btn btn-light hoge">
-              <i class="fas fa-bookmark"></i> お気に入りから外す</button>
-        </form>
-      @endif
-  </div>
+    <!-- フォロー表示 -->
+    <a href="{{ url('/userpage', $recipeUser->id ) }}" class="text-dark">{{ $recipeUser->name }}</a>　
+    @if ($follow->isEmpty())
+    <form method="POST" action="{{ url('/follow/add') }}">
+      {{ csrf_field() }}
+      <input type="hidden" name="follower_id" value="{{ Auth::id() }}">
+      <input type="hidden" name="follow_id" value="{{ $recipeUser->id }}">
+      <button type="submit" class="btn btn-light hoge shadow-sm">フォロー</button>
+    </form>
+    @else
+    <form method="POST" action="{{ url('/follow/remove') }}">
+      {{ csrf_field() }}
+      {{ method_field('DELETE') }}
+      <input type="hidden" name="follower_id" value="{{ Auth::id() }}">
+      <input type="hidden" name="follow_id" value="{{ $recipeUser->id }}">
+      <button type="submit" class="btn btn-light hoge shadow-sm">アンフォロー</button>
+    </form>
     @endif
   </div>
-      
   <br>
   <div class="row text-muted" style="font-size: 15px ; font-family: Courier">
     投稿日：{{ $recipe->created_at->format('Y年m月d日　H時m分') }}　
@@ -73,7 +48,7 @@
     @endif
   </div>
   <div class="row">
-    <div class="card left" style="width: 18rem;max-height: 500px;">
+    <div class="card left shadow-sm" style="width: 18rem;">
       <img src="{{ asset($recipe->image) }}" alt="Sample" class="center" style="object-fit: contain;">
       <div class="card-body">
         <table class="table">
@@ -93,8 +68,56 @@
               @endswitch
             @endforeach
           @endif
+          <tr><td colspan="2"></td></tr>
         </table>
-
+        <!-- お気に入り -->
+        <div>
+          @if ($favorite->isEmpty())
+          <form method="POST" action="{{ url('/favorite/add') }}">
+            {{ csrf_field() }}
+            <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
+            <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+            <button type="submit" class="btn btn-light hoge shadow-sm"><i class="far fa-bookmark"></i> お気に入りに追加</button>
+          </form>
+          @else
+          <form method="POST" action="{{ url('/favorite/remove') }}">
+            {{ csrf_field() }}
+            {{ method_field('DELETE') }}
+            <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
+            <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+            <button type="submit" class="btn btn-light hoge shadow-sm"><i class="fas fa-bookmark"></i> お気に入りから外す</button>
+          </form>
+          @endif
+        </div>
+        @endif
+        <!-- いいね -->
+        <div style="display:inline-flex">
+        @if ($recipe->user_id === Auth::id())
+          <i class="far fa-thumbs-up"></i> いいね
+        @else
+          @if ($nice->isEmpty())
+          <form method="POST" action="{{ url('/nice/add') }}" >
+            {{ csrf_field() }}
+            <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
+            <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+            <button type="submit" class="btn btn-light hoge shadow-sm"　style="background:white ; color:red ; border-color: red">
+                <i class="far fa-thumbs-up"></i> いいね</button>
+          </form>
+          @else
+          <form method="POST" action="{{ url('/nice/remove') }}">
+            {{ csrf_field() }}
+            {{ method_field('DELETE') }}
+            <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
+            <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+            <button type="submit" class="btn btn-danger hoge shadow-sm">
+              <i class="fas fa-thumbs-up"></i> いいね</button>
+          </form>
+          @endif
+        @endif
+        <div style="padding-left:50px ; padding-top:5">
+            <u>{{ count($niceCount) }}件</u></div>
+        </div>
+        <div class="card-footer bg-white">
         <table width="220">
           <tr align="center">
             <th>
@@ -111,16 +134,15 @@
              </th>
           </tr>
         </table>
-
+    </div>
+        <br>
       </div>
     </div>
     <div class="showbody">
-      <table class="table bg-light rounded show-t">
+      <table class="table bg-light rounded show-t shadow-sm">
         <tr><th colspan="4">概要</th></tr>
         <tr><td colspan="4">{!! nl2br(e($recipe->body)) !!}<br><br></td></tr>
-      
         <tr><th scope="col">材料名</th><th scope="col">度数(%)</th><th scope="col">分量</th><th scope="col">購入</th></tr>
-        
         @foreach ($materrials as $materrial)
         <tr><td>{{ $materrial->name }}</td><td>{{ empty($materrial->degree) ? '' : $materrial->degree }}</td><td>{{ $materrial->quantity }}
           <td><a href="https://www.amazon.co.jp/s/ref=nb_sb_noss_1?__mk_ja_JP=カタカナ&url=search-alias%3Daps&field-keywords={{ $materrial->name }}" target="_blank"><button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> 購入</button></a></td></td></tr>
@@ -129,38 +151,11 @@
     </div>
   </div>
   <br>
-<div style="display:inline-flex">
-  @if ($recipe->user_id === Auth::id())
-    <i class="far fa-thumbs-up"></i> いいね
-  @else
-    @if ($nice->isEmpty())
-      <form method="POST" action="{{ url('/nice/add') }}" >
-        {{ csrf_field() }}
-        <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
-        <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-        <button type="submit" class="btn btn-light hoge"　style="background:white ; color:red ; border-color: red">
-          <i class="far fa-thumbs-up"></i> いいね</button>
-      </form>
-    @else
-      <form method="POST" action="{{ url('/nice/remove') }}">
-        {{ csrf_field() }}
-        {{ method_field('DELETE') }}
-        <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
-        <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-        <button type="submit" class="btn btn-danger hoge">
-          <i class="fas fa-thumbs-up"></i> いいね</button>
-      </form>
-    @endif
-  @endif
-    <div style="padding-left:50px ; padding-top:5">
-      <u>{{ count($niceCount) }}件</u></div>
-  </div>
-  <br><br>
       <h4>作り方</h4>
     <hr>
   <div class="container-fulid row">
     @foreach ($recipe_procedures as $recipe_procedure)
-    <div class="card proimg" style="width: 12rem;margin: 10px;margin-top: 50px;">
+    <div class="card proimg shadow-sm" style="width: 12rem;margin: 10px;margin-top: 50px;">
       <img class="card-img-top center" src="{{ asset($recipe_procedure->image) }}" alt="Sample" style="object-fit: contain;">
       <div class="card-body">
         <h4 class="card-title">{{ $recipe_procedure->process_num }}</h4>
@@ -175,20 +170,18 @@
 
 @include('navbar.footer')
 <script>
-    $(document).ready(function(){
-        $(".hoge").click(function(){
-             
-          if($(this).hasClass("disabled")){
-            void(0);
-          }else{
-            $("[data-toggle='popover']").popover('show');
-            setTimeout(function(){
-                 $("[data-toggle='popover']").popover('destroy');
-            },3000);
-            $(this).addClass("disabled");
-            $(this).text("お気に入りに追加済み");
-          }
-             
-        });
+  $(document).ready(function(){
+    $(".hoge").click(function(){
+      if($(this).hasClass("disabled")){
+        void(0);
+      }else{
+        $("[data-toggle='popover']").popover('show');
+        setTimeout(function(){
+          $("[data-toggle='popover']").popover('destroy');
+        },3000);
+        $(this).addClass("disabled");
+        $(this).text("お気に入りに追加済み");
+      }
     });
-    </script>
+  });
+</script>

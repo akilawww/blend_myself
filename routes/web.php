@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// トップ
+Route::get('/top', function(){ return view('top/index');});
+
 // レシピ一覧画面のルーティング
 Route::get('/', 'RecipesController@index');
 Route::get('/recipes/{id}', 'RecipesController@show');
@@ -25,6 +28,7 @@ Route::get('/home', 'RecipesController@index')->middleware('verified')->name('ho
 Route::get('/guideline', 'GuidesController@guideline');
 Route::get('/privacypolicy', 'GuidesController@privacypolicy');
 Route::get('/serviceterms', 'GuidesController@serviceterms');
+Route::get('/glossary', 'GuidesController@glossary');
 Route::get('/contact', 'GuidesController@contact');
 
 // レシピ投稿画面のルーティング

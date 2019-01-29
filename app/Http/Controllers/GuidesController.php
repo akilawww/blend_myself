@@ -17,8 +17,13 @@ class GuidesController extends Controller{
 	public function serviceterms(){
 		return view('guides.serviceterms');
 	}
+	// 用語集
+	public function glossary(){
+		return view('guides.glossary');
+	}
 	// お問い合わせ
 	public function contact(){
 		return view('guides.contact');
 	}
+
 }

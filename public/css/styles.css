@@ -118,8 +118,9 @@
 }
 
 .showbody{
-    margin: 1rem;
-    width: 30rem;
+    max-width: 33rem;
+    margin-left: auto;
+    margin-right:1rem;
 }
 
 .title_f{
