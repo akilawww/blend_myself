@@ -9,7 +9,7 @@
       @yield('header')
       <div class="container-fulid">
         @yield('sidebar')
-        <div class="m-100 container">
+        <div class=" container m-20">
           @yield('content')
         </div>
       </div>

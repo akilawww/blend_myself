@@ -9,7 +9,7 @@
 @include('navbar.sidebar')
 
 @section('content')
-<div class="container navbar-dark rounded" style="padding: 1rem;margin: 1rem;">
+<div class="container rounded navbar-dark" style="padding: 1rem;margin-bottom: 1rem;">
   @foreach ($recipes as $recipe)
   <div class="container-fluid">
     <a href="{{ url('/recipes', $recipe->id) }}">
