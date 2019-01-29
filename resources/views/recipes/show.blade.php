@@ -134,17 +134,13 @@
           </tr>
         </table>
         <br>
-
-
       </div>
     </div>
     <div class="showbody">
       <table class="table bg-light rounded show-t shadow-sm">
         <tr><th colspan="4">概要</th></tr>
         <tr><td colspan="4">{!! nl2br(e($recipe->body)) !!}<br><br></td></tr>
-
         <tr><th scope="col">材料名</th><th scope="col">度数(%)</th><th scope="col">分量</th><th scope="col">購入</th></tr>
-
         @foreach ($materrials as $materrial)
         <tr><td>{{ $materrial->name }}</td><td>{{ empty($materrial->degree) ? '' : $materrial->degree }}</td><td>{{ $materrial->quantity }}
           <td><button class="btn btn-primary shadow-sm"><i class="fas fa-shopping-cart"></i> 購入</button></td></td></tr>
@@ -153,7 +149,6 @@
     </div>
   </div>
   <br>
-
       <h4>作り方</h4>
     <hr>
   <div class="container-fulid row">
@@ -173,20 +168,18 @@
 
 @include('navbar.footer')
 <script>
-    $(document).ready(function(){
-        $(".hoge").click(function(){
-
-          if($(this).hasClass("disabled")){
-            void(0);
-          }else{
-            $("[data-toggle='popover']").popover('show');
-            setTimeout(function(){
-                 $("[data-toggle='popover']").popover('destroy');
-            },3000);
-            $(this).addClass("disabled");
-            $(this).text("お気に入りに追加済み");
-          }
-
-        });
+  $(document).ready(function(){
+    $(".hoge").click(function(){
+      if($(this).hasClass("disabled")){
+        void(0);
+      }else{
+        $("[data-toggle='popover']").popover('show');
+        setTimeout(function(){
+          $("[data-toggle='popover']").popover('destroy');
+        },3000);
+        $(this).addClass("disabled");
+        $(this).text("お気に入りに追加済み");
+      }
     });
-    </script>
+  });
+</script>
