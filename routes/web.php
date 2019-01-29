@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// トップ
+Route::get('/top', function(){ return view('top/index');});
+
 // レシピ一覧画面のルーティング
 Route::get('/', 'RecipesController@index');
 Route::get('/recipes/{id}', 'RecipesController@show');
