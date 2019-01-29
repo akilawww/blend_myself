@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-<div class="container" style="background-color:steelblue">
+<div class="container">
   <h2><i class="fas fa-cocktail" style="color:orange"></i> レシピの材料</h2>
   @if (isset($materrials))
   <table class="table">
@@ -60,7 +60,7 @@
     </div>
     <div class="form-group row">
       <div class="offset-sm-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">追加</button>
+        <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> 追加</button>
       </div>
     </div>
   </form>
@@ -108,7 +108,7 @@
 
     <div class="form-group row">
       <div class="offset-sm-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">追加</button>
+        <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> 追加</button>
       </div>
     </div>
   </form>
@@ -160,9 +160,11 @@
         </ul>
       </div>
     </div>
-    <div class="offset-sm-2 col-sm-10">
-      <button type="submit" class="btn btn-primary">完了</button>
+    <br>
+    <div class="offset-sm-2 col-sm-7">
+      <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-check-circle"></i> 完了</button>
     </div>
+    <br><br>
   </form>
   <!-- エラーメッセージ -->
   @if(count($errors) > 0)
