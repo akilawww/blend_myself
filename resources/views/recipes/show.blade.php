@@ -123,7 +123,7 @@
         
         @foreach ($materrials as $materrial)
         <tr><td>{{ $materrial->name }}</td><td>{{ empty($materrial->degree) ? '' : $materrial->degree }}</td><td>{{ $materrial->quantity }}
-          <td><button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> 購入</button></td></td></tr>
+          <td><a href="https://www.amazon.co.jp/s/ref=nb_sb_noss_1?__mk_ja_JP=カタカナ&url=search-alias%3Daps&field-keywords={{ $materrial->name }}" target="_blank"><button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> 購入</button></a></td></td></tr>
         @endforeach
       </table>
     </div>
