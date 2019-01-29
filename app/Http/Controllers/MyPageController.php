@@ -10,7 +10,7 @@ use App\Follow;
 use App\User;
 
 class MyPageController extends Controller{
-  // Transition to My Page
+  // 投稿したレシピ
   public function index(){
     $recipes = Recipe::where('user_id', '=', Auth::id())
       ->orderBy('updated_at', 'desc')->get();
@@ -40,5 +40,17 @@ class MyPageController extends Controller{
       'favoriteRecipes' => $favoriteRecipes,
       'followUsers' => $followUsers,
     ]);
+  }
+  // お気に入りレシピ
+  public function favorite(){
+
+  }
+  // フォロー
+  public function follow(){
+
+  }
+  // フォロワー
+  public function follower(){
+
   }
 }

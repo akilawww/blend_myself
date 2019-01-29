@@ -45,6 +45,13 @@ Route::post('/recipe_form/create/posts', 'RecipeFormController@create')
 // マイページのルーティング
 Route::get('/mypage', 'MyPageController@index')
     ->middleware('auth.basic');
+Route::get('/mypage/favorite', 'MyPageController@favorite')
+    ->middleware('auth.basic');
+Route::get('/mypage/Follow', 'MyPageController@follow')
+    ->middleware('auth.basic');
+Route::get('/mypage/Follower')
+    ->middleware('auth.basic');
+
 // 編集ページのルーティング
 Route::get('/edit/{id}', 'EditController@index')
     ->middleware('auth.basic');
