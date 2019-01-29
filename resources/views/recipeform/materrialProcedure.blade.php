@@ -36,13 +36,13 @@
     <input type="hidden" name="recipe_id" value="{{ $recipe_id }}">
     <div class="form-group row">
       <label for="inputText" class="col-sm-2 col-form-label"style="color:white;">材料名</label>
-      <div class="col-7">
+      <div class="col-8">
         <input type="text" required="required" name="name" id="inputText" class="form-control" placeholder="材料名">
       </div>
     </div>
     <div class="form-group row">
       <label for="inputText" class="col-sm-2 col-form-label"style="color:white;">個数</label>
-      <div class="col-7" style="color:white">
+      <div class="col-8" style="color:white">
         <input type="radio" value=1 name="unit" checked="checked">ml
         <input type="radio" value=2 name="unit">欠片
         <input type="radio" value=3 name="unit">自由記入（なし)
@@ -51,7 +51,7 @@
     </div>
     <div class="form-group row">
       <label for="inputText" class="col-sm-2 col-form-label"style="color:white;">度数</label>
-      <div class="col-7">
+      <div class="col-8">
         <input type="text" name="degree" id="inputText" class="form-control" placeholder="度数" value="0%" autofocus>
 
       </div>
@@ -90,15 +90,15 @@
 
     <div class="form-group row" >
       <label for="image" class="col-sm-2 col-form-label" style="color:white">画像</label>
-      <div class="col-7">
+      <div class="col-8">
         <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像"  style="height:42px">
       </div>
     </div>
 
     <div class="form-group row">
       <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label" style="color:white">説明</label>
-      <div class="col-7">
-        <textarea required="required" name="body" class="form-control" id="exampleFormControlTextarea1" rows="3" style="width:620px"></textarea>
+      <div class="col-8">
+        <textarea required="required" name="body" class="form-control" id="exampleFormControlTextarea1" rows="3" style="width:710px"></textarea>
       </div>
     </div>
 
@@ -158,7 +158,7 @@
       </div>
     </div>
     <br>
-    <div class="offset-sm-2 col-sm-7">
+    <div class="offset-sm-2 col-sm-8">
       <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-check-circle"></i> 完了</button>
     </div>
     <br><br>
