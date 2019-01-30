@@ -1,7 +1,6 @@
-<!-- Recipe overview -->
 @extends('navbar.parent')
 
-@section('title', 'Recipe list')
+@section('title', 'レシピ一覧')
 
 @include('navbar.head')
 @include('navbar.header')
