@@ -17,10 +17,13 @@ use App\Follow;
 class RecipesController extends Controller
 {
     public function index(){
-        $recipes = Recipe::orderBy('updated_at', 'desc')->paginate(5);
-
+        $recipes = Recipe::orderBy('updated_at', 'desc');
+        $recipesCount = count($recipes->get());
+        $recipes = $recipes->paginate(5);
         // recipes/indexにrecipesで変数を送る
-        return view('recipes.index')->with('recipes', $recipes);
+        return view('recipes.index')
+          ->with('recipes', $recipes)
+          ->with('recipesCount', $recipesCount);
     }
 
     public function show($id){
@@ -63,7 +66,7 @@ class RecipesController extends Controller
             ->with('follow', $follow);
    }
 
-    // headerの検索機能
+    // ワード検索
     public function search(Request $request){
      $search = $request->get('search');
      $query = Recipe::query();
@@ -71,10 +74,14 @@ class RecipesController extends Controller
      if(!empty($search)) {
        $query->where('title','like','%'.$search.'%');
      }
+     $recipesCount = count($query->get());
      $data = $query->paginate(5);
-     return view('recipes.index')->with('recipes', $data);
+     return view('recipes.index')
+        ->with('recipes', $data)
+        ->with('recipesCount', $recipesCount);
    }
 
+   // タグ検索
     public function searchTag(Request $request){
     $tagQuery = Tag_verification::query();
     $recipeQuery = Recipe::query();
@@ -90,10 +97,13 @@ class RecipesController extends Controller
         // タグの全件Hitしたrecipe_idを抽出
         $hitRecipeIds = tagVerCount($tagVerifications, $tagCount);
         foreach( $hitRecipeIds as $hitRecipeId){
-            $recipeQuery->orWhere('id', '=', $hitRecipeId); 
+            $recipeQuery->orWhere('id', '=', $hitRecipeId);
         }
     }
+    $recipesCount = count($recipeQuery->get());
     $data = $recipeQuery->paginate(5);
-    return view('recipes.index')->with('recipes', $data);
+    return view('recipes.index')
+        ->with('recipes', $data)
+        ->with('recipesCount', $recipesCount);
     }
 }
