@@ -13,7 +13,7 @@
       {{ csrf_field() }}
       <!-- cocktail category -->
       <div class="container">
-      	<div class="row border">
+      	<div class="row border rounded">
         <ul class="list-unstyled col">
             カクテルの味で探す!
             @foreach ($tags as $tag)
@@ -56,18 +56,53 @@
             @endforeach 
         </ul>
         <br>
-      <div class="offset-sm-5 col-sm-10">
+      <div class="offset-sm-5 col-sm-7" style="margin-bottom: 10px;">
         <button type="submit" class="btn btn-outline-light">タグで検索</button>
       </div>
-      <br>
     </div>
   </div>
     </form>
+    <br>
   </div>
 </nav>
 @endsection
 
 @section('content')
+<div class="container navbar-dark text-light">
+	<br>
+<center><h4><b>さけばさだーでできること</b></h4></center>
+	<div class="row offset-1">
+		<div class="border rounded col-md-5">
+			<b>カクテルを探す</b><br>
+			　<u>〇好きなワードでレシピを検索<br></u>
+				<div class="top-font">　　検索バーから好きな単語でレシピを検索できます</div>
+			　<u>〇タグで検索<br></u>
+			<div class="top-font">　　レシピに登録されたカクテルの味、度数、ベースごと<br>　　にレシピを検索できます</div>
+			　<u>〇投稿者の他のレシピを見る<br></u>
+			<div class="top-font">　　レシピの投稿者名をクリックすると、過去に投稿した<br>　　レシピを見ることができます</div>
+		</div>
+		<div class="offset-1"></div>
+		<div class="border rounded col-md-5">
+			<b>カクテルを作る</b><br>
+			　〇レシピを見て作る<br>
+			　〇レシピにアレンジを加えて作る<br>
+		</div>
+	</div>
+	<br>
+		<div class="row offset-1">
+		<div class="border rounded col-md-5">
+			<b>カクテルを共有する</b><br>
+			　〇オリジナルのレシピを投稿する<br>
+			　〇SNS連携でレシピをシェアする<br>
+		</div>
+		<div class="offset-1"></div>
+		<div class="border rounded col-md-5">
+			<b>カクテル好きとつながる</b><br>
+			　〇レシピを投稿した人をフォローする<br>
+			　〇
+		</div>
+	</div>
+	</div>
 @endsection
 
 @include('navbar.footer')
