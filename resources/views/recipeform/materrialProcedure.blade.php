@@ -42,11 +42,7 @@
     <h3 style="color:white"><i class="fas fa-plus-circle" style="color:orange"></i> 材料の追加</h3>
     <input type="hidden" name="recipe_id" value="{{ $recipe_id }}">
     <div class="form-group row">
-<<<<<<< HEAD
-      <label for="inputText" class="col-sm-2 col-form-label"style="color:white;"> 材料名</label>
-=======
-      <label for="inputText" class="col-sm-2 col-form-label"style="color:white">材料名</label>
->>>>>>> master
+      <label for="inputText" class="col-sm-2 col-form-label" style="color:white;"> 材料名</label>
       <div class="col-8">
         <input type="text" required="required" name="name" id="inputText" class="form-control" autocomplete="off" placeholder="材料名">
       </div>
