@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container recipe_form">
   <h2 style="color:white"><i class="fas fa-cocktail" style="color:orange"></i> レシピの材料</h2>
   @if (isset($materrials))
   <table class="table" style="color:white">
@@ -19,6 +19,7 @@
           <th scope="col">#材料名</th>
           <th scope="col">#分量</th>
           <th scope="col">#アルコール度数</th>
+          <th scope="col"></th>
         </tr>
     @foreach ($materrials as $materrial)
       <tr>
@@ -42,18 +43,14 @@
     <h3 style="color:white"><i class="fas fa-plus-circle" style="color:orange"></i> 材料の追加</h3>
     <input type="hidden" name="recipe_id" value="{{ $recipe_id }}">
     <div class="form-group row">
-<<<<<<< HEAD
-      <label for="inputText" class="col-sm-2 col-form-label"style="color:white;"> 材料名</label>
-=======
       <label for="inputText" class="col-sm-2 col-form-label"style="color:white">材料名</label>
->>>>>>> master
-      <div class="col-8">
+      <div class="col-md-8">
         <input type="text" required="required" name="name" id="inputText" class="form-control" autocomplete="off" placeholder="材料名">
       </div>
     </div>
     <div class="form-group row">
       <label for="inputText" class="col-sm-2 col-form-label"style="color:white;">個数</label>
-      <div class="col-8" style="color:white">
+      <div class="col-md-8" style="color:white">
         <input type="radio" value=1 name="unit" checked="checked">ml
         <input type="radio" value=2 name="unit">欠片
         <input type="radio" value=3 name="unit">自由記入（なし)
@@ -62,7 +59,7 @@
     </div>
     <div class="form-group row">
       <label for="inputText" class="col-sm-2 col-form-label"style="color:white;">度数</label>
-      <div class="col-8">
+      <div class="col-md-8">
         <input type="text" name="degree" id="inputText" class="form-control" autocomplete="off" placeholder="度数" value="0%" autofocus>
 
       </div>
@@ -98,7 +95,7 @@
                   </div>
                   <div class="modal-body">
                     <label for="exampleFormControlTextarea1">説明</label>
-                    <textarea required="required" name="body" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea required="required" name="body" class="form-control recipe_form_textarea" id="exampleFormControlTextarea1" rows="3"></textarea>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
@@ -131,15 +128,15 @@
 
     <div class="form-group row" >
       <label for="image" class="col-sm-2 col-form-label" style="color:white">画像</label>
-      <div class="col-8">
+      <div class="col-md-8">
         <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像"  style="height:42px">
       </div>
     </div>
     
     <div class="form-group row">
       <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label" style="color:white">説明</label>
-      <div class="col-8">
-        <textarea required="required" name="body" class="form-control" id="exampleFormControlTextarea1" rows="3" style="width:710px"></textarea>
+      <div class="col-md-8">
+        <textarea required="required" name="body" class="form-control recipe_form_textarea" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
     </div>
 
