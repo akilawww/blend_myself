@@ -22,6 +22,11 @@ class AppServiceProvider extends ServiceProvider
             $tags = Tag::orderBy('id', 'asc')->get();
             $view->with('tags', $tags);
         });
+
+        view()->composer('top.index', function ($view) {
+            $tags = Tag::orderBy('id', 'asc')->get();
+            $view->with('tags', $tags);
+        });
     }
 
     /**
