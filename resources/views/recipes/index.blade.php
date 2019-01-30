@@ -10,9 +10,14 @@
 
 @section('content')
 <div class="container rounded navbar-dark" style="padding: 1rem;margin-bottom: 1rem;">
-  {{ $recipesCount }}件
-  @if ($recipes->isEmpty())
-  該当するレシピはありませんでした。
+
+<div style="color:white;">- {{ $recipesCount }}件-</div>
+
+
+@if ($recipes->isEmpty())
+
+<div style="color:white;">  該当するレシピはありませんでした。</div>
+
   @else
   @foreach ($recipes as $recipe)
   <div class="container-fluid">
