@@ -63,7 +63,7 @@ class RecipesController extends Controller
             ->with('follow', $follow);
    }
 
-    // headerの検索機能
+    // ワード検索
     public function search(Request $request){
      $search = $request->get('search');
      $query = Recipe::query();
@@ -75,6 +75,7 @@ class RecipesController extends Controller
      return view('recipes.index')->with('recipes', $data);
    }
 
+   // タグ検索
     public function searchTag(Request $request){
     $tagQuery = Tag_verification::query();
     $recipeQuery = Recipe::query();
@@ -90,7 +91,7 @@ class RecipesController extends Controller
         // タグの全件Hitしたrecipe_idを抽出
         $hitRecipeIds = tagVerCount($tagVerifications, $tagCount);
         foreach( $hitRecipeIds as $hitRecipeId){
-            $recipeQuery->orWhere('id', '=', $hitRecipeId); 
+            $recipeQuery->orWhere('id', '=', $hitRecipeId);
         }
     }
     $data = $recipeQuery->paginate(5);

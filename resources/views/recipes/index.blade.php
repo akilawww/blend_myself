@@ -10,6 +10,9 @@
 
 @section('content')
 <div class="container rounded navbar-dark" style="padding: 1rem;margin-bottom: 1rem;">
+  @if ($recipes->isEmpty())
+  該当するレシピはありませんでした。
+  @else
   @foreach ($recipes as $recipe)
   <div class="container-fluid">
     <a href="{{ url('/recipes', $recipe->id) }}">
@@ -33,6 +36,7 @@
   <br>
   @endforeach
   {{ $recipes->links() }}
+  @endif
 </div>
 </div>
 @endsection
