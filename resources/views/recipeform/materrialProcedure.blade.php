@@ -35,9 +35,9 @@
     <h3 style="color:white"><i class="fas fa-plus-circle" style="color:orange"></i> 材料の追加</h3>
     <input type="hidden" name="recipe_id" value="{{ $recipe_id }}">
     <div class="form-group row">
-      <label for="inputText" class="col-sm-2 col-form-label"style="color:white;">材料名</label>
+      <label for="inputText" class="col-sm-2 col-form-label"style="color:white">材料名</label>
       <div class="col-8">
-        <input type="text" required="required" name="name" id="inputText" class="form-control" placeholder="材料名">
+        <input type="text" required="required" name="name" id="inputText" class="form-control" autocomplete="off" placeholder="材料名">
       </div>
     </div>
     <div class="form-group row">
@@ -46,13 +46,13 @@
         <input type="radio" value=1 name="unit" checked="checked">ml
         <input type="radio" value=2 name="unit">欠片
         <input type="radio" value=3 name="unit">自由記入（なし)
-        <input type="text" required="required" name="quantity" id="inputText" class="form-control" placeholder="個数">
+        <input type="text" required="required" name="quantity" id="inputText" class="form-control" autocomplete="off" placeholder="個数">
       </div>
     </div>
     <div class="form-group row">
       <label for="inputText" class="col-sm-2 col-form-label"style="color:white;">度数</label>
       <div class="col-8">
-        <input type="text" name="degree" id="inputText" class="form-control" placeholder="度数" value="0%" autofocus>
+        <input type="text" name="degree" id="inputText" class="form-control" autocomplete="off" placeholder="度数" value="0%" autofocus>
 
       </div>
     </div>
