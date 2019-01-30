@@ -10,6 +10,7 @@
 
 @section('content')
 <div class="container rounded navbar-dark" style="padding: 1rem;margin-bottom: 1rem;">
+  {{ $recipesCount }}件
   @if ($recipes->isEmpty())
   該当するレシピはありませんでした。
   @else
