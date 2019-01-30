@@ -87,6 +87,21 @@
   @else
     フォローしたユーザーはありません
   @endif
+  <h2>フォロワーユーザー</h2>
+  @if (!$followerUsers->isEmpty())
+  <div class="container bg-dark rounded" style="padding: 1rem;margin: 1rem;">
+    @foreach ($followerUsers as $followerUser)
+      <div class="container-fluid">
+        <a href="{{ url('/userpage', $followerUser->id) }}">
+          {{ $followerUser->name }}
+        </a>
+      </div>
+      <br>
+    @endforeach
+    </div>
+  @else
+    フォロワーはありません
+  @endif
 @endsection
 
 @include('navbar.footer')

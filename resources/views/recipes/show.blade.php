@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <div class="container showmain border rounded" style="padding: 2rem;">
   <div class="row">
-    <div class="recipetitle text-left" style="border-bottom: solid 2px orange"><h1 style="color: #622d18;">{{ $recipe->title }}</h1></div>
+    <div class="recipetitle text-left" style="border-bottom: solid 2px orange;"><h1 style="color: #622d18;">{{ $recipe->title }}</h1></div>
     @if ($recipe->user_id === Auth::id())
     <a href="{{ url('/edit', $recipe->id) }}"><button class="btn btn-light float-right shadow-sm"><i class="fas fa-pen-alt"></i> レシピを編集</button></a>
     @else
@@ -38,17 +38,18 @@
       <button type="submit" class="btn btn-light hoge shadow-sm">アンフォロー</button>
     </form>
     @endif
+    @endif
   </div>
   <br>
-  <div class="row text-muted" style="font-size: 15px ; font-family: Courier">
+  <div class="row text-muted" style="font-size: 15px ; font-family: Courier;">
     投稿日：{{ $recipe->created_at->format('Y年m月d日　H時m分') }}　
     @if($recipe->created_at < $recipe->updated_at)
-    <br>
+      <br>
       更新日：{{ $recipe->updated_at->format('Y年m月d日　H時m分') }}
     @endif
   </div>
   <div class="row">
-    <div class="card left shadow-sm" style="width: 18rem;">
+    <div class="card left shadow-sm" style="width: 280px;">
       <img src="{{ asset($recipe->image) }}" alt="Sample" class="center" style="object-fit: contain;">
       <div class="card-body">
         <table class="table">
@@ -71,6 +72,8 @@
           <tr><td colspan="2"></td></tr>
         </table>
         <!-- お気に入り -->
+        @if ($recipe->user_id === Auth::id())
+        @else
         <div>
           @if ($favorite->isEmpty())
           <form method="POST" action="{{ url('/favorite/add') }}">
@@ -119,7 +122,7 @@
         </div>
         <div class="card-footer bg-white">
         <table width="220">
-          <tr align="center">
+          <tr>
             <th>
                <a href="javascript:window.open('http://twitter.com/share?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"><i class="fab fa-twitter fa-2x"></i></a>
              </th>
@@ -134,18 +137,18 @@
              </th>
           </tr>
         </table>
-    </div>
+      </div>
         <br>
       </div>
     </div>
     <div class="showbody">
-      <table class="table bg-light rounded show-t shadow-sm">
+      <table class="table bg-light rounded shadow-sm">
         <tr><th colspan="4">概要</th></tr>
         <tr><td colspan="4">{!! nl2br(e($recipe->body)) !!}<br><br></td></tr>
         <tr><th scope="col">材料名</th><th scope="col">度数(%)</th><th scope="col">分量</th><th scope="col">購入</th></tr>
         @foreach ($materrials as $materrial)
         <tr><td>{{ $materrial->name }}</td><td>{{ empty($materrial->degree) ? '' : $materrial->degree }}</td><td>{{ $materrial->quantity }}
-          <td><button class="btn btn-primary shadow-sm"><i class="fas fa-shopping-cart"></i> 購入</button></td></td></tr>
+          <td><a href="https://www.amazon.co.jp/s/ref=nb_sb_noss_1?__mk_ja_JP=カタカナ&url=search-alias%3Daps&field-keywords={{ $materrial->name }}" target="_blank"><button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> 購入</button></a></td></td></tr>
         @endforeach
       </table>
     </div>

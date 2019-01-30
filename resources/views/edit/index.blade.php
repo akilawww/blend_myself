@@ -104,7 +104,6 @@
                 <div class="modal-header">
                   <label for="image">画像</label>
                   <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像">
-                  </style>">
                 </div>
                 <div class="modal-body">
                   <label for="exampleFormControlTextarea1">説明</label>

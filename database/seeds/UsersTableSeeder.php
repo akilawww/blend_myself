@@ -17,6 +17,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@example.com',
             'password' => bcrypt('password'),
+            'email_verified_at' => Carbon::now()->subDays(32),
             'created_at' => Carbon::now()->subDays(32),
             'updated_at' => Carbon::now()->subDays(32),
         ]);
@@ -25,6 +26,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'test-staff',
             'email' => 'staff@example.com',
             'password' => bcrypt('password'),
+            'email_verified_at' => Carbon::now()->subDays(32),
             'created_at' => Carbon::now()->subDays(32),
             'updated_at' => Carbon::now()->subDays(32),
         ]);
@@ -33,6 +35,7 @@ class UsersTableSeeder extends Seeder
           'name' => 'akira',
           'email' => 'kd1205710@st.kobedenshi.ac.jp',
           'password' => bcrypt('1203'),
+          'email_verified_at' => Carbon::now()->subDays(32),
           'created_at' => Carbon::now()->subDays(32),
           'updated_at' => Carbon::now()->subDays(32),
         ]);
