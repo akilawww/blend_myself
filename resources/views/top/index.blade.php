@@ -13,7 +13,7 @@
       {{ csrf_field() }}
       <!-- cocktail category -->
       <div class="container">
-      	<div class="row">
+      	<div class="row border">
         <ul class="list-unstyled col">
             カクテルの味で探す!
             @foreach ($tags as $tag)
@@ -56,9 +56,10 @@
             @endforeach 
         </ul>
         <br>
-      <div class="offset-sm-2 col-sm-10">
-        <button type="submit" class="btn btn-outline-light">検索</button>
+      <div class="offset-sm-5 col-sm-10">
+        <button type="submit" class="btn btn-outline-light">タグで検索</button>
       </div>
+      <br>
     </div>
   </div>
     </form>
