@@ -85,7 +85,9 @@
 		<div class="border rounded col-md-5">
 			<b>カクテルを作る</b><br>
 			　〇レシピを見て作る<br>
+			<div class="top-font">　　気になるレシピを見てカクテルを自作できます</div>
 			　〇レシピにアレンジを加えて作る<br>
+			<div class="top-font">　　お酒の分量を変えたり、既存のレシピにアレンジを<br>　　くわえて自分好みのカクテルを作る事ができます</div>
 		</div>
 	</div>
 	<br>
@@ -93,13 +95,15 @@
 		<div class="border rounded col-md-5">
 			<b>カクテルを共有する</b><br>
 			　〇オリジナルのレシピを投稿する<br>
+			<div class="top-font">　　自分の考えたオリジナルカクテルのレシピを投稿し<br>　　他のユーザーへ共有することができます</div>
 			　〇SNS連携でレシピをシェアする<br>
+			<div class="top-font">　　TwitterやSNSへレシピをシェアしてお気に入りの<br>　　レシピをユーザー以外の人にも共有できます</div>
 		</div>
 		<div class="offset-1"></div>
 		<div class="border rounded col-md-5">
 			<b>カクテル好きとつながる</b><br>
 			　〇レシピを投稿した人をフォローする<br>
-			　〇
+			　〇お気に入り機能で好きなレシピを保存する<br>
 		</div>
 	</div>
 	</div>
