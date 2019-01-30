@@ -25,6 +25,13 @@
         <td scope="col">{{ $materrial->name }}</td>
         <td scope="col">{{ $materrial->quantity }}</td>
         <td scope="col">{{ $materrial->degree }}</td>
+        <td scope="col">
+          <form action="{{ url('/edit/deleteMaterrial/'.$materrial->id) }}" method="POST">
+            {{ csrf_field() }}
+            {{ method_field('DELETE') }}
+            <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> 削除</button>
+          </form>
+        </td>
       </tr>
     </tbody>
     @endforeach
@@ -35,9 +42,13 @@
     <h3 style="color:white"><i class="fas fa-plus-circle" style="color:orange"></i> 材料の追加</h3>
     <input type="hidden" name="recipe_id" value="{{ $recipe_id }}">
     <div class="form-group row">
+<<<<<<< HEAD
       <label for="inputText" class="col-sm-2 col-form-label"style="color:white;"> 材料名</label>
+=======
+      <label for="inputText" class="col-sm-2 col-form-label"style="color:white">材料名</label>
+>>>>>>> master
       <div class="col-8">
-        <input type="text" required="required" name="name" id="inputText" class="form-control" placeholder="材料名">
+        <input type="text" required="required" name="name" id="inputText" class="form-control" autocomplete="off" placeholder="材料名">
       </div>
     </div>
     <div class="form-group row">
@@ -46,13 +57,13 @@
         <input type="radio" value=1 name="unit" checked="checked">ml
         <input type="radio" value=2 name="unit">欠片
         <input type="radio" value=3 name="unit">自由記入（なし)
-        <input type="text" required="required" name="quantity" id="inputText" class="form-control" placeholder="個数">
+        <input type="text" required="required" name="quantity" id="inputText" class="form-control" autocomplete="off" placeholder="個数">
       </div>
     </div>
     <div class="form-group row">
       <label for="inputText" class="col-sm-2 col-form-label"style="color:white;">度数</label>
       <div class="col-8">
-        <input type="text" name="degree" id="inputText" class="form-control" placeholder="度数" value="0%" autofocus>
+        <input type="text" name="degree" id="inputText" class="form-control" autocomplete="off" placeholder="度数" value="0%" autofocus>
 
       </div>
     </div>
@@ -65,17 +76,47 @@
   <hr>
   <h2 style="color:white"><i class="far fa-hand-point-right" style="color:orange"></i> 手順</h2>
   @if (isset($recipe_procedures))
-  <div class="container row">
-    @foreach ($recipe_procedures as $recipe_procedure)
-    <div class="card proimg" style="width: 12rem;margin: 10px;">
-      <img class="card-img-top center" src="{{ asset($recipe_procedure->image) }}" alt="Sample" style="object-fit: contain;">
-      <div class="card-body">
-        <h4 class="card-title">{{ $recipe_procedure->process_num }}</h4>
-        <p class="card-text">{{ $recipe_procedure->body }}</p>
+    <div class="container-fulid row">
+      @foreach ($recipe_procedures as $recipe_procedure)
+      <div class="card proimg" style="width: 12rem;margin: 10px;">
+        <img class="card-img-top center" src="{{ asset($recipe_procedure->image) }}" alt="Sample" style="object-fit: contain;">
+        <div class="card-body">
+          <h4 class="card-title">{{ $recipe_procedure->process_num }}</h4>
+          <p class="card-text">{{ $recipe_procedure->body }}</p>
+        </div>
+        <div class="card-footer text-center">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">編集</button>
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <form action="{{ url('/edit/updateProcedure/'.$recipe_procedure->id) }}" method="POST" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                {{ method_field('PUT') }}
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <label for="image">画像</label>
+                    <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像">
+                  </div>
+                  <div class="modal-body">
+                    <label for="exampleFormControlTextarea1">説明</label>
+                    <textarea required="required" name="body" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-file-medical"></i> 保存</button>
+                  </div><!-- /.modal-footer -->
+                </div><!-- /.modal-content -->
+              </form>
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+          <form style="display: inline;" action="{{ url('/edit/deleteProcedure/'.$recipe_procedure->id) }}" method="POST">
+            {{ csrf_field() }}
+            {{ method_field('DELETE') }}
+            <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> 削除</button>
+          </form>
+        </div>
       </div>
+      @endforeach
     </div>
-    @endforeach
-  </div>
   @endif
   <form method="POST" action="{{ url('/recipe_form/procedure/posts') }}" enctype="multipart/form-data">
     {{ csrf_field() }}

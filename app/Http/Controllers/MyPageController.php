@@ -10,7 +10,7 @@ use App\Follow;
 use App\User;
 
 class MyPageController extends Controller{
-  // Transition to My Page
+  // 投稿したレシピ
   public function index(){
     $recipes = Recipe::where('user_id', '=', Auth::id())
       ->orderBy('updated_at', 'desc')->get();
@@ -25,7 +25,9 @@ class MyPageController extends Controller{
     }else {
       $favoriteRecipes = $favorites;
     }
+    // フォロー、フォロワーのユーザーを取得
     $follows = Follow::where('follower_id', '=',  Auth::id())->get();
+    $followers = Follow::where('follow_id', '=',  Auth::id())->get();
     $usersQuery = User::query();
     if(!empty($follows->toArray())){
       foreach($follows as $follow){
@@ -35,10 +37,32 @@ class MyPageController extends Controller{
     }else {
       $followUsers = $follows;
     }
+    $usersQuery = User::query();
+    if(!empty($followers->toArray())){
+      foreach($followers as $follower){
+        $usersQuery->orWhere('id', '=', $follower->follower_id);
+      }
+      $followerUsers = $usersQuery->get();
+    }else {
+      $followerUsers = $followers;
+    }
     return view('mypage.index', [
       'recipes' => $recipes,
       'favoriteRecipes' => $favoriteRecipes,
       'followUsers' => $followUsers,
+      'followerUsers' => $followerUsers,
     ]);
+  }
+  // お気に入りレシピ
+  public function favorite(){
+
+  }
+  // フォロー
+  public function follow(){
+
+  }
+  // フォロワー
+  public function follower(){
+
   }
 }

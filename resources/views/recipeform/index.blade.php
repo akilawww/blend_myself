@@ -10,8 +10,8 @@
 @endsection
 
 @section('content')
-<div class="container">
-  <form method="POST" action="{{ url('/recipe_form/posts') }}" enctype="multipart/form-data">
+<div class="container recipe_form">
+  <form method="POST" action="{{ url('/recipe_form/posts') }}" enctype="multipart/form-data" autocomplete="off">
     {{ csrf_field() }}
     <div class="form-group row">
       <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label" style="color:white">

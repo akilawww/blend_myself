@@ -3,7 +3,7 @@
 
 @section('header')
 <nav class="navbar navbar-expand-lg navbar-dark">
-  <a class="navbar-brand" href="{{ action('RecipesController@index') }}"><img src="{{ asset('/image/sakebasada.png') }}"></a>
+  <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('/image/sakebasada.png') }}"></a>
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -27,24 +27,36 @@
       <a class="nav-link text-light" href="{{ route('register') }}"><i class="fas fa-user-edit"></i>{{ __(' 新規登録') }}</a>
     @endif
     </li>
+  @else
+    @if ( is_null(Auth::user()->email_verified_at) )
+    <ul>
+      <li class="nav-item" style="display: inline-block;">
+        <a class="nav-link text-light" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i>{{ __(' ログイン') }}</a>
+      </li>
+      <li class="nav-item" style="display: inline-block;">
+      @if (Route::has('register'))
+        <a class="nav-link text-light" href="{{ route('register') }}"><i class="fas fa-user-edit"></i>{{ __(' 新規登録') }}</a>
+      @endif
+      </li> 
     @else
-    <li class="nav-item dropdown" style="display: inline-block;">
-      <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-        {{ Auth::user()->name }} <span class="caret"></span>
-      </a>
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="{{ url('/mypage') }}"><i class="fas fa-user"></i> マイページ</a>
-        <a class="dropdown-item" href="{{ url('/recipe_form') }}"><i class="fas fa-file-signature"></i> レシピ作成</a>
-        <a class="dropdown-item" href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-              <i class="fas fa-sign-out-alt"></i> ログアウト
+      <li class="nav-item dropdown" style="display: inline-block;">
+        <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+          {{ Auth::user()->name }} <span class="caret"></span>
         </a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-          @csrf
-        </form>
-      </div>
-    </li>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ url('/mypage') }}"><i class="fas fa-user"></i> マイページ</a>
+          <a class="dropdown-item" href="{{ url('/recipe_form') }}"><i class="fas fa-file-signature"></i> レシピ作成</a>
+          <a class="dropdown-item" href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+                <i class="fas fa-sign-out-alt"></i> ログアウト
+          </a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+          </form>
+        </div>
+      </li>
+    @endif
   </ul>
   @endguest
 </nav>
