@@ -19,6 +19,7 @@
           <th scope="col">#材料名</th>
           <th scope="col">#分量</th>
           <th scope="col">#アルコール度数</th>
+          <th scope="col"></th>
         </tr>
     @foreach ($materrials as $materrial)
       <tr>
@@ -131,7 +132,7 @@
         <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像"  style="height:42px">
       </div>
     </div>
-
+    
     <div class="form-group row">
       <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label" style="color:white">説明</label>
       <div class="col-md-8">

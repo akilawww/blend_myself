@@ -15,7 +15,7 @@
     {{ csrf_field() }}
     <div class="form-group row">
       <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label" style="color:white">
-          <h3><i class="fas fa-cocktail" style="color:orange"></i> タイトル</h3></label>
+          <h3><i class="fas fa-cocktail" style="color:orange"></i> タイトル(New)</h3></label>
         <div class="col-md-8">
           <input type="text" required="required" name="title" id="inputText" class="form-control" placeholder="タイトル">
         </div>
