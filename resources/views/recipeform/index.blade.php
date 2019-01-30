@@ -16,7 +16,7 @@
     <div class="form-group row">
       <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label" style="color:white">
           <h3><i class="fas fa-cocktail" style="color:orange"></i> タイトル</h3></label>
-        <div class="col-8">
+        <div class="col-8">\
           <input type="text" required="required" name="title" id="inputText" class="form-control" placeholder="タイトル">
         </div>
     </div>
