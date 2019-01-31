@@ -14,7 +14,7 @@
     {{ csrf_field() }}
     <div class="form-group row">
       <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label" >
-          <h3><i class="fas fa-cocktail" style="color:orange"></i> タイトル(New)</h3></label>
+          <h3><i class="fas fa-cocktail" style="color:orange"></i> タイトル</h3></label>
         <div class="col-md-8">
           <input type="text" required="required" name="title" id="inputText" class="form-control" placeholder="タイトル">
         </div>
@@ -31,7 +31,7 @@
         <label for="image" class="col-sm-2 col-form-label" >
           <h3 ><i class="far fa-image" style="color:orange"></i> 画像</h3></label>
           <div class="col-md-8">
-            <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像">
+            <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像" style="height:42px">
           </div>
     </div>
     <input type="hidden" name="user_id" value="{{ Auth::id() }}">
