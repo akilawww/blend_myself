@@ -142,7 +142,7 @@
       </div>
     </div>
     <div class="showbody">
-      <table class="table bg-light rounded shadow-sm">
+      <table class="table bg-light rounded shadow-sm" style="width: 520px">
         <tr><th colspan="4">概要</th></tr>
         <tr><td colspan="4">{!! nl2br(e($recipe->body)) !!}<br><br></td></tr>
         <tr><th scope="col">材料名</th><th scope="col">度数(%)</th><th scope="col">分量</th><th scope="col">購入</th></tr>
