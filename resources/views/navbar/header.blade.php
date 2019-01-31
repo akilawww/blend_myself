@@ -45,6 +45,7 @@
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{{ url('/mypage') }}"><i class="fas fa-user"></i> マイページ</a>
+          <a class="dropdown-item" href="{{ url('/userEdit') }}"><i class="fas fa-user"></i> 登録情報</a>
           <a class="dropdown-item" href="{{ url('/recipe_form') }}"><i class="fas fa-file-signature"></i> レシピ作成</a>
           <a class="dropdown-item" href="{{ route('logout') }}"
               onclick="event.preventDefault();
