@@ -78,7 +78,7 @@
           <p class="card-text">{{ $recipe_procedure->body }}</p>
         </div>
         <div class="card-footer text-center">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">編集</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fas fa-pen"></i> 編集</button>
           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
               <form action="{{ url('/edit/updateProcedure/'.$recipe_procedure->id) }}" method="POST" enctype="multipart/form-data">
@@ -87,7 +87,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <label for="image">画像</label>
-                    <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像">
+                    <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像" >
                   </div>
                   <div class="modal-body">
                     <label for="exampleFormControlTextarea1">説明</label>
@@ -191,11 +191,11 @@
         </ul>
       </div>
     </div>
-    <br>
+    <br><br>
     <div class="offset-sm-2 col-sm-8">
       <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-check-circle"></i> 完了</button>
     </div>
-    <br><br>
+    <br>
   </form>
   <!-- エラーメッセージ -->
   @if(count($errors) > 0)
