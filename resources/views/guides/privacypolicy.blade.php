@@ -1,5 +1,6 @@
 @extends('navbar.parent')
-@section('title', 'privacypolicy')
+
+@section('title', 'プライバシーポリシー')
 
 @include('navbar.head')
 @include('navbar.header')

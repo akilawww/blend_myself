@@ -1,7 +1,6 @@
-<!-- Recipe submission form Child -->
-
 @extends('navbar.parent')
-@section('title', 'Recipe details')
+
+@section('title', 'レシピ投稿')
 
 @include('navbar.head')
 @include('navbar.header')
@@ -132,7 +131,7 @@
         <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像"  style="height:42px">
       </div>
     </div>
-    
+
     <div class="form-group row">
       <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label" style="color:white">説明</label>
       <div class="col-md-8">
@@ -144,8 +143,13 @@
       <div class="offset-sm-2 col-sm-10">
         <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> 追加</button>
       </div>
+<<<<<<< HEAD
     </div>        
       
+=======
+    </div>
+
+>>>>>>> master
   </form>
   <hr>
   <h2 style="color:white;"><i class="fas fa-tags" style="color:orange"></i> タグ</h2>

@@ -48,6 +48,11 @@ Route::post('/recipe_form/create/posts', 'RecipeFormController@create')
 // マイページのルーティング
 Route::get('/mypage', 'MyPageController@index')
     ->middleware('verified');
+
+// 登録情報のルーティング
+Route::get('/userEdit', 'UserEditController@index')
+    ->middleware('verified');
+
 // 編集ページのルーティング
 Route::get('/edit/{id}', 'EditController@index')
     ->middleware('verified');

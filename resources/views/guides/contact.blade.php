@@ -1,5 +1,6 @@
 @extends('navbar.parent')
-@section('title', 'Contact form')
+
+@section('title', 'お問い合わせ')
 
 @include('navbar.head')
 @include('navbar.header')

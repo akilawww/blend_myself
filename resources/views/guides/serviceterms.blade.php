@@ -1,5 +1,6 @@
 @extends('navbar.parent')
-@section('title', 'serviceterms')
+
+@section('title', '利用規約')
 
 @include('navbar.head')
 @include('navbar.header')

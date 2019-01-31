@@ -1,5 +1,5 @@
 @extends('navbar.parent')
-@section('title', 'Edit')
+@section('title', '編集')
 
 @include('navbar.head')
 @include('navbar.header')
@@ -154,7 +154,7 @@
     @endif
     <br>
     <h3 style="color:white"><i class="fas fa-plus-circle" style="color:orange"></i> 手順の追加</h3>
-    
+
     <div class="form-group row" >
         <label for="image" class="col-sm-2 col-form-label" style="color:white">画像</label>
         <div class="col-8">
@@ -167,8 +167,8 @@
             <textarea required="required" name="body" class="form-control" id="exampleFormControlTextarea1" rows="3" style="width:710px"></textarea>
           </div>
         </div>
-    
-    
+
+
     <div class="form-group row">
       <div class="offset-sm-2 col-sm-10">
         <button type="submit" class="btn btn-primary"><i class="fas fa-file-medical"></i> 保存</button>
