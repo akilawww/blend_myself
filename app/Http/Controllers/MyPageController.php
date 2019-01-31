@@ -14,7 +14,16 @@ class MyPageController extends Controller{
   public function index(){
     $recipes = Recipe::where('user_id', '=', Auth::id())
       ->orderBy('updated_at', 'desc')->get();
-    // お気に入りに登録したレシピを抽出
+    // フォロー、フォロワーのユーザーを取得
+    $follows = Follow::where('follower_id', '=',  Auth::id())->get();
+    $followers = Follow::where('follow_id', '=',  Auth::id())->get();
+
+    return view('mypage.index', [
+      'recipes' => $recipes
+    ]);
+  }
+  // お気に入りに登録したレシピを抽出
+  public function favorite(){
     $favorites = Favorite::where('user_id', '=', Auth::id())->get();
     $recipeQuery = Recipe::query();
     if(!empty($favorites->toArray())){
@@ -25,9 +34,13 @@ class MyPageController extends Controller{
     }else {
       $favoriteRecipes = $favorites;
     }
-    // フォロー、フォロワーのユーザーを取得
+    return view('mypage.favorite', [
+      'favoriteRecipes' => $favoriteRecipes
+    ]);
+  }
+  // フォロー
+  public function follow(){
     $follows = Follow::where('follower_id', '=',  Auth::id())->get();
-    $followers = Follow::where('follow_id', '=',  Auth::id())->get();
     $usersQuery = User::query();
     if(!empty($follows->toArray())){
       foreach($follows as $follow){
@@ -37,32 +50,24 @@ class MyPageController extends Controller{
     }else {
       $followUsers = $follows;
     }
+    return view('mypage.follow', [
+      'followUsers' => $followUsers
+    ]);
+  }
+  // フォロワー
+  public function follower(){
+    $followers = Follow::where('follow_id', '=',  Auth::id())->get();
     $usersQuery = User::query();
     if(!empty($followers->toArray())){
       foreach($followers as $follower){
         $usersQuery->orWhere('id', '=', $follower->follower_id);
       }
       $followerUsers = $usersQuery->get();
-    }else {
+    }else{
       $followerUsers = $followers;
     }
-    return view('mypage.index', [
-      'recipes' => $recipes,
-      'favoriteRecipes' => $favoriteRecipes,
-      'followUsers' => $followUsers,
-      'followerUsers' => $followerUsers,
+    return view('mypage.follower', [
+      'followerUsers' => $followerUsers
     ]);
-  }
-  // お気に入りレシピ
-  public function favorite(){
-
-  }
-  // フォロー
-  public function follow(){
-
-  }
-  // フォロワー
-  public function follower(){
-
   }
 }
