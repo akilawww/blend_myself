@@ -96,8 +96,13 @@ class RecipesController extends Controller
         $tagVerifications = $tagQuery->get()->toArray();
         // タグの全件Hitしたrecipe_idを抽出
         $hitRecipeIds = tagVerCount($tagVerifications, $tagCount);
-        foreach( $hitRecipeIds as $hitRecipeId){
-            $recipeQuery->orWhere('id', '=', $hitRecipeId);
+        // Hitしなかった時、0件をセット
+        if (!$hitRecipeIds) {
+            $recipeQuery->orWhere('id', '=', -1);
+        } else { 
+            foreach( $hitRecipeIds as $hitRecipeId){
+               $recipeQuery->orWhere('id', '=', $hitRecipeId);
+            }
         }
     }
     $recipesCount = count($recipeQuery->get());

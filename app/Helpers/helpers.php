@@ -16,11 +16,10 @@
     function tagVerCount($tagVers, $tagCount){
         $result = array();
         foreach ($tagVers as $tagVer1){
-            $recipe = $tagVer1['recipe_id'];
             $recipeCount = 0;
             foreach ($tagVers as $tagVer2)
-                if ($tagVer2['recipe_id'] === $recipe) $recipeCount++;
-            if ($tagCount === $recipeCount) $result[] = $recipe;
+                if ($tagVer2['recipe_id'] === $tagVer1['recipe_id']) $recipeCount++;
+            if ($tagCount === $recipeCount) $result[] = $tagVer1['recipe_id'];
         }
         return $result;
     }
