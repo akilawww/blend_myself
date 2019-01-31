@@ -66,5 +66,14 @@ class RecipesTableSeeder extends Seeder
       'created_at' => Carbon::now()->subDays(32),
       'updated_at' => Carbon::now(),
     ]);
+    // recipe 7
+    App\Recipe::create([
+      'title' => 'アイスの実の革命',
+      'body' => 'カクテルカラフルで見ていて楽しくなります',
+      'image' => '/storage/testdata/ice.jpg',
+      'user_id' => 1,
+      'created_at' => Carbon::now()->subDays(32),
+      'updated_at' => Carbon::now()->subDays(32),
+    ]);
   }
 }
