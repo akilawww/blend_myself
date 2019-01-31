@@ -55,15 +55,16 @@ class RecipesController extends Controller
             $tags = $tagVers;
         }
         return view('recipes.show')
-            ->with('recipe', $recipe)
-            ->with('recipe_procedures', $recipe_procedures)
-            ->with('materrials', $materrials)
-            ->with('favorite', $favorite)
-            ->with('nice', $nice)
-            ->with('niceCount', $niceCount)
-            ->with('tags', $tags)
-            ->with('recipeUser', $recipeUser)
-            ->with('follow', $follow);
+            ->with(['recipe' => $recipe,
+                    'recipe_procedures' => $recipe_procedures,
+                    'materrials' => $materrials,
+                    'favorite' => $favorite,
+                    'nice' => $nice,
+                    'niceCount' => $niceCount,
+                    'tags' => $tags,
+                    'recipeUser' => $recipeUser,
+                    'follow' => $follow
+                  ]);
    }
 
     // ワード検索
@@ -77,8 +78,9 @@ class RecipesController extends Controller
      $recipesCount = count($query->get());
      $data = $query->paginate(5);
      return view('recipes.index')
-        ->with('recipes', $data)
-        ->with('recipesCount', $recipesCount);
+        ->with(['recipes' => $data,
+                'recipesCount' => $recipesCount]
+              );
    }
 
    // タグ検索
@@ -99,7 +101,7 @@ class RecipesController extends Controller
         // Hitしなかった時、0件をセット
         if (!$hitRecipeIds) {
             $recipeQuery->orWhere('id', '=', -1);
-        } else { 
+        } else {
             foreach( $hitRecipeIds as $hitRecipeId){
                $recipeQuery->orWhere('id', '=', $hitRecipeId);
             }
@@ -108,7 +110,8 @@ class RecipesController extends Controller
     $recipesCount = count($recipeQuery->get());
     $data = $recipeQuery->paginate(5);
     return view('recipes.index')
-        ->with('recipes', $data)
-        ->with('recipesCount', $recipesCount);
+        ->with(['recipes' => $data,
+                'recipesCount' => $recipesCount
+              ]);
     }
 }
