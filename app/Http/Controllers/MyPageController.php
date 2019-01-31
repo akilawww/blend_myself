@@ -14,10 +14,6 @@ class MyPageController extends Controller{
   public function index(){
     $recipes = Recipe::where('user_id', '=', Auth::id())
       ->orderBy('updated_at', 'desc')->get();
-    // フォロー、フォロワーのユーザーを取得
-    $follows = Follow::where('follower_id', '=',  Auth::id())->get();
-    $followers = Follow::where('follow_id', '=',  Auth::id())->get();
-
     return view('mypage.index', [
       'recipes' => $recipes
     ]);

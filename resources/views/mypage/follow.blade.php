@@ -9,9 +9,8 @@
 
 @section('content')
 <div class="container rounded navbar-dark">
-  <h1 style="color:white;">{{ Auth::user()->name }}さんのフォロー</h1>
-  <hr>
-  <div class="container navbar-dark rounded" style="padding: 1rem;">
+  <h1 style="color:white;">{{ Auth::user()->name }}さんのマイページ</h1>
+  <div class="container rounded" style="padding: 1rem;">
     <h2 style="color:white;">
       <a href="{{ url('/mypage') }}">投稿したレシピ</a> ｜
       <a href="{{ url('/mypage/favorite') }}">お気に入りレシピ</a> ｜
