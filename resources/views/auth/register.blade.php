@@ -1,6 +1,6 @@
 @extends('navbar.parent')
 
-@section('title','Sign up')
+@section('title','新規登録')
 
 @include('navbar.head')
 @include('navbar.header')
