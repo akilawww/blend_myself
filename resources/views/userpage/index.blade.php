@@ -1,4 +1,5 @@
 @extends('navbar.parent')
+
 @section('title')
   {{ $user->name }}
 @endsection
@@ -34,7 +35,7 @@
     </a>
     </div>
   <br>
-  @endforeach 
+  @endforeach
   </div>
 @else
   投稿されたレシピはありません
