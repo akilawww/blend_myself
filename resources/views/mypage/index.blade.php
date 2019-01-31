@@ -1,6 +1,5 @@
-<!-- Mypage details -->
-
 @extends('navbar.parent')
+
 @section('title')
   {{ Auth::user()->name }}
 @endsection
@@ -36,7 +35,7 @@
     </a>
     </div>
   <br>
-  @endforeach 
+  @endforeach
   </div>
 @else
   投稿されたレシピはありません
