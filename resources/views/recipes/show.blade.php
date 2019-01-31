@@ -13,12 +13,11 @@
 
 @section('content')
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <div class="container showmain border rounded" style="padding: 2rem;">
   <div class="row">
     <div class="recipetitle text-left" style="border-bottom: solid 2px orange;"><h1 style="color: #622d18;">{{ $recipe->title }}</h1></div>
     @if ($recipe->user_id === Auth::id())
-    <a href="{{ url('/edit', $recipe->id) }}"><button class="btn btn-light float-right shadow-sm"><i class="fas fa-pen-alt"></i> レシピを編集</button></a>
+    <a href="{{ url('/edit', $recipe->id) }}"><button class="btn btn-success float-right shadow-sm"><i class="fas fa-pen-alt"></i> レシピを編集</button></a>
     @else
     <!-- フォロー表示 -->
     <a href="{{ url('/userpage', $recipeUser->id ) }}" class="text-dark">{{ $recipeUser->name }}</a>　
@@ -27,7 +26,8 @@
       {{ csrf_field() }}
       <input type="hidden" name="follower_id" value="{{ Auth::id() }}">
       <input type="hidden" name="follow_id" value="{{ $recipeUser->id }}">
-      <button type="submit" class="btn btn-light hoge shadow-sm">フォロー</button>
+      <button type="submit" class="btn btn-outline-primary hoge shadow-sm text-primary " style="background-color:white">
+        フォローする</button>
     </form>
     @else
     <form method="POST" action="{{ url('/follow/remove') }}">
@@ -35,17 +35,17 @@
       {{ method_field('DELETE') }}
       <input type="hidden" name="follower_id" value="{{ Auth::id() }}">
       <input type="hidden" name="follow_id" value="{{ $recipeUser->id }}">
-      <button type="submit" class="btn btn-light hoge shadow-sm">アンフォロー</button>
+      <button type="submit" class="btn btn-primary hoge shadow-sm rounded-pill">フォロー中</button>
     </form>
     @endif
     @endif
   </div>
   <br>
-  <div class="row text-muted" style="font-size: 15px ; font-family: Courier;">
-    投稿日：{{ $recipe->created_at->format('Y年m月d日　H時m分') }}　
+  <div class="text-left" style="font-size: 12px ; font-family: Courier">
+    <i class="far fa-clock"></i>公開日:{{ $recipe->created_at->format('Y年m月d日 H時m分') }}　
     @if($recipe->created_at < $recipe->updated_at)
-      <br>
-      更新日：{{ $recipe->updated_at->format('Y年m月d日　H時m分') }}
+     <br>
+     <i class="fas fa-clock"></i>更新日:{{ $recipe->updated_at->format('Y年m月d日 H時m分') }}
     @endif
   </div>
   <div class="row">
@@ -88,7 +88,7 @@
             {{ method_field('DELETE') }}
             <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
             <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-            <button type="submit" class="btn btn-light hoge shadow-sm"><i class="fas fa-bookmark"></i> お気に入りから外す</button>
+            <button type="submit" class="btn btn-light hoge shadow-sm"><i class="fas fa-star" style="color:darkorange"></i> お気に入りのレシピ</button>
           </form>
           @endif
         </div>
@@ -154,7 +154,7 @@
     </div>
   </div>
   <br>
-      <h4>作り方</h4>
+      <h4><i class="fas fa-angle-double-right" style="color:orange"></i> <b>作り方</b></h4>
     <hr>
   <div class="container-fulid row">
     @foreach ($recipe_procedures as $recipe_procedure)

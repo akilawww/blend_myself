@@ -143,8 +143,13 @@
       <div class="offset-sm-2 col-sm-10">
         <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> 追加</button>
       </div>
+<<<<<<< HEAD
+    </div>        
+      
+=======
     </div>
 
+>>>>>>> master
   </form>
   <hr>
   <h2 style="color:white;"><i class="fas fa-tags" style="color:orange"></i> タグ</h2>

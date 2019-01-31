@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container" style="color:white">
   <form method="POST" action="{{ url('/edit/updateRecipe/'.$recipe->id) }}" enctype="multipart/form-data">
     {{ csrf_field() }}
     @method('PUT')
@@ -52,7 +52,7 @@
           <th scope="col">#材料名</th>
           <th scope="col">#分量</th>
           <th scope="col">#アルコール度数</th>
-          <th scope="col">#</th>
+          <th scope="col"></th>
         </tr>
     @foreach ($materrials as $materrial)
       <tr>
