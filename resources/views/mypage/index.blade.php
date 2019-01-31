@@ -10,11 +10,11 @@
 
 @section('content')
 <div class="container rounded navbar-dark">
-  <h1 style="color:white;">{{ Auth::user()->name }}のマイページ</h1>
+  <h1 style="color:white;">{{ Auth::user()->name }}さんのマイページ</h1>
   <hr>
-  <h2 style="color:white;">投稿レシピ</h2>
   @if (!$recipes->isEmpty())
-    <div class="container navbar-dark rounded" style="padding:1rem 1.1rem;margin: 1rem;">
+    <div class="container navbar-dark rounded" style="padding:1rem 1.1rem;">
+    <h2 style="color:white;">投稿したレシピ</h2><hr size="4" width="100%" color="white" >
   @foreach ($recipes as $recipe)
     <div class="container-fluid">
     <a href="{{ url('/recipes', $recipe->id) }}">
@@ -42,9 +42,10 @@
  <div style="color:white;">投稿されたレシピはありません</div>
 @endif
 <hr>
-<h2 style="color:white;">お気に入りレシピ</h2>
   @if (!$favoriteRecipes->isEmpty())
-  <div class="container rounded navbar-dark" style="padding: 1rem;margin: 1rem;">
+  <div class="container rounded navbar-dark" style="padding: 1rem;">
+  <h2 style="color:white;">お気に入りレシピ</h2>
+  <hr size="4" width="100%" color="white" >
     @foreach ($favoriteRecipes as $favoriteRecipe)
       <div class="container-fluid">
         <a href="{{ url('/recipes', $favoriteRecipe->id) }}">
@@ -69,12 +70,17 @@
     @endforeach
     </div>
   @else
-    <div style="color:white;">投稿されたレシピはありません
+  <div class="container rounded navbar-dark" style="padding: 1rem;">
+    <h2 style="color:white;">お気に入りレシピ</h2>
+    <hr size="4" width="100%" color="white" >
+    <div style="color:white;">お気に入りされたレシピはありません、ですがあなたが気に入るレシピがきっとあるはず…！</div>
+  </div>
+
   @endif
 
-  <h2 style="color:white;">フォローユーザー</h2>
   @if (!$followUsers->isEmpty())
-  <div class="container bg-dark rounded" style="padding: 1rem;margin: 1rem;">
+  <div class="container navbar-dark rounded" style="padding: 1rem;">
+  <h2 style="color:white;">フォローユーザー</h2><hr size="4" width="100%" color="white" >
     @foreach ($followUsers as $followUser)
       <div class="container-fluid">
         <a href="{{ url('/userpage', $followUser->id) }}">
@@ -83,13 +89,18 @@
       </div>
       <br>
     @endforeach
-    </div>
+  </div>
+
   @else
-  <div style="color:white;">フォローしたユーザーはありません</div>
+  <div class="container navbar-dark rounded" style="padding: 1rem;">
+  <h2 style="color:white;">フォローユーザー</h2><hr size="4" width="100%" color="white" >
+  <div style="color:white;">フォローしたユーザーはいません、素敵なカクテルを作っている人を探しに行きましょう！</div>
+  </div>
+
   @endif
-  <h2 style="color:white;">フォロワーユーザー</h2>
+  <div class="container navbar-dark rounded" style="padding: 1rem;">
+  <h2 style="color:white;">フォロワーユーザー</h2><hr size="4" width="100%" color="white" >
   @if (!$followerUsers->isEmpty())
-  <div class="container bg-dark rounded" style="padding: 1rem;margin: 1rem;">
     @foreach ($followerUsers as $followerUser)
       <div class="container-fluid">
         <a href="{{ url('/userpage', $followerUser->id) }}">
@@ -100,7 +111,8 @@
     @endforeach
     </div>
     @else
-    <div style="color:white;">フォロワーはありません
+    <div style="color:white;">フォロワーはいません、でも大丈夫。私たちがいます！(運営)</div>
+  </div>
   @endif
 @endsection
 
