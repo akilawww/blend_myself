@@ -9,18 +9,18 @@
 @include('navbar.header')
 
 @section('content')
-<div class="container">
-  <h1>{{ Auth::user()->name }}のマイページ</h1>
+<div class="container rounded navbar-dark">
+  <h1 style="color:white;">{{ Auth::user()->name }}のマイページ</h1>
   <hr>
-  <h2>投稿レシピ</h2>
+  <h2 style="color:white;">投稿レシピ</h2>
   @if (!$recipes->isEmpty())
-    <div class="container bg-dark rounded" style="padding: 1rem;margin: 1rem;">
+    <div class="container bg-dark rounded" style="padding:1rem 1.1rem;margin: 1rem;">
   @foreach ($recipes as $recipe)
     <div class="container-fluid">
     <a href="{{ url('/recipes', $recipe->id) }}">
       <div class="card-horizon">
         <div class="row card-horizon-con bg-light">
-          <div class="col-md-3 col-3 p-0 wh-100 left">
+          <div class="col-md-3 col-md-3 p-0 wh-100 left">
             <img src="{{ asset($recipe->image) }}" class="img-thumbnail" alt="Sample" style="object-fit: contain;">
           </div>
           <div class="col-md-9 col p-0 wh-100 right bg-light">
@@ -39,12 +39,12 @@
   @endforeach 
   </div>
 @else
-  投稿されたレシピはありません
+ <div style="color:white;">投稿されたレシピはありません</div>
 @endif
 <hr>
-<h2>お気に入りレシピ</h2>
+<h2 style="color:white;">お気に入りレシピ</h2>
   @if (!$favoriteRecipes->isEmpty())
-  <div class="container bg-dark rounded" style="padding: 1rem;margin: 1rem;">
+  <div class="container rounded navbar-dark" style="padding: 1rem;margin: 1rem;">
     @foreach ($favoriteRecipes as $favoriteRecipe)
       <div class="container-fluid">
         <a href="{{ url('/recipes', $favoriteRecipe->id) }}">
@@ -69,10 +69,10 @@
     @endforeach
     </div>
   @else
-    投稿されたレシピはありません
+    <div style="color:white;">投稿されたレシピはありません
   @endif
 
-  <h2>フォローユーザー</h2>
+  <h2 style="color:white;">フォローユーザー</h2>
   @if (!$followUsers->isEmpty())
   <div class="container bg-dark rounded" style="padding: 1rem;margin: 1rem;">
     @foreach ($followUsers as $followUser)
@@ -85,9 +85,9 @@
     @endforeach
     </div>
   @else
-    フォローしたユーザーはありません
+  <div style="color:white;">フォローしたユーザーはありません</div>
   @endif
-  <h2>フォロワーユーザー</h2>
+  <h2 style="color:white;">フォロワーユーザー</h2>
   @if (!$followerUsers->isEmpty())
   <div class="container bg-dark rounded" style="padding: 1rem;margin: 1rem;">
     @foreach ($followerUsers as $followerUser)
@@ -99,8 +99,8 @@
       <br>
     @endforeach
     </div>
-  @else
-    フォロワーはありません
+    @else
+    <div style="color:white;">フォロワーはありません
   @endif
 @endsection
 
