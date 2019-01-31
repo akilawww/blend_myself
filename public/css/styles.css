@@ -158,3 +158,15 @@
 .top-font{
     font-size: 85%;
 }
+
+.top-color{
+    color: #622d18;
+}
+
+.top-card{
+    padding: 0.5rem;
+    width: 20rem;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 2rem;
+}
