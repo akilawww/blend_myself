@@ -8,15 +8,16 @@
 @include('navbar.header')
 
 @section('content')
-<div class="container">
-  <h1>{{ $user->name }}のページ</h1>
+<div class="container rounded navbar-dark" style="padding: 1rem;">
+  <h1 style="color:white;">{{ $user->name }}のページ</h1>
   <hr>
-  <h2>投稿レシピ</h2>
-  @if (!$recipes->isEmpty())
-    <div class="container bg-dark rounded" style="padding: 1rem;margin: 1rem;">
-  @foreach ($recipes as $recipe)
+  <div class="container rounded navbar-dark" style="padding: 1rem;">
+  <h2 style="color:white;">投稿レシピ</h2>
+   @if (!$recipes->isEmpty())
+
+   @foreach ($recipes as $recipe)
     <div class="container-fluid">
-    <a href="{{ url('/recipes', $recipe->id) }}">
+     <a href="{{ url('/recipes', $recipe->id) }}">
       <div class="card-horizon">
         <div class="row card-horizon-con bg-light">
           <div class="col-md-3 col-3 p-0 wh-100 left">
@@ -32,9 +33,9 @@
           </div>
         </div>
       </div>
-    </a>
+     </a>
     </div>
-  <br>
+   <br>
   @endforeach
   </div>
 @else
