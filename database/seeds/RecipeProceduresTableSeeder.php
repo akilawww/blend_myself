@@ -218,5 +218,13 @@ class RecipeProceduresTableSeeder extends Seeder
       'created_at' => Carbon::now()->subDays(32),
       'updated_at' => Carbon::now(),
     ]);
+    App\RecipeProcedure::create([
+      'process_num' => 1,
+      'body' => '焼酎と炭酸水を混ぜ、アイスの実を入れます',
+      'image' => '/storage/testdata/ice.jpg',
+      'recipe_id' => 7,
+      'created_at' => Carbon::now()->subDays(32),
+      'updated_at' => Carbon::now(),
+    ]);
   }
 }

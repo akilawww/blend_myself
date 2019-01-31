@@ -127,5 +127,24 @@ class TagVerificationsTableSeeder extends Seeder
           'created_at' => Carbon::now()->subDays(32),
           'updated_at' => Carbon::now()->subDays(32),
         ]);
+        // recipe 7
+        App\Tag_verification::create([
+          'tag_id' => '1',
+          'recipe_id' => '7',
+          'created_at' => Carbon::now()->subDays(32),
+          'updated_at' => Carbon::now()->subDays(32),
+        ]);
+        App\Tag_verification::create([
+          'tag_id' => '5',
+          'recipe_id' => '7',
+          'created_at' => Carbon::now()->subDays(32),
+          'updated_at' => Carbon::now()->subDays(32),
+        ]);
+        App\Tag_verification::create([
+          'tag_id' => '17',
+          'recipe_id' => '7',
+          'created_at' => Carbon::now()->subDays(32),
+          'updated_at' => Carbon::now()->subDays(32),
+        ]);
     }
 }

@@ -138,5 +138,30 @@ class MaterrialsTableSeeder extends Seeder
       'created_at' => Carbon::now()->subDays(32),
       'updated_at' => Carbon::now(),
     ]);
+    // recipe 7
+    App\Materrial::create([
+      'name' => '焼酎',
+      'quantity' => '50ml',
+      'degree' => '25%',
+      'recipe_id' => 7,
+      'created_at' => Carbon::now()->subDays(32),
+      'updated_at' => Carbon::now(),
+    ]);
+    App\Materrial::create([
+      'name' => '炭酸水',
+      'quantity' => '50ml',
+      'degree' => '0%',
+      'recipe_id' => 7,
+      'created_at' => Carbon::now()->subDays(32),
+      'updated_at' => Carbon::now(),
+    ]);
+    App\Materrial::create([
+      'name' => 'アイスの実',
+      'quantity' => '適量',
+      'degree' => '',
+      'recipe_id' => 7,
+      'created_at' => Carbon::now()->subDays(32),
+      'updated_at' => Carbon::now(),
+    ]);
   }
 }
