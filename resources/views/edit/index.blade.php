@@ -8,12 +8,12 @@
 @endsection
 
 @section('content')
-<div class="container" style="color:white">
+<div class="container recipe_form" style="margin-bottom: 5rem;">
   <form method="POST" action="{{ url('/edit/updateRecipe/'.$recipe->id) }}" enctype="multipart/form-data">
     {{ csrf_field() }}
     @method('PUT')
     <div class="form-group row">
-      <label for="inputText" class="col-sm-2 col-form-label"><h3 style="color:white">
+      <label for="inputText" class="col-sm-2 col-form-label"><h3 >
         <i class="fas fa-cocktail" style="color:orange"></i>タイトル</h3></label>
       <div class="col-8">
         <input type="text" required="required" name="title" id="inputText" class="form-control" value="{{ $recipe->title }}">
@@ -21,7 +21,7 @@
     </div>
 
     <div class="form-group row">
-        <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label" style="color:white">
+        <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label" >
           <h3><i class="far fa-comment" style="color:orange"></i> 概要</h3></label>
         <div class="col-8">
           <textarea required="required" name="body" class="form-control" id="exampleFormControlTextarea1" rows="3" style="width:710px">{{ $recipe->body }}</textarea>
@@ -29,7 +29,7 @@
     </div>
 
     <div class="form-group row">
-        <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label" style="color:white">
+        <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label" >
           <h3><i class="far fa-image" style="color:orange"></i> 画像</h3></label>
         <img src="{{ asset($recipe->image) }}" alt="Sample" class="center" style="padding-right: 180px ; padding-bottom:15px" max-width="350" height="300">
         <div class="col-8" style="padding-left: 200px">
@@ -44,9 +44,9 @@
       </div>
     </div>
   </form>
-  <h2 style="color:white"><i class="fas fa-cocktail" style="color:orange"></i> 材料</h2>
+  <h2 ><i class="fas fa-cocktail" style="color:orange"></i> 材料</h2>
   @if (isset($materrials))
-  <table class="table" style="color:white">
+  <table class="table" >
       <tbody>
           <tr>
           <th scope="col">#材料名</th>
@@ -73,22 +73,22 @@
   @endif
   <form method="POST" action="{{ url('/recipe_form/materrial/posts') }}">
     {{ csrf_field() }}
-    <h3 style="color:white"><i class="fas fa-plus-circle" style="color:orange"></i> 材料の追加</h3>
+    <h3 ><i class="fas fa-plus-circle" style="color:orange"></i> 材料の追加</h3>
     <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
     <div class="form-group row">
-      <label for="inputText" class="col-sm-2 col-form-label" style="color:white">材料名</label>
+      <label for="inputText" class="col-sm-2 col-form-label" >材料名</label>
       <div class="col-7">
         <input type="text" required="required" name="name" id="inputText" class="form-control" placeholder="材料名">
       </div>
     </div>
     <div class="form-group row">
-      <label for="inputText" class="col-sm-2 col-form-label"  style="color:white">個数</label>
+      <label for="inputText" class="col-sm-2 col-form-label"  >個数</label>
       <div class="col-7">
         <input type="text" required="required" name="quantity" id="inputText" class="form-control" placeholder="個数">
       </div>
     </div>
     <div class="form-group row">
-      <label for="inputText" class="col-sm-2 col-form-label"  style="color:white">度数</label>
+      <label for="inputText" class="col-sm-2 col-form-label"  >度数</label>
       <div class="col-7">
         <input type="text" name="degree" id="inputText" class="form-control" placeholder="度数" value="">
       </div>
@@ -100,7 +100,7 @@
     </div>
   </form>
   <hr>
-  <h2 style="color:white"><i class="far fa-hand-point-right" style="color:orange"></i> 手順</h2>
+  <h2 ><i class="far fa-hand-point-right" style="color:orange"></i> 手順</h2>
   @if (isset($recipe_procedures))
   <div class="container-fulid row">
     @foreach ($recipe_procedures as $recipe_procedure)
@@ -153,16 +153,16 @@
     <input type="hidden" name="process_num" value="1">
     @endif
     <br>
-    <h3 style="color:white"><i class="fas fa-plus-circle" style="color:orange"></i> 手順の追加</h3>
+    <h3 ><i class="fas fa-plus-circle" style="color:orange"></i> 手順の追加</h3>
 
     <div class="form-group row" >
-        <label for="image" class="col-sm-2 col-form-label" style="color:white">画像</label>
+        <label for="image" class="col-sm-2 col-form-label" >画像</label>
         <div class="col-8">
           <input type="file" required="required" name="image" class="form-control" id="image" placeholder="画像"  style="height:42px">
         </div>
       </div>
       <div class="form-group row">
-          <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label" style="color:white">説明</label>
+          <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label" >説明</label>
           <div class="col-8">
             <textarea required="required" name="body" class="form-control" id="exampleFormControlTextarea1" rows="3" style="width:710px"></textarea>
           </div>
@@ -176,11 +176,11 @@
     </div>
   </form>
   <hr>
-  <h2 style="color:white"><i class="fas fa-tags" style="color:orange"></i> タグ</h2>
+  <h2 ><i class="fas fa-tags" style="color:orange"></i> タグ</h2>
   <form method="POST" action="{{ url('/recipe_form/create/posts') }}">
     {{ csrf_field() }}
     <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
-    <div class="container" style="color:white">
+    <div class="container" >
       <div class="row">
         <ul class="list-unstyled col">
           <h4>カクテルの味</h4>
