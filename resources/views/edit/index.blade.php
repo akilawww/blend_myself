@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="container recipe_form" style="margin-bottom: 5rem;">
-  <form method="POST" action="{{ url('/edit/updateRecipe/'.$recipe->id) }}" enctype="multipart/form-data">
+  <form method="POST" action="{{ route('edit.updateRecipe',['id' => $recipe]) }}" enctype="multipart/form-data">
     {{ csrf_field() }}
     @method('PUT')
     <div class="form-group row">
@@ -60,7 +60,7 @@
         <td scope="col">{{ $materrial->quantity }}</td>
         <td scope="col">{{ $materrial->degree }}</td>
         <td scope="col">
-          <form action="{{ url('/edit/deleteMaterrial/'.$materrial->id) }}" method="POST">
+          <form action="{{ route('edit.deleteMaterrial',['id' => $materrial]) }}" method="POST">
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
             <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> 削除</button>
@@ -71,7 +71,7 @@
     @endforeach
   </table>
   @endif
-  <form method="POST" action="{{ url('/recipe_form/materrial/posts') }}">
+  <form method="POST" action="{{ route('recipe_form.materrialStore') }}">
     {{ csrf_field() }}
     <h3 ><i class="fas fa-plus-circle" style="color:orange"></i> 材料の追加</h3>
     <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
@@ -114,7 +114,7 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fas fa-pen"></i> 編集</button>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
-            <form action="{{ url('/edit/updateProcedure/'.$recipe_procedure->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('edit.updateProcedure',['id' => $recipe_procedure]) }}" method="POST" enctype="multipart/form-data">
               {{ csrf_field() }}
               {{ method_field('PUT') }}
               <div class="modal-content">
@@ -134,7 +134,7 @@
             </form>
           </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
-        <form style="display: inline;" action="{{ url('/edit/deleteProcedure/'.$recipe_procedure->id) }}" method="POST">
+        <form style="display: inline;" action="{{ route('edit.deleteProcedure',['id' => $recipe_procedure]) }}" method="POST">
           {{ csrf_field() }}
           {{ method_field('DELETE') }}
           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> 削除</button>
@@ -144,7 +144,7 @@
     @endforeach
   </div>
   @endif
-  <form method="POST" action="{{ url('/recipe_form/procedure/posts') }}" enctype="multipart/form-data">
+  <form method="POST" action="{{ route('recipe_form.procedureStore') }}" enctype="multipart/form-data">
     {{ csrf_field() }}
     <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
     @if (isset( $recipe_procedures ))
@@ -177,7 +177,7 @@
   </form>
   <hr>
   <h2 ><i class="fas fa-tags" style="color:orange"></i> タグ</h2>
-  <form method="POST" action="{{ url('/recipe_form/create/posts') }}">
+  <form method="POST" action="{{ route('recipe_form.create') }}">
     {{ csrf_field() }}
     <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
     <div class="container" >

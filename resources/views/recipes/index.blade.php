@@ -20,7 +20,7 @@
   @else
   @foreach ($recipes as $recipe)
   <div class="container-fluid">
-    <a href="{{ url('/recipes', $recipe->id) }}">
+    <a href="{{ route('recipes.show',['id' => $recipe]) }}">
       <div class="card-horizon">
         <div class="row card-horizon-con bg-light">
           <div class="col-md-3 col-3 p-0 wh-100 left">

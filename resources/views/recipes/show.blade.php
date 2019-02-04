@@ -17,12 +17,12 @@
   <div class="row">
     <div class="recipetitle text-left" style="border-bottom: solid 2px orange;"><h1 style="color: #622d18;">{{ $recipe->title }}</h1></div>
     @if ($recipe->user_id === Auth::id())
-    <a href="{{ url('/edit', $recipe->id) }}"><button class="btn btn-success float-right shadow-sm"><i class="fas fa-pen-alt"></i> レシピを編集</button></a>
+    <a href="{{ route('edit.index',['id' => $recipe]) }}"><button class="btn btn-success float-right shadow-sm"><i class="fas fa-pen-alt"></i> レシピを編集</button></a>
     @else
     <!-- フォロー表示 -->
-    <a href="{{ url('/userpage', $recipeUser->id ) }}" class="text-dark">{{ $recipeUser->name }}</a>　
+    <a href="{{ route('userpage.index',['id' => $recipeUser] ) }}" class="text-dark">{{ $recipeUser->name }}</a>　
     @if ($follow->isEmpty())
-    <form method="POST" action="{{ url('/follow/add') }}">
+    <form method="POST" action="{{ route('follow.add') }}">
       {{ csrf_field() }}
       <input type="hidden" name="follower_id" value="{{ Auth::id() }}">
       <input type="hidden" name="follow_id" value="{{ $recipeUser->id }}">
@@ -30,7 +30,7 @@
         フォローする</button>
     </form>
     @else
-    <form method="POST" action="{{ url('/follow/remove') }}">
+    <form method="POST" action="{{ route('follow.remove') }}">
       {{ csrf_field() }}
       {{ method_field('DELETE') }}
       <input type="hidden" name="follower_id" value="{{ Auth::id() }}">
@@ -76,14 +76,14 @@
         @else
         <div>
           @if ($favorite->isEmpty())
-          <form method="POST" action="{{ url('/favorite/add') }}">
+          <form method="POST" action="{{ route('favorite.add') }}">
             {{ csrf_field() }}
             <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
             <input type="hidden" name="user_id" value="{{ Auth::id() }}">
             <button type="submit" class="btn btn-light hoge shadow-sm"><i class="far fa-bookmark"></i> お気に入りに追加</button>
           </form>
           @else
-          <form method="POST" action="{{ url('/favorite/remove') }}">
+          <form method="POST" action="{{ route('favorite.remove') }}">
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
             <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
@@ -99,7 +99,7 @@
           <i class="far fa-thumbs-up"></i> いいね
         @else
           @if ($nice->isEmpty())
-          <form method="POST" action="{{ url('/nice/add') }}" >
+          <form method="POST" action="{{ route('nice.add') }}" >
             {{ csrf_field() }}
             <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
             <input type="hidden" name="user_id" value="{{ Auth::id() }}">
@@ -107,7 +107,7 @@
                 <i class="far fa-thumbs-up"></i> いいね</button>
           </form>
           @else
-          <form method="POST" action="{{ url('/nice/remove') }}">
+          <form method="POST" action="{{ route('nice.remove') }}">
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
             <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">

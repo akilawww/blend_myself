@@ -20,7 +20,7 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nameModal"><i class="fas fa-pen"></i> 編集</button>
         <div class="modal fade" id="nameModal" tabindex="-1" role="dialog" aria-labelledby="nameModalLabel">
             <div class="modal-dialog" role="document">
-                <form action="{{ url('/userEdit/name_update') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('userEdit.name_update') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
                 <div class="modal-content">
@@ -37,7 +37,7 @@
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
     </div>
-    
+
   </div>
   <br>
   <div class="row text-muted" style="font-size: 15px ; font-family: Courier;">
@@ -51,13 +51,13 @@
     <div class="card left shadow-sm" style="width: 280px;">
       <img src="{{ asset($user->icon) }}" alt="Sample" class="center" style="object-fit: contain;">
       <div class="card-body">
-        
-        
+
+
         <div class="card-footer bg-white">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#iconModal"><i class="fas fa-pen"></i> 編集</button>
             <div class="modal fade" id="iconModal" tabindex="-1" role="dialog" aria-labelledby="iconModalLabel">
                 <div class="modal-dialog" role="document">
-                    <form action="{{ url('/userEdit/icon_update') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('userEdit.icon_update') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
                     <div class="modal-content">
@@ -73,7 +73,7 @@
                     </form>
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
-            <form style="display: inline;" action="{{ url('/userEdit/icon_delete') }}" method="POST">
+            <form style="display: inline;" action="{{ route('userEdit.icon_delete') }}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
                 <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> 削除</button>
@@ -90,7 +90,7 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#commentModal"><i class="fas fa-pen"></i> 編集</button>
                 <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="commentModalLabel">
                     <div class="modal-dialog" role="document">
-                        <form action="{{ url('/userEdit/comment_update') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('userEdit.comment_update') }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         {{ method_field('PUT') }}
                         <div class="modal-content">
@@ -118,7 +118,7 @@
             <div class="card-header">メールアドレス</div>
             <div class="card-body">
                 <div class="form-group row">
-                   {{ $user->email }} 
+                   {{ $user->email }}
                 </div>
             </div>
         </div>

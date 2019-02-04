@@ -3,13 +3,13 @@
 
 @section('header')
 <nav class="navbar navbar-expand-lg navbar-dark">
-  <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('/image/sakebasada.png') }}"></a>
+  <a class="navbar-brand" href="{{ route('top') }}"><img src="{{ asset('/image/sakebasada.png') }}"></a>
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse justify-content-center" id="Navber">
     <ul class="navbar-nav form-row">
-      <form class="form-inline my-2 my-lg-0" action="{{ url('/result') }}">
+      <form class="form-inline my-2 my-lg-0" action="{{ route('result.search') }}">
         <input type="search" name="search" autocomplete="off" results="" class="form-control mr-sm-2"  placeholder="検索..." aria-label="検索...">
         <button type="submit" class="btn btn-outline-light my-2 my-sm-0 btn-lg"><i class="fas fa-search"></i></button>
       </form>
@@ -37,16 +37,16 @@
       @if (Route::has('register'))
         <a class="nav-link text-light" href="{{ route('register') }}"><i class="fas fa-user-edit"></i>{{ __(' 新規登録') }}</a>
       @endif
-      </li> 
+      </li>
     @else
       <li class="nav-item dropdown" style="display: inline-block;">
         <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
           {{ Auth::user()->name }} <span class="caret"></span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{ url('/mypage') }}"><i class="fas fa-user"></i> マイページ</a>
-          <a class="dropdown-item" href="{{ url('/userEdit') }}"><i class="fas fa-user"></i> 登録情報</a>
-          <a class="dropdown-item" href="{{ url('/recipe_form') }}"><i class="fas fa-file-signature"></i> レシピ作成</a>
+          <a class="dropdown-item" href="{{ route('mypage.index') }}"><i class="fas fa-user"></i> マイページ</a>
+          <a class="dropdown-item" href="{{ route('userEdit.index') }}"><i class="fas fa-user"></i> 登録情報</a>
+          <a class="dropdown-item" href="{{ route('recipe_form.index') }}"><i class="fas fa-file-signature"></i> レシピ作成</a>
           <a class="dropdown-item" href="{{ route('logout') }}"
               onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();">
