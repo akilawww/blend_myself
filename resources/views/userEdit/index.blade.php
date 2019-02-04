@@ -12,7 +12,6 @@
 @endsection
 
 @section('content')
-
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <div class="container showmain border rounded" style="padding: 2rem;">
   <div class="row">
@@ -21,7 +20,7 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nameModal"><i class="fas fa-pen"></i> 編集</button>
         <div class="modal fade" id="nameModal" tabindex="-1" role="dialog" aria-labelledby="nameModalLabel">
             <div class="modal-dialog" role="document">
-                <form action="{{ url('/edit/updateProcedure') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('/userEdit/name_update') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
                 <div class="modal-content">
@@ -42,10 +41,10 @@
   </div>
   <br>
   <div class="row text-muted" style="font-size: 15px ; font-family: Courier;">
-    投稿日：{{ $user->created_at->format('Y年m月d日　H時m分') }}　
+        投稿日：{{ $user->created_at->format('Y年m月d日　H時m分') }}　
     @if($user->created_at < $user->updated_at)
-      <br>
-      更新日：{{ $user->updated_at->format('Y年m月d日　H時m分') }}
+        <br>
+        更新日：{{ $user->updated_at->format('Y年m月d日　H時m分') }}
     @endif
   </div>
   <div class="row">
@@ -58,7 +57,7 @@
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#iconModal"><i class="fas fa-pen"></i> 編集</button>
             <div class="modal fade" id="iconModal" tabindex="-1" role="dialog" aria-labelledby="iconModalLabel">
                 <div class="modal-dialog" role="document">
-                    <form action="{{ url('/edit/updateProcedure') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('/userEdit/icon_update') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
                     <div class="modal-content">
@@ -74,7 +73,7 @@
                     </form>
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
-            <form style="display: inline;" action="{{ url('/edit/deleteProcedure') }}" method="POST">
+            <form style="display: inline;" action="{{ url('/userEdit/icon_delete') }}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
                 <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> 削除</button>
@@ -88,16 +87,16 @@
         <tr>
             <th colspan="4">コメント</th>
             <th colspan="4">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nameModal"><i class="fas fa-pen"></i> 編集</button>
-                <div class="modal fade" id="nameModal" tabindex="-1" role="dialog" aria-labelledby="nameModalLabel">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#commentModal"><i class="fas fa-pen"></i> 編集</button>
+                <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="commentModalLabel">
                     <div class="modal-dialog" role="document">
-                        <form action="{{ url('/edit/updateProcedure') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ url('/userEdit/comment_update') }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         {{ method_field('PUT') }}
                         <div class="modal-content">
                             <div class="modal-body">
-                                <label for="name">ユーザーネーム</label>
-                                <input type="text" required="required" name="name" class="form-control" id="name" placeholder="山田 太郎">
+                                <label for="comment">コメント</label>
+                                <textarea required="required" name="comment" class="form-control" id="comment" rows="3"></textarea>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>

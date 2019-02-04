@@ -58,6 +58,14 @@ Route::get('/mypage/follower', 'MyPageController@follower')
 // 登録情報のルーティング
 Route::get('/userEdit', 'UserEditController@index')
     ->middleware('verified');
+Route::put('/userEdit/name_update', 'UserEditController@updateName')
+    ->middleware('verified');
+Route::put('/userEdit/icon_update', 'UserEditController@updateIcon')
+    ->middleware('verified');
+Route::delete('/userEdit/icon_delete', 'UserEditController@deleteIcon')
+    ->middleware('verified');
+Route::put('/userEdit/comment_update', 'UserEditController@updateComment')
+    ->middleware('verified');
 
 // 編集ページのルーティング
 Route::get('/edit/{id}', 'EditController@index')
