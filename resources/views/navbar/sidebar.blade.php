@@ -3,7 +3,7 @@
 @section('sidebar')
 <div class="row" style="margin: 0;">
   <nav class="text-light navbar-dark navbar-inverse col-md-2">
-    <form action="{{ url('/result/tag') }}">
+    <form action="{{ route('result.tag') }}">
       {{ csrf_field() }}
       <!-- cocktail category -->
       <div class="sidebar-sticky sidebar">
@@ -17,7 +17,7 @@
                   <label class="custom-control-label" for="taste_{{ $tag->id }}">{{ $tag->tag_name }}</label>
                 </div>
               @endif
-            @endforeach 
+            @endforeach
           </li>
         </ul>
       </div>
@@ -33,7 +33,7 @@
                   <label class="custom-control-label" for="degree_{{ $tag->id }}">{{ $tag->tag_name }}</label>
                 </div>
               @endif
-            @endforeach 
+            @endforeach
           </li>
         </ul>
       </div>
@@ -49,7 +49,7 @@
                   <label class="custom-control-label" for="base_{{ $tag->id }}">{{ $tag->tag_name }}</label>
                 </div>
               @endif
-            @endforeach 
+            @endforeach
           </li>
         </ul>
         <br>
