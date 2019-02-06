@@ -8,8 +8,6 @@ Laravel   var5.7.15
 ## Setup
 Windows版  
 https://qiita.com/AKARI-I/items/618de1bd0f713abbd2c1  
-Mac版  
-https://qiita.com/da-sugi/items/7ee7a458aad4209bab01  
 
 ## usage
 さけばさだーで出来ること  
