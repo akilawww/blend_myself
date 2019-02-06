@@ -12,16 +12,16 @@
   <h1 style="color:white;">{{ Auth::user()->name }}さんのマイページ</h1>
   <div class="container rounded" style="padding: 1rem;">
     <h2 style="color:white;">
-      <a href="{{ url('/mypage') }}">投稿したレシピ</a> ｜
-      <a href="{{ url('/mypage/favorite') }}">お気に入りレシピ</a> ｜
+      <a href="{{ route('mypage.index') }}">投稿したレシピ</a> ｜
+      <a href="{{ route('mypage.favorite') }}">お気に入りレシピ</a> ｜
       フォロー ｜
-      <a href="{{ url('/mypage/follower') }}">フォロワー</a>
+      <a href="{{ route('mypage.follower') }}">フォロワー</a>
     </h2>
     <hr size="4" width="100%" color="white">
     @if (!$followUsers->isEmpty())
     @foreach ($followUsers as $followUser)
     <div class="container-fluid">
-      <a href="{{ url('/userpage', $followUser->id) }}">
+      <a href="{{ route('userpage.index',['id' => $followUser]) }}">
         {{ $followUser->name }}
       </a>
     </div>

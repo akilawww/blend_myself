@@ -24,7 +24,7 @@
 		 <!--グロッサリコンテンツはここまで-->
 		 
 		 <div class="container-fluid" style="background: beige; margin:2rem 0rem;">
-		  	<center><a href="{{ url('/')}}" class="text-center">{{ __('Topへ戻る') }}</a></center>
+		  	<center><a href="{{ route('top')}}" class="text-center">{{ __('Topへ戻る') }}</a></center>
 			</div>
 		 </div>
 	</div>

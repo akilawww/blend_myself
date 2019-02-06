@@ -61,7 +61,7 @@
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="check_st" required="required">
                     <label class="form-check-label" for="check_st">
-                      <a href="{{ url('/serviceterms')}}">{{ __('利用規約') }}</a>
+                      <a href="{{ route('serviceterms')}}">{{ __('利用規約') }}</a>
                       {{ __('に同意する。') }}
                     </label>
                   </div>
