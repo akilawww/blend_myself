@@ -6,10 +6,10 @@ PHP       var7.2.5
 Laravel   var5.7.15  
 
 ## Setup
-Windows版
-https://qiita.com/AKARI-I/items/618de1bd0f713abbd2c1
-Mac版
-https://qiita.com/da-sugi/items/7ee7a458aad4209bab01
+Windows版  
+https://qiita.com/AKARI-I/items/618de1bd0f713abbd2c1  
+Mac版  
+https://qiita.com/da-sugi/items/7ee7a458aad4209bab01  
 
 ## usage
 さけばさだーで出来ること  
@@ -21,7 +21,7 @@ https://qiita.com/da-sugi/items/7ee7a458aad4209bab01
  - レシピのSNS共有
 
 ## licence
-(他のソフトウェアを使用した際のライセンス)
+(他のソフトウェアを使用した際のライセンス)  
 
 ## Authors
 #### Accounts of github
@@ -33,6 +33,6 @@ yokotakento
 KaoruBear
 
 ## References
-https://qiita.com/AKARI-I/items/618de1bd0f713abbd2c1
-https://qiita.com/da-sugi/items/7ee7a458aad4209bab01
-https://readouble.com/laravel/5.7/ja/blade.html
+https://qiita.com/AKARI-I/items/618de1bd0f713abbd2c1  
+https://qiita.com/da-sugi/items/7ee7a458aad4209bab01  
+https://readouble.com/laravel/5.7/ja/blade.html  
