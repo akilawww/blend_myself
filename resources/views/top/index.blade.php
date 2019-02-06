@@ -21,7 +21,7 @@
 			　<u>〇タグで検索<br></u>
 			<div class="top-font">　　レシピに登録されたカクテルの味、<br>　　度数、ベースでレシピを検索できます</div>
 			<div class="text-right top-font">
-				<a href="{{ url('/') }}"><u><b>レシピを検索する！→</b></u></a>
+				<a href="{{ route('recipes.index') }}"><u><b>レシピを検索する！→</b></u></a>
 				</div>
 			　<u>〇投稿者の他のレシピを見る<br></u>
 			<div class="top-font">　　レシピの投稿者名をクリックすると、<br>　　過去のレシピを見ることができます</div>
@@ -43,7 +43,7 @@
 				@guest
 					<a href="{{ route('login') }}">
 				@else
-					<a href="{{ url('/recipe_form') }}">
+					<a href="{{ route('recipe_form.index') }}">
 				@endguest
 					<u><b>レシピを投稿する！→</b></u></a>
 				</div>
@@ -57,7 +57,7 @@
 			　<u>〇気に入ったレシピを保存する<br></u>
 			<div class="top-font">　　レシピをお気に入りすることで、<br>　　マイページからいつでもレシピを<br>　　確認することができます</div>
 			<div class="text-right top-font">
-					<a href="{{ url('/mypage') }}"><u><b>ログインはこちら！→</b></u></a>
+					<a href="{{ route('mypage.index') }}"><u><b>ログインはこちら！→</b></u></a>
 				</div>
 		</div>
 	</div>

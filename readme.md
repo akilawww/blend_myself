@@ -26,6 +26,7 @@ kawasakiHachi
 takayamaroso  
 Besood  
 yokotakento  
+KaoruBear
 
 ## References
 (参考にした情報源)
