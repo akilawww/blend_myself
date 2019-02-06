@@ -1,6 +1,24 @@
+.glossary-sidebar{
+    /*display:none;*/
+    padding-left:0.5rem;
+}
+.glossary-cards{
+    padding: 0.5rem;
+    background: coral;
+font-size: 2rem;
+}
+
+.glossary-main{
+    max-width: 100%;
+    padding: 1rem;
+    background: rgba(109, 109, 109, 0.575);
+    box-shadow: 10px 10px 15px -10px;
+}
+
 .recipe_form{
     margin-top:5rem;
     margin-bottom: 5rem;
+    border: #3f312b;
     background:rgba(227, 208, 165, 1);
     padding: 3rem 1rem;
 }
