@@ -1,6 +1,17 @@
+@media (max-width: 768px) {
+    .glossary-sidebar,.main_sidebar{
+        display:none;
+    }
+}
+.glossary-genre{
+    background: chocolate;
+}
 .glossary-sidebar{
-    /*display:none;*/
-    padding-left:0.5rem;
+    padding: 0;
+    margin-left:0rem;
+    max-height:100%;
+    top:0;
+    position: sticky;
 }
 .glossary-cards{
     padding: 0.5rem;
