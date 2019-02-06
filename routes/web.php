@@ -34,17 +34,22 @@ Route::get('/home', 'RecipesController@index')
   ->middleware('verified')
   ->name('home');
 
-// ヘッダーのリンクのルーティング
-Route::get('/guideline', 'GuidesController@guideline')
-  ->name('guideline');
-Route::get('/privacypolicy', 'GuidesController@privacypolicy')
-  ->name('privacypolicy');
-Route::get('/serviceterms', 'GuidesController@serviceterms')
-  ->name('serviceterms');
-Route::get('/glossary', 'GuidesController@glossary')
-  ->name('glossary');
-Route::get('/contact', 'GuidesController@contact')
-  ->name('contact');
+// フッターのリンクのルーティング
+Route::get('/guideline', function(){
+  return view('guides.guideline');
+})->name('guideline');
+Route::get('/privacypolicy', function(){
+  return view('guides.privacypolicy');
+})->name('privacypolicy');
+Route::get('/serviceterms', function(){
+  return view('guides.serviceterms');
+})->name('serviceterms');
+Route::get('/glossary', function(){
+  return view('guides.glossary');
+})->name('glossary');
+Route::get('/contact', function(){
+  return view('guides.contact');
+})->name('contact');
 
 // レシピ投稿画面のルーティング
 Route::get('/recipe_form', 'RecipeFormController@index')

@@ -22,8 +22,8 @@ class RecipesController extends Controller
         $recipes = $recipes->paginate(5);
         // recipes/indexにrecipesで変数を送る
         return view('recipes.index')
-          ->with('recipes', $recipes)
-          ->with('recipesCount', $recipesCount);
+          ->with(['recipes' => $recipes,
+                  'recipesCount' => $recipesCount]);
     }
 
     public function show($id){
