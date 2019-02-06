@@ -13,8 +13,7 @@ use App\Tag;
 use App\Tag_verification;
 use Illuminate\Support\Facades\Storage;
 
-class EditController extends Controller
-{
+class EditController extends Controller{
   // Transition to recipe editing screen
   public function index($id){
     $recipe = Recipe::findOrFail($id);
@@ -28,10 +27,10 @@ class EditController extends Controller
     // Todo タグのチェック済みをつくる？
     //$tagVer = Tag_verification::where('recipe_id', '=', $id)->get();
     return view('edit.index', [
-      'recipe' => $recipe,
-      'recipe_procedures' => $recipe_procedures,
-      'materrials' => $materrials,
-      'tags' => $tags,
+        'recipe' => $recipe,
+        'recipe_procedures' => $recipe_procedures,
+        'materrials' => $materrials,
+        'tags' => $tags,
     // 'tag_verifications' => $tagVer,
     ]);
   }

@@ -23,12 +23,11 @@ https://qiita.com/AKARI-I/items/618de1bd0f713abbd2c1
 
 ## Authors
 #### Accounts of github
-akilawww  
-kawasakiHachi  
-takayamaroso  
-Besood  
-yokotakento  
-KaoruBear
+- akilawww  
+- kawasakiHachi  
+- takayamaroso    
+- yokotakento  
+- KaoruBear  
 
 ## References
 https://qiita.com/AKARI-I/items/618de1bd0f713abbd2c1  
