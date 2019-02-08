@@ -3,6 +3,11 @@
         display:none;
     }
 }
+@media(min-width: 514px){
+    .footer{
+        height: 100rem;
+    }
+}
 .glossary-genre{
     background: chocolate;
 }

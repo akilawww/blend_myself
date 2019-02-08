@@ -11,7 +11,7 @@
 	   <div class="col-md-2 glossary-sidebar"style="background:red; height:100%;">
 		<div class="glossary_genre container-fluid rounded border" style="font-size:1.8rem;"><center>ジャンル</center></div>
 		<div class="glossary_genre container-fluid rounded border">Hi02</div>
-		<div class="glossary_genre container-fluid rounded border">Hi03</div>
+		<div class="515glossary_genre container-fluid rounded border">Hi03</div>
 	   </div>
 	 <div class="col-md-10">
 			<div class ="glossary-cards rounded border" style ="font:30rem; max-height:10rem;"> <center> 用語集 </center> </div>
