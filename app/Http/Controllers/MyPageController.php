@@ -13,9 +13,9 @@ class MyPageController extends Controller{
   // 投稿したレシピ
   public function index(){
     $recipes = Recipe::where('user_id', '=', Auth::id())
-      ->orderBy('updated_at', 'desc')->get();
+        ->orderBy('updated_at', 'desc')->get();
     return view('mypage.index', [
-      'recipes' => $recipes
+        'recipes' => $recipes
     ]);
   }
   // お気に入りに登録したレシピを抽出
@@ -27,7 +27,7 @@ class MyPageController extends Controller{
         $recipeQuery->orWhere('id', '=', $favorite->recipe_id);
       }
       $favoriteRecipes = $recipeQuery->get();
-    }else {
+    }else{
       $favoriteRecipes = $favorites;
     }
     return view('mypage.favorite', [
@@ -43,11 +43,11 @@ class MyPageController extends Controller{
         $usersQuery->orWhere('id', '=', $follow->follow_id);
       }
       $followUsers = $usersQuery->get();
-    }else {
+    }else{
       $followUsers = $follows;
     }
     return view('mypage.follow', [
-      'followUsers' => $followUsers
+        'followUsers' => $followUsers
     ]);
   }
   // フォロワー
@@ -63,7 +63,7 @@ class MyPageController extends Controller{
       $followerUsers = $followers;
     }
     return view('mypage.follower', [
-      'followerUsers' => $followerUsers
+        'followerUsers' => $followerUsers
     ]);
   }
 }
