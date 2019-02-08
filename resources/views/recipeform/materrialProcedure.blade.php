@@ -145,7 +145,7 @@
   </form>
   <hr>
   <h2><i class="fas fa-tags" style="color:orange"></i> タグ</h2>
-  <form method="POST" action="{{ route(recipe_form.create') }}">
+  <form method="POST" action="{{ route('recipe_form.create') }}">
     {{ csrf_field() }}
     <input type="hidden" name="recipe_id" value="{{ $recipe_id }}">
     <div class="container">
